@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (3.1.4)
+  - GoogleMaps (1.11.1)
+  - Haneke (1.0.1)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.1.4)
+  - GoogleMaps
+  - Haneke (~> 1.0.1)
+  - SwiftyJSON (~> 2.3.2)
+
+SPEC CHECKSUMS:
+  Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
+  GoogleMaps: c947160008f414c66707a5ea60f35e92055c7670
+  Haneke: d60be8b96b228633b24708dd153169d6849d6f78
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+COCOAPODS: 0.39.0

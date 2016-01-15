@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F8C1D4D15E956956F9CD74BE4597FDECD35511AD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "84DDE4C9E810EEF3E0BAF7A06B132D67A4574CC8" : 0,
+    "F8C1D4D15E956956F9CD74BE4597FDECD35511AD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BE8D67DC-633B-4EC2-951C-5B63038B6417",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "84DDE4C9E810EEF3E0BAF7A06B132D67A4574CC8" : "",
+    "F8C1D4D15E956956F9CD74BE4597FDECD35511AD" : "Spring%20Fair\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Spring Fair",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Spring Fair.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:grawson2\/spring-fair-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "84DDE4C9E810EEF3E0BAF7A06B132D67A4574CC8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/grawson\/Spring-Fair-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F8C1D4D15E956956F9CD74BE4597FDECD35511AD"
+    }
+  ]
+}
