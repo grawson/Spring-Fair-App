@@ -1,4 +1,4 @@
-![Header](https://github.com/grawson/Spring-Fair-App/blob/master/readme-images/Header.png)
+![Header](https://github.com/grawson/Spring-Fair-JHU-App/blob/master/readme-images/Header.png)
 
 Welcome to Camp Spring Fair!
 
