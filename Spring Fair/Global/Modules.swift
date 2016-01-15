@@ -40,6 +40,22 @@ extension UIColor {
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
+    
+    /**
+     Adjust an RGB color value.
+     
+     - parameter red:   red value offset
+     - parameter green: green value offset
+     - parameter blue:  blue value offset
+     - parameter alpha: alpha value offset
+     
+     - returns: The adjusted color
+     */
+    func adjust(red: CGFloat, green: CGFloat, blue: CGFloat, alpha:CGFloat) -> UIColor{
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        return UIColor(red: r+red, green: g+green, blue: b+blue, alpha: a+alpha)
+    }
 }
 
 
