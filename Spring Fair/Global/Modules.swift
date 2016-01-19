@@ -164,31 +164,6 @@ extension UITableView {
     }
 }
 
-//MARK: - UIViewController extensions
-//********************************************************
-extension UIViewController {
-    
-    /**
-     Present an alert view.
-     
-     - parameter title:   Title for the alert
-     - parameter message: message for the alert
-     */
-    func alert(title: String, message: String) {
-        let alert = UIAlertController(
-        title: title,
-        message: message,
-        preferredStyle: UIAlertControllerStyle.Alert)
-            
-        //add action (OK)
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(defaultAction)
-        
-        //present the alert
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-}
-
 
 //MARK: - UIButton extensions
 //********************************************************
