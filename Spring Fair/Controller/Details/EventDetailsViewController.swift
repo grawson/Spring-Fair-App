@@ -161,7 +161,11 @@ class EventDetailsViewController: UIViewController {
                 }
             })
         case .Denied, .Restricted:
-            self.alert("Access Denied", message: "Permission is needed to access the calendar. Go to Settings > Privacy > Calendars to allow access.")
+            let vc = CustomAlertViewController()
+            vc.alert.titleText = "Uh Oh..."
+            vc.alert.messageText = Text.networkFail
+            self.addChildViewController(vc)
+            self.view.addSubview(vc.view)
             return
         }
     }
@@ -225,11 +229,11 @@ class EventDetailsViewController: UIViewController {
                         self.performSegueWithIdentifier("show map", sender: self)
                     }
                 } else {
-                    self.alert(
-                        "Uh Oh...",
-                        message: Text.networkFail
-                    )
-
+                    let vc = CustomAlertViewController()
+                    vc.alert.titleText = "Uh Oh..."
+                    vc.alert.messageText = Text.networkFail
+                    self.addChildViewController(vc)
+                    self.view.addSubview(vc.view)
                 }
         }
     }

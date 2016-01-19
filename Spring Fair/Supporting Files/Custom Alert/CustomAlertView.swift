@@ -294,26 +294,6 @@ class CustomAlertView: UIView {
 }
 
 
-//MARK: - UIView extensions
-//********************************************************
-extension UIView {
-    
-    /**
-     Round corners of a view
-     
-     - parameter corners: The corners to round
-     - parameter radius:  The rounding radius
-     */
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(
-            roundedRect: self.bounds, byRoundingCorners: corners,
-            cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.CGPath
-        self.layer.mask = mask
-    }
-}
-
 //MARK: - UIButton extensions
 //********************************************************
 extension UIButton {
@@ -335,28 +315,6 @@ extension UIButton {
         self.setTitleColor(titleColor, forState: .Highlighted)
     }
 }
-
-//MARK: - UIColor extensions
-//********************************************************
-extension UIColor{
-    
-    /**
-     Adjust an RGB color value.
-     
-     - parameter red:   red value offset
-     - parameter green: green value offset
-     - parameter blue:  blue value offset
-     - parameter alpha: alpha value offset
-     
-     - returns: The adjusted color
-     */
-    func adjust(red: CGFloat, green: CGFloat, blue: CGFloat, alpha:CGFloat) -> UIColor{
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        self.getRed(&r, green: &g, blue: &b, alpha: &a)
-        return UIColor(red: r+red, green: g+green, blue: b+blue, alpha: a+alpha)
-    }
-}
-
 
 
 

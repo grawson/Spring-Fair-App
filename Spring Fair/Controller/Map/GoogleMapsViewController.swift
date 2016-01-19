@@ -99,7 +99,11 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
             if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
                 UIApplication.sharedApplication().openURL(NSURL(string: url)!)
             } else {
-                self.alert("Uh Oh...", message: "Google Maps app not installed.\nPlease install app to get directions.")
+                let vc = CustomAlertViewController()
+                vc.alert.titleText = "Uh Oh..."
+                vc.alert.messageText = Text.networkFail
+                self.addChildViewController(vc)
+                self.view.addSubview(vc.view)
             }
         }
     }
