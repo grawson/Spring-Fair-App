@@ -108,7 +108,7 @@ class CustomAlertView: UIView {
         
         //animate - fade in
         UIView.animateWithDuration(0.5, animations: {
-            self.dimView.alpha = 0.6
+            self.dimView.alpha = 0.8
         })
    
     }
