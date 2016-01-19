@@ -254,7 +254,7 @@
 				56CA8A1D1C4EEC0F0081828F /* CustomAlertView.swift */,
 				56CA8A1E1C4EEC0F0081828F /* CustomAlertViewController.swift */,
 			);
-			name = "Custom Alert";
+			path = "Custom Alert";
 			sourceTree = "<group>";
 		};
 		56D55E3D1C2D0C1B0018E895 /* Home */ = {
