@@ -10,6 +10,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AlamofireSpinner
+
 
 class HomeViewController: UIViewController {
     
@@ -78,7 +80,7 @@ class HomeViewController: UIViewController {
     Load highlights data. 
     */
     private func loadData () {
-        Alamofire.request(.POST, Requests.highlights)
+        Alamofire.request(.POST, Requests.highlights).spin()
             .responseJSON { response in
                 
                 if let json = response.result.value {

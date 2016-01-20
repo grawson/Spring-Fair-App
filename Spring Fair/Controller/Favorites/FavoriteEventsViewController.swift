@@ -64,7 +64,7 @@ class FavoriteEventsViewController: UIViewController {
      */
     private func loadEvents(ids: [String: [Int]]) {
                 
-        Alamofire.request(.POST, Requests.eventID, parameters: ids)
+        Alamofire.request(.POST, Requests.eventID, parameters: ids).spin()
             .responseJSON { response in
                 
                 if let json = response.result.value {

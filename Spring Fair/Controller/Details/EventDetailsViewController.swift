@@ -11,6 +11,8 @@ import SwiftyJSON
 import Alamofire
 import EventKit
 import EventKitUI
+import AlamofireSpinner
+
 
 class EventDetailsViewController: UIViewController {
 
@@ -216,7 +218,7 @@ class EventDetailsViewController: UIViewController {
     private func loadCoordinates() {
         let outData = ["name": self.event.formattedLocation()]
         
-        Alamofire.request(.POST, Requests.coordinates, parameters: outData)
+        Alamofire.request(.POST, Requests.coordinates, parameters: outData).spin()
             .responseJSON { response in
                 
                 if let json = response.result.value {

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AlamofireSpinner
 
 class EventsViewController: UIViewController {
     
@@ -51,7 +52,7 @@ class EventsViewController: UIViewController {
     private func loadEvents() {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.allVendors)
+            Alamofire.request(.POST, Requests.allEvents).spin()
                 .responseJSON { response in
                     
                     if let json = response.result.value {

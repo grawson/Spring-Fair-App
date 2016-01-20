@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AlamofireSpinner
 
 class VendorsViewController: UIViewController {
 
@@ -60,7 +61,7 @@ class VendorsViewController: UIViewController {
     */
     private func loadEvents() {
         
-        Alamofire.request(.POST, Requests.allVendors)
+        Alamofire.request(.POST, Requests.allVendors).spin()
             .responseJSON { response in
                 
                 if let json = response.result.value {
