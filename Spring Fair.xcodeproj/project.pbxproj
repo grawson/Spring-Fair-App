@@ -24,14 +24,14 @@
 		563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */; };
 		56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */; };
 		5667732D1C30866F00C82B9C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667732C1C30866F00C82B9C /* Event.swift */; };
+		568752171C4F3BB300671757 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568752151C4F3BB300671757 /* CustomAlertView.swift */; };
+		568752181C4F3BB300671757 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568752161C4F3BB300671757 /* CustomAlertViewController.swift */; };
 		5690225A1C024195006F010E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569022591C024195006F010E /* AppDelegate.swift */; };
 		569022641C024195006F010E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569022621C024195006F010E /* LaunchScreen.storyboard */; };
 		5690227A1C024210006F010E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569022791C024210006F010E /* Main.storyboard */; };
 		5690227C1C029100006F010E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5690227B1C029100006F010E /* Assets.xcassets */; };
 		569022801C02991A006F010E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5690227F1C02991A006F010E /* SWRevealViewController.m */; };
 		56C7328C1C162DB2002CB631 /* blenda_script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56C7328B1C162DB2002CB631 /* blenda_script.otf */; };
-		56CA8A1F1C4EEC0F0081828F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CA8A1D1C4EEC0F0081828F /* CustomAlertView.swift */; };
-		56CA8A201C4EEC0F0081828F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CA8A1E1C4EEC0F0081828F /* CustomAlertViewController.swift */; };
 		56D55E3C1C2D09530018E895 /* HighlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E3B1C2D09530018E895 /* HighlightsTableViewCell.swift */; };
 		56D55E491C2D2C600018E895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E481C2D2C5F0018E895 /* Constants.swift */; };
 		56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBFA381C02CC3E00333787 /* MenuViewController.swift */; };
@@ -66,6 +66,8 @@
 		563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVendorsViewController.swift; sourceTree = "<group>"; };
 		56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailsViewController.swift; sourceTree = "<group>"; };
 		5667732C1C30866F00C82B9C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		568752151C4F3BB300671757 /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		568752161C4F3BB300671757 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		569022561C024195006F010E /* Spring Fair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spring Fair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569022591C024195006F010E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569022631C024195006F010E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,8 +79,6 @@
 		5690227E1C02991A006F010E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		5690227F1C02991A006F010E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		56C7328B1C162DB2002CB631 /* blenda_script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blenda_script.otf; sourceTree = "<group>"; };
-		56CA8A1D1C4EEC0F0081828F /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
-		56CA8A1E1C4EEC0F0081828F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		56D55E3B1C2D09530018E895 /* HighlightsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightsTableViewCell.swift; sourceTree = "<group>"; };
 		56D55E481C2D2C5F0018E895 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56DBFA381C02CC3E00333787 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 		56CA8A211C4EEC140081828F /* Custom Alert */ = {
 			isa = PBXGroup;
 			children = (
-				56CA8A1D1C4EEC0F0081828F /* CustomAlertView.swift */,
-				56CA8A1E1C4EEC0F0081828F /* CustomAlertViewController.swift */,
+				568752151C4F3BB300671757 /* CustomAlertView.swift */,
+				568752161C4F3BB300671757 /* CustomAlertViewController.swift */,
 			);
 			path = "Custom Alert";
 			sourceTree = "<group>";
@@ -458,13 +458,13 @@
 				563627E81C30A86E005BD501 /* EventsViewController.swift in Sources */,
 				563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */,
 				561827AD1C28AD59007DD407 /* Modules.swift in Sources */,
-				56CA8A201C4EEC0F0081828F /* CustomAlertViewController.swift in Sources */,
+				568752181C4F3BB300671757 /* CustomAlertViewController.swift in Sources */,
 				56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */,
 				5613FA891C31B6DE00BA9816 /* Keys.swift in Sources */,
 				563627EC1C30ACBD005BD501 /* FavoriteEventsViewController.swift in Sources */,
 				56D55E3C1C2D09530018E895 /* HighlightsTableViewCell.swift in Sources */,
 				56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */,
-				56CA8A1F1C4EEC0F0081828F /* CustomAlertView.swift in Sources */,
+				568752171C4F3BB300671757 /* CustomAlertView.swift in Sources */,
 				5690225A1C024195006F010E /* AppDelegate.swift in Sources */,
 				563627F01C30B191005BD501 /* VendorsViewController.swift in Sources */,
 				560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */,

@@ -14,8 +14,6 @@ class CustomAlertViewController: UIViewController, CustomAlertDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        alert.parentView = view   //set the parentView for a size reference
         alert.delegate = self
         alert.present()
     }
@@ -24,7 +22,7 @@ class CustomAlertViewController: UIViewController, CustomAlertDelegate {
      Always keep the alert centered on the screen.
      */
     override func viewWillLayoutSubviews() {
-        alert.recenter(view)
+        alert.recenter()
     }
     
     /**
@@ -34,5 +32,6 @@ class CustomAlertViewController: UIViewController, CustomAlertDelegate {
         self.view.removeFromSuperview()
         self.removeFromParentViewController()
     }
-    
 }
+
+

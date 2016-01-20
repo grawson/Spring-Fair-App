@@ -83,8 +83,8 @@ class CustomAlertView: UIView {
     /// Animation for presentation and dismissal of alert
     var animation: Animation = .FlyDown
     
-    /// Alert view's parent view
-    var parentView: UIView?
+    /// Container holding alert and dimView
+    var parentView = UIApplication.sharedApplication().keyWindow
     
     /// Total height of the alert view frame
     private var frameHeight: CGFloat {
@@ -94,13 +94,15 @@ class CustomAlertView: UIView {
     /// View that dims the background behind the alert
     private var dimView = UIView()
     
+    /// Container that holds the alert
+    private var alertView = UIView()
+    
     /**
      present (animated) a dimmed background overlay.
      */
     private func setupDim() {
         //let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         //let dimView = UIVisualEffectView(effect: darkBlur)
-        //let dimWindow = UIApplication.sharedApplication().keyWindow
         dimView.frame = parentView?.frame ?? CGRect()
         dimView.backgroundColor = UIColor.blackColor()
         dimView.alpha = 0
@@ -117,8 +119,10 @@ class CustomAlertView: UIView {
      Setup a clear container that holds the alert content and button.
      */
     private func setupContainer() {
-        backgroundColor = UIColor.clearColor()
-        center = parentView?.center ?? CGPoint()
+        alertView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
+        alertView.backgroundColor = UIColor.clearColor()
+        alertView.center = dimView.center
+        parentView?.addSubview(alertView)
     }
     
     /**
@@ -131,7 +135,7 @@ class CustomAlertView: UIView {
         let contentView = UIView(frame: frame)
         contentView.backgroundColor = viewColor
         contentView.roundCorners([.TopLeft, .TopRight, .BottomRight, .BottomLeft], radius: rounded)
-        addSubview(contentView)
+        alertView.addSubview(contentView)
         
         //Draw the circle containing the exclamation mark
         let circlePath = UIBezierPath(
@@ -144,7 +148,8 @@ class CustomAlertView: UIView {
         layer1.strokeColor = viewColor.CGColor
         layer1.fillColor = UIColor.whiteColor().CGColor
         layer1.zPosition = 1
-        layer.addSublayer(layer1)
+        layer1.masksToBounds = false
+        alertView.layer.addSublayer(layer1)
         
         //Draw the line for the exclamation mark
         let exLine = UIBezierPath()
@@ -161,7 +166,8 @@ class CustomAlertView: UIView {
         layer2.path = exLine.CGPath
         layer2.fillColor = accentColor.CGColor
         layer2.zPosition = 1
-        layer.addSublayer(layer2)
+        layer1.masksToBounds = false
+        alertView.layer.addSublayer(layer2)
         
         //Draw the circle for the exclamation mark
         let exCircle = UIBezierPath(
@@ -172,7 +178,8 @@ class CustomAlertView: UIView {
         layer3.path = exCircle.CGPath
         layer3.fillColor = accentColor.CGColor
         layer3.zPosition = 1
-        layer.addSublayer(layer3)
+        layer1.masksToBounds = false
+        alertView.layer.addSublayer(layer3)
         
         //Setup the alert title
         let circleBottomY: CGFloat = contentView.frame.origin.y + 24   //marks the bottom of the circle
@@ -227,7 +234,7 @@ class CustomAlertView: UIView {
         actionButton.setBackgroundColor(accentColor, titleColor: darkerAccentColor, forState: .Highlighted)
         
         actionButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
-        addSubview(actionButton)
+        alertView.addSubview(actionButton)
     }
     
     
@@ -240,54 +247,49 @@ class CustomAlertView: UIView {
                 self.dimView.alpha = 0.0
                 
                 switch self.animation {
-                case .FlyAcross: self.center.x += self.parentView?.frame.width ?? 0  //fly across
-                case.FlyDown: self.center.y += self.parentView?.frame.height ?? 0    //fly down
+                case .FlyAcross: self.alertView.center.x += self.parentView?.frame.width ?? 0  //fly across
+                case.FlyDown: self.alertView.center.y += self.parentView?.frame.height ?? 0    //fly down
                 }
                 
             }, completion: {
                 (bool) in
                 self.dimView.removeFromSuperview()
-                self.removeFromSuperview()
+                self.alertView.removeFromSuperview()
                 self.delegate?.alertWasDismissed()
             }
         )
     }
     
     /**
-     Recenter the views after an orientation change has occurred.
-     
-     - parameter newView: the new view after rotation\.
+     Recenter the views after an orientation change has occurred.     
      */
-    func recenter(newView: UIView) {
-        dimView.frame = newView.frame
-        center = newView.center
+    func recenter() {
+        let windowCenter = parentView?.center ?? CGPoint()
+        alertView.center = windowCenter
+        dimView.center = windowCenter
+        dimView.frame = parentView?.frame ?? CGRect()
     }
     
     /**
      Present the alert view.
      */
     func present() {
-        
-        //reset the alert view frame now that variables are initialized
-        let frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
-        self.frame = frame
-        
         setupDim()
         setupContainer()
         setupContentView()
         setupButton()
-        
+
         //position the alert view based on animation type
         switch self.animation {
-        case .FlyAcross: center.x -= parentView?.frame.width ?? 0
-        case .FlyDown: center.y -= parentView?.frame.height ?? 0
+        case .FlyAcross: alertView.center.x -= parentView?.frame.width ?? 0
+        case .FlyDown: alertView.center.y -= parentView?.frame.height ?? 0
         }
         
-        parentView?.addSubview(self)
+        parentView?.addSubview(alertView)
         UIView.animateWithDuration(0.5, animations: {
             switch self.animation {
-            case .FlyAcross: self.center.x += self.parentView?.frame.width ?? 0
-            case .FlyDown: self.center.y += self.parentView?.frame.height ?? 0
+            case .FlyAcross: self.alertView.center.x += self.parentView?.frame.width ?? 0
+            case .FlyDown: self.alertView.center.y += self.parentView?.frame.height ?? 0
             }
         })
     }
@@ -315,6 +317,7 @@ extension UIButton {
         self.setTitleColor(titleColor, forState: .Highlighted)
     }
 }
+
 
 
 
