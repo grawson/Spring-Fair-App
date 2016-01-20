@@ -26,6 +26,7 @@
 		5667732D1C30866F00C82B9C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667732C1C30866F00C82B9C /* Event.swift */; };
 		568752171C4F3BB300671757 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568752151C4F3BB300671757 /* CustomAlertView.swift */; };
 		568752181C4F3BB300671757 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568752161C4F3BB300671757 /* CustomAlertViewController.swift */; };
+		568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568BA3561C4F4E5900E17288 /* Reachability.swift */; };
 		5690225A1C024195006F010E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569022591C024195006F010E /* AppDelegate.swift */; };
 		569022641C024195006F010E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569022621C024195006F010E /* LaunchScreen.storyboard */; };
 		5690227A1C024210006F010E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569022791C024210006F010E /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		5667732C1C30866F00C82B9C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		568752151C4F3BB300671757 /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		568752161C4F3BB300671757 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		568BA3561C4F4E5900E17288 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		569022561C024195006F010E /* Spring Fair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spring Fair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569022591C024195006F010E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569022631C024195006F010E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				56D55E481C2D2C5F0018E895 /* Constants.swift */,
 				5613FA881C31B6DE00BA9816 /* Keys.swift */,
 				561827AC1C28AD59007DD407 /* Modules.swift */,
+				568BA3561C4F4E5900E17288 /* Reachability.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				56D55E491C2D2C600018E895 /* Constants.swift in Sources */,
 				5667732D1C30866F00C82B9C /* Event.swift in Sources */,
 				561827A21C2743B4007DD407 /* EventDetailsViewController.swift in Sources */,
+				568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */,
 				563627E61C30A5B9005BD501 /* EventsTableView.swift in Sources */,
 				569022801C02991A006F010E /* SWRevealViewController.m in Sources */,
 				56F9A4AF1C0AC4EF003B1E44 /* HomeViewController.swift in Sources */,

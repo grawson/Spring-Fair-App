@@ -55,30 +55,29 @@ class EventsViewController: UIViewController {
         let encodedURLRequest = ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["": ""]).0
         let data = encodedURLRequest.HTTPBody!
         
-        
-        Alamofire.upload(mutableURLRequest, data: data)
-            .progress { _, totalBytesRead, totalBytesExpectedToRead in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-            }
-            .responseJSON { response in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                
-                if let json = response.result.value {
-                    self.tableView.events = JSON(json)
-                    
-                    //if no data, display error message
-                    if (self.tableView.events!.isEmpty) {
-                        let text = "No scheduled events."
-                        self.tableView.errorLabel(text, color: Style.color1)
-                    }
-                } else {
-                    print("Could not load feed")
-                    
-                    //if no connection, display error message
-                    let text = Text.networkFail
-                    self.tableView.errorLabel(text, color: Style.color1)
+        if Reachability.isConnectedToNetwork() {
+            Alamofire.upload(mutableURLRequest, data: data)
+                .progress { _, totalBytesRead, totalBytesExpectedToRead in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
                 }
+                .responseJSON { response in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                    if let json = response.result.value {
+                        self.tableView.events = JSON(json)
+                        
+                        //if no data, display error message
+                        if (self.tableView.events!.isEmpty) {
+                            self.tableView.errorLabel("No scheduled events.", color: Style.color1)
+                        }
+                    }
+            }
+        } else {
+            self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
+
+        
+       
     }
     
     
