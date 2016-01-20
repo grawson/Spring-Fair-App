@@ -13,6 +13,8 @@ pod 'SwiftyJSON', '~> 2.3.2'
 
 pod 'GoogleMaps'
 
+pod 'AlamofireSpinner', '~> 0.1.0'
+
 
 end
 

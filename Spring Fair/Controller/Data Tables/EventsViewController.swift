@@ -49,6 +49,7 @@ class EventsViewController: UIViewController {
     
     /** Load events from database based on IDs */
     private func loadEvents() {
+<<<<<<< HEAD
 
         let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Requests.allEvents)!)
         mutableURLRequest.HTTPMethod = Method.POST.rawValue
@@ -62,6 +63,14 @@ class EventsViewController: UIViewController {
                 }
                 .responseJSON { response in
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+=======
+        
+        Alamofire.request(.POST, Requests.allEvents)
+            .responseJSON { response in
+                
+                if let json = response.result.value {
+                    self.tableView.events = JSON(json)
+>>>>>>> parent of 4991919... Added progress indicator for requests
                     
                     if let json = response.result.value {
                         self.tableView.events = JSON(json)
@@ -76,7 +85,6 @@ class EventsViewController: UIViewController {
             self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
     }
-    
     
     //MARK: - Navigation
     //********************************************************

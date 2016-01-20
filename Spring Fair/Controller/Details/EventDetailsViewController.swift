@@ -11,6 +11,7 @@ import SwiftyJSON
 import Alamofire
 import EventKit
 import EventKitUI
+import AlamofireSpinner
 
 class EventDetailsViewController: UIViewController {
 
@@ -214,11 +215,51 @@ class EventDetailsViewController: UIViewController {
     Load coordinates from database based on IDs
     */
     private func loadCoordinates() {
+        
+//        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Requests.coordinates)!)
+//        mutableURLRequest.HTTPMethod = Method.POST.rawValue
         let outData = ["name": self.event.formattedLocation()]
+//        let encodedURLRequest = ParameterEncoding.JSON.encode(mutableURLRequest, parameters: outData).0
+//        let data = encodedURLRequest.HTTPBody!
+//        
+//        print(outData["name"])
+//        
+//        if Reachability.isConnectedToNetwork() {
+//            Alamofire.upload(mutableURLRequest, data: data)
+//                .progress { _, _, _ in
+//                    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+//                }
+//                .responseJSON { response in
+//                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+//                    
+//                    if let json = response.result.value {
+//                        let data = JSON(json)
+//                        print(response)
+//
+//                        //if data present
+//                        if !(data.isEmpty) {
+//                            self.xCoordinate = data[0]["xcoordinate"].doubleValue
+//                            self.yCoordinate = data[0]["ycoordinate"].doubleValue
+//                            self.performSegueWithIdentifier("show map", sender: self)
+//                        }
+//                    }
+//            }
+//        } else {
+//            let vc = CustomAlertViewController()
+//            vc.alert.titleText = "Uh Oh..."
+//            vc.alert.messageText = Text.networkFail
+//            self.addChildViewController(vc)
+//            self.view.addSubview(vc.view)
+//        }
+        
+        
         
         Alamofire.request(.POST, Requests.coordinates, parameters: outData)
-            .responseJSON { response in
-                
+            .progress { _, _, _ in
+//                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            }
+            .spin().responseJSON { response in
+
                 if let json = response.result.value {
                     let data = JSON(json)
                     
