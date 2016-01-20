@@ -49,9 +49,19 @@ class EventsViewController: UIViewController {
     
     /** Load events from database based on IDs */
     private func loadEvents() {
+
+        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Requests.allEvents)!)
+        mutableURLRequest.HTTPMethod = Method.POST.rawValue
+        let encodedURLRequest = ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["": ""]).0
+        let data = encodedURLRequest.HTTPBody!
         
-        Alamofire.request(.POST, Requests.allEvents)
+        
+        Alamofire.upload(mutableURLRequest, data: data)
+            .progress { _, totalBytesRead, totalBytesExpectedToRead in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            }
             .responseJSON { response in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 
                 if let json = response.result.value {
                     self.tableView.events = JSON(json)
@@ -70,6 +80,7 @@ class EventsViewController: UIViewController {
                 }
         }
     }
+    
     
     //MARK: - Navigation
     //********************************************************

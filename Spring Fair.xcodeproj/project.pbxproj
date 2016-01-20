@@ -227,12 +227,12 @@
 		569022581C024195006F010E /* Spring Fair */ = {
 			isa = PBXGroup;
 			children = (
-				5613FA8B1C31B76E00BA9816 /* Controller */,
+				569022791C024210006F010E /* Main.storyboard */,
 				56551F961C2BA41700F9F1CB /* Global */,
+				5613FA8B1C31B76E00BA9816 /* Controller */,
 				56DBFA431C02E7CA00333787 /* Model */,
 				561827A31C27BFD5007DD407 /* Supporting Files */,
 				5613FA8A1C31B75C00BA9816 /* View */,
-				569022791C024210006F010E /* Main.storyboard */,
 			);
 			path = "Spring Fair";
 			sourceTree = "<group>";
