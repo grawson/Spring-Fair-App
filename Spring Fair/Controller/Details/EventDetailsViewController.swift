@@ -216,6 +216,7 @@ class EventDetailsViewController: UIViewController {
     Load coordinates from database based on IDs
     */
     private func loadCoordinates() {
+        mapButton.enabled = false   //disable while loading coordinates
         let outData = ["name": self.event.formattedLocation()]
         
         if Reachability.isConnectedToNetwork() {
@@ -240,7 +241,7 @@ class EventDetailsViewController: UIViewController {
             self.addChildViewController(vc)
             self.view.addSubview(vc.view)
         }
-       
+        mapButton.enabled = true
     }
 
     //MARK: - Navigation
