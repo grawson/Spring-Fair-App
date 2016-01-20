@@ -147,19 +147,18 @@ extension UITableView {
         
         //Add footer view
         let errorView = UIView()
-        self.tableFooterView = errorView //hide empty separator lines
+        errorView.frame = UIApplication.sharedApplication().keyWindow?.frame ?? CGRect()
+        self.addSubview(errorView)
+        self.scrollEnabled = false
         
         //create label and style
-        let label = UILabel(frame: CGRectMake(0, 0, self.frame.width, 40))
+        let label = UILabel(frame: CGRectMake(0, 0, errorView.frame.width, 40))
+        label.center = CGPoint(x: errorView.center.x, y: errorView.center.y / 1.5)
         label.text = text
-        label.textAlignment = NSTextAlignment.Center;
+        label.textAlignment = .Center;
         label.font = (UIFont(name: "Open Sans Condensed", size: 20))
         label.textColor = color
-        
-        //center
-        label.center.x = self.center.x
-        label.center.y = self.center.y / 1.5
-        
+
         errorView.addSubview(label)
     }
 }
