@@ -75,6 +75,9 @@ class EventsViewController: UIViewController {
         } else {
             self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
+
+        
+       
     }
     
     
