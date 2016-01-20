@@ -89,14 +89,14 @@ class HomeViewController: UIViewController {
                     //if no data, display error message
                     if (data.isEmpty) {
                         let text = "No highlights."
-                        self.table.errorLabel(text, color: Style.color1)
+                        self.table.errorLabel(text, color: Style.cream)
                     }
                 } else {
                     print("Could not load feed")
                     
                     //if no connection, display error message
                     let text = Text.networkFail
-                    self.table.errorLabel(text, color: Style.color1)
+                    self.table.errorLabel(text, color: Style.cream)
                     for view in (self.table.tableFooterView?.subviews)! {
                         if let label = view as? UILabel {
                             label.textColor = Style.cream
