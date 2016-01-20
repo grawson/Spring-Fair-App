@@ -218,26 +218,29 @@ class EventDetailsViewController: UIViewController {
     private func loadCoordinates() {
         let outData = ["name": self.event.formattedLocation()]
         
-        Alamofire.request(.POST, Requests.coordinates, parameters: outData).spin()
-            .responseJSON { response in
-                
-                if let json = response.result.value {
-                    let data = JSON(json)
+        if Reachability.isConnectedToNetwork() {
+            Alamofire.request(.POST, Requests.coordinates, parameters: outData).spin()
+                .responseJSON { response in
                     
-                    //if data present
-                    if !(data.isEmpty) {
-                        self.xCoordinate = data[0]["xcoordinate"].doubleValue
-                        self.yCoordinate = data[0]["ycoordinate"].doubleValue
-                        self.performSegueWithIdentifier("show map", sender: self)
-                    }
-                } else {
-                    let vc = CustomAlertViewController()
-                    vc.alert.titleText = "Uh Oh..."
-                    vc.alert.messageText = Text.networkFail
-                    self.addChildViewController(vc)
-                    self.view.addSubview(vc.view)
-                }
+                    if let json = response.result.value {
+                        let data = JSON(json)
+                        
+                        //if data present
+                        if !(data.isEmpty) {
+                            self.xCoordinate = data[0]["xcoordinate"].doubleValue
+                            self.yCoordinate = data[0]["ycoordinate"].doubleValue
+                            self.performSegueWithIdentifier("show map", sender: self)
+                        }
+                    } 
+            }
+        } else {
+            let vc = CustomAlertViewController()
+            vc.alert.titleText = "Uh Oh..."
+            vc.alert.messageText = Text.networkFail
+            self.addChildViewController(vc)
+            self.view.addSubview(vc.view)
         }
+       
     }
 
     //MARK: - Navigation

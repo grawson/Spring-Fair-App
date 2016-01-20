@@ -80,32 +80,27 @@ class HomeViewController: UIViewController {
     Load highlights data. 
     */
     private func loadData () {
-        Alamofire.request(.POST, Requests.highlights).spin()
-            .responseJSON { response in
-                
-                if let json = response.result.value {
-                    let data = JSON(json)
-                    self.data = data
-                    self.table.reloadData()
+        
+        if Reachability.isConnectedToNetwork() {
+            Alamofire.request(.POST, Requests.highlights).spin()
+                .responseJSON { response in
                     
-                    //if no data, display error message
-                    if (data.isEmpty) {
-                        let text = "No highlights."
-                        self.table.errorLabel(text, color: Style.cream)
-                    }
-                } else {
-                    print("Could not load feed")
-                    
-                    //if no connection, display error message
-                    let text = Text.networkFail
-                    self.table.errorLabel(text, color: Style.cream)
-                    for view in (self.table.tableFooterView?.subviews)! {
-                        if let label = view as? UILabel {
-                            label.textColor = Style.cream
+                    if let json = response.result.value {
+                        let data = JSON(json)
+                        self.data = data
+                        self.table.reloadData()
+                        
+                        //if no data, display error message
+                        if (data.isEmpty) {
+                            let text = "No highlights."
+                            self.table.errorLabel(text, color: Style.cream)
                         }
                     }
-                }
+            }
+        } else {
+            self.table.errorLabel(Text.networkFail, color: Style.cream)
         }
+      
     }
 }
 

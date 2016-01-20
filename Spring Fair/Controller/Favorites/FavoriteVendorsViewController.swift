@@ -75,24 +75,22 @@ class FavoriteVendorsViewController: UIViewController {
      */
     private func loadEvents(ids: [String: [Int]]) {
         
-        Alamofire.request(.POST, Requests.vendorID, parameters: ids).spin()
-            .responseJSON { response in
-                
-                if let json = response.result.value {
-                    self.tableView.vendors = JSON(json)
+        if Reachability.isConnectedToNetwork() {
+            Alamofire.request(.POST, Requests.vendorID, parameters: ids).spin()
+                .responseJSON { response in
                     
-                    //if no data, display error message
-                    if (self.tableView.vendors!.isEmpty) {
-                        let text = "No favorite vendors added"
-                        self.tableView.errorLabel(text, color: Style.color1)
+                    if let json = response.result.value {
+                        self.tableView.vendors = JSON(json)
+                        
+                        //if no data, display error message
+                        if (self.tableView.vendors!.isEmpty) {
+                            let text = "No favorite vendors added"
+                            self.tableView.errorLabel(text, color: Style.color1)
+                        }
                     }
-                } else {
-                    print("Could not load feed")
-                    
-                    //if no connection, display error message
-                    let text = Text.networkFail
-                    self.tableView.errorLabel(text, color: Style.color1)
-                }
+            }
+        } else {
+            self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
     }
     
