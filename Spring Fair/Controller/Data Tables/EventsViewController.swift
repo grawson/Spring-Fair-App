@@ -49,31 +49,24 @@ class EventsViewController: UIViewController {
     
     /** Load events from database based on IDs */
     private func loadEvents() {
-
-        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Requests.allEvents)!)
-        mutableURLRequest.HTTPMethod = Method.POST.rawValue
-        let encodedURLRequest = ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["": ""]).0
-        let data = encodedURLRequest.HTTPBody!
         
-        if Reachability.isConnectedToNetwork() {
-            Alamofire.upload(mutableURLRequest, data: data)
-                .progress { _, totalBytesRead, totalBytesExpectedToRead in
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-                }
-                .responseJSON { response in
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        Alamofire.request(.POST, Requests.allVendors)
+            .responseJSON { response in
+                
+                if let json = response.result.value {
+                    self.tableView.events = JSON(json)
                     
-                    if let json = response.result.value {
-                        self.tableView.events = JSON(json)
-                        
-                        //if no data, display error message
-                        if (self.tableView.events!.isEmpty) {
-                            self.tableView.errorLabel("No scheduled events.", color: Style.color1)
-                        }
+                    //if no data, display error message
+                    if (self.tableView.events!.isEmpty) {
+                        self.tableView.errorLabel("No scheduled events.", color: Style.color1)
                     }
-            }
-        } else {
-            self.tableView.errorLabel(Text.networkFail, color: Style.color1)
+                } else {
+                    print("Could not load feed")
+                    
+                    //if no connection, display error message
+                    let text = Text.networkFail
+                    self.tableView.errorLabel(text, color: Style.color1)
+                }
         }
     }
     
