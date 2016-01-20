@@ -78,32 +78,31 @@ class HomeViewController: UIViewController {
     Load highlights data. 
     */
     private func loadData () {
-        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Requests.highlights)!)
-        mutableURLRequest.HTTPMethod = Method.POST.rawValue
-        let encodedURLRequest = ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["": ""]).0
-        let data = encodedURLRequest.HTTPBody!
-        
-        if Reachability.isConnectedToNetwork() {
-            Alamofire.upload(mutableURLRequest, data: data)
-                .progress { _, _, _ in
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-                }
-                .responseJSON { response in
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        Alamofire.request(.POST, Requests.highlights)
+            .responseJSON { response in
+                
+                if let json = response.result.value {
+                    let data = JSON(json)
+                    self.data = data
+                    self.table.reloadData()
                     
-                    if let json = response.result.value {
-                        let data = JSON(json)
-                        self.data = data
-                        self.table.reloadData()
-                        
-                        //if no data, display error message
-                        if (data.isEmpty) {
-                            self.table.errorLabel("No highlights.", color: Style.cream)
+                    //if no data, display error message
+                    if (data.isEmpty) {
+                        let text = "No highlights."
+                        self.table.errorLabel(text, color: Style.cream)
+                    }
+                } else {
+                    print("Could not load feed")
+                    
+                    //if no connection, display error message
+                    let text = Text.networkFail
+                    self.table.errorLabel(text, color: Style.cream)
+                    for view in (self.table.tableFooterView?.subviews)! {
+                        if let label = view as? UILabel {
+                            label.textColor = Style.cream
                         }
                     }
-            }
-        } else {
-            self.table.errorLabel(Text.networkFail, color: Style.cream)
+                }
         }
     }
 }
