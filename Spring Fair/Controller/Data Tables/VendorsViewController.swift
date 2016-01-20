@@ -60,24 +60,30 @@ class VendorsViewController: UIViewController {
     */
     private func loadEvents() {
         
-        Alamofire.request(.POST, Requests.allVendors)
-            .responseJSON { response in
-                
-                if let json = response.result.value {
-                    self.tableView.vendors = JSON(json)
-                    
-                    //if no data, display error message
-                    if (self.tableView.vendors!.isEmpty) {
-                        let text = "No current vendors"
-                        self.tableView.errorLabel(text, color: Style.color1)
-                    }
-                } else {
-                    print("Could not load feed")
-                    
-                    //if no connection, display error message
-                    let text = Text.networkFail
-                    self.tableView.errorLabel(text, color: Style.color1)
+        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: Requests.allVendors)!)
+        mutableURLRequest.HTTPMethod = Method.POST.rawValue
+        let encodedURLRequest = ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["": ""]).0
+        let data = encodedURLRequest.HTTPBody!
+        
+        if Reachability.isConnectedToNetwork() {
+            Alamofire.upload(mutableURLRequest, data: data)
+                .progress { _, _, _ in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
                 }
+                .responseJSON { response in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                    if let json = response.result.value {
+                        self.tableView.vendors = JSON(json)
+                        
+                        //if no data, display error message
+                        if (self.tableView.vendors!.isEmpty) {
+                            self.tableView.errorLabel("No current vendors", color: Style.color1)
+                        }
+                    }
+            }
+        } else {
+            self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
     }
     

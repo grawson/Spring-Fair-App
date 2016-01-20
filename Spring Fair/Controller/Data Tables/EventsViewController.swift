@@ -57,7 +57,7 @@ class EventsViewController: UIViewController {
         
         if Reachability.isConnectedToNetwork() {
             Alamofire.upload(mutableURLRequest, data: data)
-                .progress { _, totalBytesRead, totalBytesExpectedToRead in
+                .progress { _, _, _ in
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
                 }
                 .responseJSON { response in
