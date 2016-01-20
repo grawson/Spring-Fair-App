@@ -57,7 +57,7 @@ class EventsViewController: UIViewController {
         
         if Reachability.isConnectedToNetwork() {
             Alamofire.upload(mutableURLRequest, data: data)
-                .progress { _, _, _ in
+                .progress { _, totalBytesRead, totalBytesExpectedToRead in
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
                 }
                 .responseJSON { response in
@@ -75,9 +75,6 @@ class EventsViewController: UIViewController {
         } else {
             self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
-
-        
-       
     }
     
     
