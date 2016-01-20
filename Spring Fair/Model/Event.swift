@@ -172,8 +172,6 @@ class Event {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd hh:mm a"
         let str = date + " " + time
-        print("pre: \(str)")
-        print("post: \(formatter.dateFromString(str))")
         return formatter.dateFromString(str)
     }
 

@@ -76,7 +76,6 @@ class EventsViewController: UIViewController {
     //********************************************************
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("here")
         if let identifier = segue.identifier {
             switch identifier {
             case "show event":
