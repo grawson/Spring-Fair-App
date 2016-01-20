@@ -100,7 +100,6 @@ class HomeViewController: UIViewController {
         } else {
             self.table.errorLabel(Text.networkFail, color: Style.cream)
         }
-      
     }
 }
 

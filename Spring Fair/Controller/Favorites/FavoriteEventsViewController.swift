@@ -79,6 +79,8 @@ class FavoriteEventsViewController: UIViewController {
                     }
             }
         } else {
+            tableView.events = nil
+            tableView.reloadData()
             self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
     

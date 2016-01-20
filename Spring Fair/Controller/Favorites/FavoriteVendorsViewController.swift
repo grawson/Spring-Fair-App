@@ -90,6 +90,8 @@ class FavoriteVendorsViewController: UIViewController {
                     }
             }
         } else {
+            tableView.vendors = nil
+            tableView.reloadData()
             self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
     }
