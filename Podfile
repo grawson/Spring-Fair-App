@@ -15,6 +15,8 @@ pod 'GoogleMaps'
 
 pod 'AlamofireSpinner', '~> 0.1.0'
 
+pod 'GRCustomAlert'
+
 
 
 end

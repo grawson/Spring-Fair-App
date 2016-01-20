@@ -12,6 +12,7 @@ import Alamofire
 import EventKit
 import EventKitUI
 import AlamofireSpinner
+import GRCustomAlert
 
 
 class EventDetailsViewController: UIViewController {

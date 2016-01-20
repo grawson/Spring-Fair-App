@@ -24,8 +24,6 @@
 		563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */; };
 		56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */; };
 		5667732D1C30866F00C82B9C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667732C1C30866F00C82B9C /* Event.swift */; };
-		568752171C4F3BB300671757 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568752151C4F3BB300671757 /* CustomAlertView.swift */; };
-		568752181C4F3BB300671757 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568752161C4F3BB300671757 /* CustomAlertViewController.swift */; };
 		568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568BA3561C4F4E5900E17288 /* Reachability.swift */; };
 		5690225A1C024195006F010E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569022591C024195006F010E /* AppDelegate.swift */; };
 		569022641C024195006F010E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569022621C024195006F010E /* LaunchScreen.storyboard */; };
@@ -67,8 +65,6 @@
 		563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVendorsViewController.swift; sourceTree = "<group>"; };
 		56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailsViewController.swift; sourceTree = "<group>"; };
 		5667732C1C30866F00C82B9C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		568752151C4F3BB300671757 /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
-		568752161C4F3BB300671757 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		568BA3561C4F4E5900E17288 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		569022561C024195006F010E /* Spring Fair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spring Fair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569022591C024195006F010E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +139,6 @@
 		561827A31C27BFD5007DD407 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				56CA8A211C4EEC140081828F /* Custom Alert */,
 				56C7328D1C162DC2002CB631 /* Fonts */,
 				56DBFA3A1C02D0B800333787 /* SWReveal */,
 				569022591C024195006F010E /* AppDelegate.swift */,
@@ -249,15 +244,6 @@
 				56C7328B1C162DB2002CB631 /* blenda_script.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		56CA8A211C4EEC140081828F /* Custom Alert */ = {
-			isa = PBXGroup;
-			children = (
-				568752151C4F3BB300671757 /* CustomAlertView.swift */,
-				568752161C4F3BB300671757 /* CustomAlertViewController.swift */,
-			);
-			path = "Custom Alert";
 			sourceTree = "<group>";
 		};
 		56D55E3D1C2D0C1B0018E895 /* Home */ = {
@@ -461,13 +447,11 @@
 				563627E81C30A86E005BD501 /* EventsViewController.swift in Sources */,
 				563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */,
 				561827AD1C28AD59007DD407 /* Modules.swift in Sources */,
-				568752181C4F3BB300671757 /* CustomAlertViewController.swift in Sources */,
 				56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */,
 				5613FA891C31B6DE00BA9816 /* Keys.swift in Sources */,
 				563627EC1C30ACBD005BD501 /* FavoriteEventsViewController.swift in Sources */,
 				56D55E3C1C2D09530018E895 /* HighlightsTableViewCell.swift in Sources */,
 				56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */,
-				568752171C4F3BB300671757 /* CustomAlertView.swift in Sources */,
 				5690225A1C024195006F010E /* AppDelegate.swift in Sources */,
 				563627F01C30B191005BD501 /* VendorsViewController.swift in Sources */,
 				560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */,
