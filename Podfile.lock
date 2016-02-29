@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (3.1.5)
-  - AlamofireSpinner (0.1.0):
+  - AlamofireSpinner (0.1.1):
     - Alamofire (~> 3.1)
   - GoogleMaps (1.11.1)
   - GRCustomAlert (0.1.1)
@@ -17,7 +17,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
-  AlamofireSpinner: 3d9f2264221984963b255161c20a2d77ab6e0950
+  AlamofireSpinner: 65faccd79e9d391a16c71101bfe6102c23336418
   GoogleMaps: c947160008f414c66707a5ea60f35e92055c7670
   GRCustomAlert: 3617ca53f5c010f3935c3db1745c07c4fe9606e9
   Haneke: 01454a67322faa0dd9d81fc0f447885044e71521
