@@ -48,4 +48,6 @@ struct DefaultsKeys {
  */
 struct Text {
     static let networkFail = "No internet connection detected."
+    static let accessFailureTitle = "Access Denied"
+    static let accessFailureMessage = "Go to Settings > Spring Fair to allow the app to access your calendar."
 }

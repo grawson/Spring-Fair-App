@@ -165,8 +165,8 @@ class EventDetailsViewController: UIViewController {
             })
         case .Denied, .Restricted:
             let vc = CustomAlertViewController()
-            vc.alert.titleText = "Uh Oh..."
-            vc.alert.messageText = Text.networkFail
+            vc.alert.titleText = Text.accessFailureTitle
+            vc.alert.messageText = Text.accessFailureMessage
             self.addChildViewController(vc)
             self.view.addSubview(vc.view)
             return
