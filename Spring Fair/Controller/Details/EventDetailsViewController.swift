@@ -35,6 +35,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var zoomImage: UIImageView!
     @IBOutlet weak var textCardView: UIView!
+    @IBOutlet weak var buttonsCardView: UIView!
     
     
     @IBAction func addToCalendar(sender: UIButton) {
@@ -130,6 +131,7 @@ class EventDetailsViewController: UIViewController {
         
         //set shadows
         textCardView.setCardShadow()
+        buttonsCardView.setCardShadow()
     }
     
     /**
@@ -183,7 +185,7 @@ class EventDetailsViewController: UIViewController {
     private func updateConstraints() {
         self.name.center = self.zoomImage.center
         let yConstraint = NSLayoutConstraint(
-            item: self.infoBar, attribute: .Top, relatedBy: .Equal, toItem: self.contentView,
+            item: self.buttonsCardView, attribute: .Top, relatedBy: .Equal, toItem: self.contentView,
             attribute: .Top, multiplier: 1.0, constant: 10
         )
         NSLayoutConstraint.activateConstraints([yConstraint])
