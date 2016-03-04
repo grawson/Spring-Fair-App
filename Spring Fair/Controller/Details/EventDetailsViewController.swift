@@ -34,6 +34,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var descript: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var zoomImage: UIImageView!
+    @IBOutlet weak var textCardView: UIView!
     
     
     @IBAction func addToCalendar(sender: UIButton) {
@@ -112,11 +113,11 @@ class EventDetailsViewController: UIViewController {
         let buttons = [self.calendarButton, self.favoritesButton, self.mapButton, self.button4]
         
         //Round button corners
-        self.mapButton.roundCorners([.TopLeft , .BottomLeft], radius: Style.largeRounded)
-        self.button4.roundCorners([.TopRight , .BottomRight], radius: Style.largeRounded)
-        self.favoritesButton.roundCorners([.TopRight , .BottomRight], radius: Style.largeRounded)
-        self.infoBar.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.largeRounded)
-        self.calendarButton.roundCorners([.TopLeft , .BottomLeft], radius: Style.largeRounded)
+        self.mapButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
+        self.button4.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
+        self.favoritesButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
+        self.infoBar.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
+        self.calendarButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         
         //highlighted button colors
         for button in buttons {
@@ -126,6 +127,9 @@ class EventDetailsViewController: UIViewController {
         //favorites button state
         let id = self.event.getID()
         self.favEvents.contains(id) ? favSelected() : favDeselected()
+        
+        //set shadows
+        textCardView.setCardShadow()
     }
     
     /**

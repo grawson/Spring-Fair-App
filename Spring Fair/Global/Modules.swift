@@ -74,6 +74,14 @@ extension UIView {
         mask.path = path.CGPath
         self.layer.mask = mask
     }
+    
+    func setCardShadow() {
+        let layer = self.layer
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSize(width: 3, height: 3)
+        layer.shadowOpacity = 0.05
+        layer.shadowRadius = 1
+    }
 }
 
 

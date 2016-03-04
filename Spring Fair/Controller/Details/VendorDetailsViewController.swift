@@ -23,6 +23,8 @@ class VendorDetailsViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var descript: UITextView!
+    @IBOutlet weak var textCardView: UIView!
+    @IBOutlet weak var buttonsCardView: UIView!
     
     /**
      Add or remove favorite ID from storage
@@ -64,6 +66,7 @@ class VendorDetailsViewController: UIViewController {
         self.scrollView.delegate = self
         self.scrollView.contentInset = UIEdgeInsetsMake(Style.zoomImageHeight, 0, 0, 0)
         //self.scrollView.addSubview(self.zoomImage)
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -88,9 +91,9 @@ class VendorDetailsViewController: UIViewController {
         }
         
         //Round button corners
-        self.websiteButton.roundCorners([.TopLeft , .BottomLeft], radius: Style.largeRounded)
-        self.favoritesButton.roundCorners([.TopRight , .BottomRight], radius: Style.largeRounded)
-        self.infoBarView.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.largeRounded)
+        self.websiteButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
+        self.favoritesButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
+        self.infoBarView.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
         
         //state of favorites button
         let id = self.vendor.getID()
@@ -98,6 +101,12 @@ class VendorDetailsViewController: UIViewController {
             favSelected()
         } else {
             favDeselected()
+        }
+        
+        //set shadows
+        let cards = [ buttonsCardView, textCardView ]
+        for card in cards {
+            card.setCardShadow()
         }
     }
     
@@ -107,7 +116,7 @@ class VendorDetailsViewController: UIViewController {
     private func updateConstraints() {
         self.name.center = self.zoomImage.center
         let yConstraint = NSLayoutConstraint(
-            item: self.infoBarView, attribute: .Top, relatedBy: .Equal, toItem: self.contentView,
+            item: self.buttonsCardView, attribute: .Top, relatedBy: .Equal, toItem: self.contentView,
             attribute: .Top, multiplier: 1.0, constant: 10
         )
         NSLayoutConstraint.activateConstraints([yConstraint])

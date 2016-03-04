@@ -18,6 +18,7 @@ struct Style {
     static let cream = UIColor(red: 0xff, green: 0xfd, blue: 0xcd)
     static let darkPurple = UIColor(red: 0x44, green: 0x40, blue: 0x55)
     static let rowHeight: CGFloat = 70.0
+    static let smallestRounded: CGFloat = 3
     static let smallRounded: CGFloat = 10
     static let largeRounded: CGFloat = 30
     static let zoomImageHeight: CGFloat = 185.0
