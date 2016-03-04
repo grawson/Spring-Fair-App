@@ -11,6 +11,8 @@ import UIKit
 import GoogleMaps
 import GRCustomAlert
 
+//TODO: Press directions when location services not enabled crashes app
+
 
 class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
         
@@ -18,7 +20,18 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
     //********************************************************
     
     @IBAction func getDirections(sender: UIBarButtonItem) {
-        self.directions()
+        
+        //check if location services enabled
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+                case .NotDetermined, .Restricted, .Denied:
+                    locationDeniedAlert()
+                case .AuthorizedAlways, .AuthorizedWhenInUse:
+                    self.directions()
+            }
+        } else {
+            locationDeniedAlert()
+        }
     }
     
     //MARK: - Variables
@@ -107,6 +120,14 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
                 self.view.addSubview(vc.view)
             }
         }
+    }
+    
+    private func locationDeniedAlert() {
+        let vc = CustomAlertViewController()
+        vc.alert.titleText = Text.accessFailureTitle
+        vc.alert.messageText = Text.locationFailureMessage
+        self.addChildViewController(vc)
+        self.view.addSubview(vc.view)
     }
 }
 
