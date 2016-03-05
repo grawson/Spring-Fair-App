@@ -1076,6 +1076,7 @@
                                         <constraints>
                                             <constraint firstItem="Jfl-YQ-lfO" firstAttribute="centerX" secondItem="KyG-TL-dCg" secondAttribute="centerX" id="6Te-av-dT3"/>
                                             <constraint firstItem="Jfl-YQ-lfO" firstAttribute="top" secondItem="KyG-TL-dCg" secondAttribute="top" id="6tb-to-mDI"/>
+                                            <constraint firstItem="qt8-pc-gqd" firstAttribute="top" secondItem="KyG-TL-dCg" secondAttribute="top" constant="195" id="8hn-sP-u89"/>
                                             <constraint firstItem="qt8-pc-gqd" firstAttribute="leading" secondItem="KyG-TL-dCg" secondAttribute="leading" constant="10" id="CAy-Uv-yDi"/>
                                             <constraint firstItem="TWS-m0-b4i" firstAttribute="centerY" secondItem="Jfl-YQ-lfO" secondAttribute="centerY" id="DjE-mr-bVC"/>
                                             <constraint firstItem="ApZ-vl-iZI" firstAttribute="leading" secondItem="KyG-TL-dCg" secondAttribute="leading" constant="10" id="F5V-ed-ggM"/>
@@ -1136,6 +1137,7 @@
                                 <exclude reference="hSg-HF-ZgH"/>
                                 <exclude reference="l9k-Ng-BZ1"/>
                                 <exclude reference="mE9-fe-ZdU"/>
+                                <exclude reference="Mgy-ND-8nD"/>
                                 <exclude reference="TM0-mO-D07"/>
                             </mask>
                         </variation>
@@ -1611,9 +1613,9 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="bgj-fA-8lI"/>
-                                                        <exclude reference="8GS-WN-XVX"/>
                                                         <exclude reference="7Ep-Ep-aGI"/>
+                                                        <exclude reference="8GS-WN-XVX"/>
+                                                        <exclude reference="bgj-fA-8lI"/>
                                                     </mask>
                                                 </variation>
                                             </imageView>
@@ -1629,7 +1631,7 @@
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3L-cb-8Ca">
                                                         <rect key="frame" x="20" y="10" width="540" height="278"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tedolor sit er elit f dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magnore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit er elit f dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit er elit f</mutableString>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tedolor sit er elit f dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magnore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit er elit f dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamLorem ipsum dolor sit er elit f</string>
                                                         <color key="textColor" red="0.2666666667" green="0.25098039220000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-CondensedBold" family="Open Sans Condensed" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1803,6 +1805,7 @@
                                             <constraint firstItem="ngY-0S-o5y" firstAttribute="leading" secondItem="PNa-Fh-vsA" secondAttribute="trailing" constant="-686" id="De0-cC-BZv"/>
                                             <constraint firstItem="Chc-LM-Bp1" firstAttribute="leading" secondItem="SU5-8e-GKG" secondAttribute="leading" constant="10" id="GJ8-a0-Qvh"/>
                                             <constraint firstItem="Xgb-rr-4eq" firstAttribute="leading" secondItem="SU5-8e-GKG" secondAttribute="leading" constant="10" id="O8S-pf-nLS"/>
+                                            <constraint firstItem="Xgb-rr-4eq" firstAttribute="top" secondItem="SU5-8e-GKG" secondAttribute="top" constant="195" id="PT7-OM-6Pn"/>
                                             <constraint firstAttribute="trailing" secondItem="Xgb-rr-4eq" secondAttribute="trailing" constant="10" id="ZCn-NG-dVk"/>
                                             <constraint firstItem="ngY-0S-o5y" firstAttribute="centerX" secondItem="PNa-Fh-vsA" secondAttribute="centerX" id="cJg-5A-AtQ"/>
                                             <constraint firstItem="Chc-LM-Bp1" firstAttribute="top" secondItem="Xgb-rr-4eq" secondAttribute="bottom" constant="15" id="cP6-fM-z5W"/>
@@ -1816,11 +1819,11 @@
                                                 <exclude reference="Bl1-8k-8un"/>
                                                 <exclude reference="De0-cC-BZv"/>
                                                 <exclude reference="goJ-pK-HXK"/>
-                                                <exclude reference="gae-p7-N1X"/>
-                                                <exclude reference="4gx-Bd-Qb9"/>
                                                 <exclude reference="3Bd-sW-2mP"/>
-                                                <exclude reference="CAb-dY-mR4"/>
+                                                <exclude reference="4gx-Bd-Qb9"/>
                                                 <exclude reference="AOp-ly-ShQ"/>
+                                                <exclude reference="CAb-dY-mR4"/>
+                                                <exclude reference="gae-p7-N1X"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -1855,6 +1858,7 @@
                                 <exclude reference="9UW-t9-xFg"/>
                                 <exclude reference="jYR-4x-DMM"/>
                                 <exclude reference="gNm-Wo-zUm"/>
+                                <exclude reference="05D-ba-zPp"/>
                                 <exclude reference="DlI-WU-orh"/>
                                 <exclude reference="Ngi-Tt-fxh"/>
                             </mask>
