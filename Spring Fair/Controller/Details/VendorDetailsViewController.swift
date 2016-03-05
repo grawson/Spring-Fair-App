@@ -158,14 +158,14 @@ extension VendorDetailsViewController: UIScrollViewDelegate {
      Change frame when scrolling
      */
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let yOffset = self.scrollView.contentOffset.y
-        if (yOffset < -Style.zoomImageHeight) {
-            var f = self.zoomImage.frame
-            f.origin.y = yOffset
-            f.size.height = -yOffset
-            self.zoomImage.frame = f
-            updateConstraints()
-        }
+//        let yOffset = self.scrollView.contentOffset.y
+//        if (yOffset < -Style.zoomImageHeight) {
+//            var f = self.zoomImage.frame
+//            f.origin.y = yOffset
+//            f.size.height = -yOffset
+//            self.zoomImage.frame = f
+//            updateConstraints()
+//        }
     }
 }
 
