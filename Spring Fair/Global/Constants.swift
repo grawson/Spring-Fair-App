@@ -33,6 +33,7 @@ struct Requests {
     static let allArtists = "http://jhuspringfair.com/app_api/all_artists.php"
     static let allVendors = "http://jhuspringfair.com/app_api/all_vendors.php"
     static let eventID = "http://jhuspringfair.com/app_api/event_id.php"
+    static let musicID = "http://jhuspringfair.com/app_api/music_id.php"
     static let vendorID = "http://jhuspringfair.com/app_api/vendor_id.php"
     static let coordinates = "http://jhuspringfair.com/app_api/coordinates.php"
 }
@@ -43,6 +44,8 @@ struct Requests {
 struct DefaultsKeys {
     static let favEvents = "EventDetailsViewController.favEvents"
     static let favVendors = "VendorDetailsViewController.favVendors"
+    static let favArtists = "VendorDetailsViewController.favArtists"
+
 }
 
 /**

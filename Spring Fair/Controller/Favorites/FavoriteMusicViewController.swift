@@ -1,5 +1,5 @@
 //
-//  MusicViewController.swift
+//  FavoriteMusicViewController.swift
 //  Spring Fair
 //
 //  Created by Gavi Rawson on 3/5/16.
@@ -10,57 +10,63 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class MusicViewController: UIViewController {
-
+class FavoriteMusicViewController: UIViewController {
+    
     //MARK: - Outlets
     //********************************************************
     
-    @IBOutlet weak var menu: UIBarButtonItem!
+    @IBOutlet weak var open: UIBarButtonItem!
     @IBOutlet weak var tableView: MusicTableView!
     
     
-    //MARK: - Life Cycle
+    //MARK: - Variables
+    //********************************************************
+    
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    
+    /// retrive IDs from user defaults
+    private var idDict: [String: [Int]] {
+        get {
+            let ids = defaults.objectForKey(DefaultsKeys.favArtists) as? [Int] ?? []
+            return ["ids": ids]
+        }
+    }
+    
+    //MARK: - Life cycle
     //********************************************************
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //bar button
-        self.menu.target = self.revealViewController()
-        self.menu.action = Selector("revealToggle:")
+        
+        open.target = self.revealViewController()
+        open.action = Selector("revealToggle:")
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
-        // Disable user interaction when menu is open
+        // Needed for disabling user interaction when menu is open
         self.revealViewController().delegate = self
         self.revealViewController().panGestureRecognizer()
         
         self.tableView.delegate = self.tableView
         self.tableView.dataSource = self.tableView
         
-        style()
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.loadArtists()
+        self.loadMusic(self.idDict)
     }
     
     //MARK: - Private methods
     //********************************************************
     
     /**
-     Style the View Controller
-     */
-    private func style() {
-        self.tableView.tableFooterView = UIView() //hide empty separator lines
-    }
-    
-    /** Load events from database based on IDs */
-    private func loadArtists() {
+    Load events from database based on IDs
+    */
+    private func loadMusic(ids: [String: [Int]]) {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.allArtists).spin()
+            Alamofire.request(.POST, Requests.musicID, parameters: ids).spin()
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -68,17 +74,18 @@ class MusicViewController: UIViewController {
                         
                         //if no data, display error message
                         if (self.tableView.artists!.isEmpty) {
-                            self.tableView.errorLabel("No scheduled artists.", color: Style.color1)
+                            let text = "No favorite music added."
+                            self.tableView.errorLabel(text, color: Style.color1)
                         }
                     }
             }
         } else {
             tableView.artists = nil
             tableView.reloadData()
-            tableView.errorLabel(Text.networkFail, color: Style.color1)
+            self.tableView.errorLabel(Text.networkFail, color: Style.color1)
         }
+        
     }
-    
     
     //MARK: - Navigation
     //********************************************************
@@ -88,7 +95,7 @@ class MusicViewController: UIViewController {
             switch identifier {
             case "show artist":
                 let cell = sender as! UITableViewCell
-                if let indexPath = self.tableView.indexPathForCell(cell) {
+                if let indexPath = tableView.indexPathForCell(cell) {
                     let destination = segue.destinationViewController as! MusicDetailsViewController
                     
                     // get data at specific row of json object
@@ -102,13 +109,11 @@ class MusicViewController: UIViewController {
             }
         }
     }
-
-
 }
 
-//MARK: - SWReveal controller delegate
+//MARK: - SW Reveal controller delegate
 //********************************************************
-extension MusicViewController: SWRevealViewControllerDelegate {
+extension FavoriteMusicViewController: SWRevealViewControllerDelegate {
     
     /**
      Needed for disabling user interaction when menu is open
@@ -116,6 +121,7 @@ extension MusicViewController: SWRevealViewControllerDelegate {
     func revealController(revealController: SWRevealViewController, willMoveToPosition position: FrontViewPosition){
         self.tableView.userInteractionEnabled = (position == FrontViewPosition.Left)
     }
-    
 }
+
+
 

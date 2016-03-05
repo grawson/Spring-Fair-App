@@ -26,6 +26,8 @@
 		5667732D1C30866F00C82B9C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667732C1C30866F00C82B9C /* Event.swift */; };
 		568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568583C21C8B836400A699C7 /* MusicViewController.swift */; };
 		568583C51C8B881900A699C7 /* MusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568583C41C8B881900A699C7 /* MusicTableView.swift */; };
+		568583C71C8B918E00A699C7 /* MusicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568583C61C8B918D00A699C7 /* MusicDetailsViewController.swift */; };
+		568583CB1C8B9A6500A699C7 /* FavoriteMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568583CA1C8B9A6500A699C7 /* FavoriteMusicViewController.swift */; };
 		568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568BA3561C4F4E5900E17288 /* Reachability.swift */; };
 		5690225A1C024195006F010E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569022591C024195006F010E /* AppDelegate.swift */; };
 		569022641C024195006F010E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569022621C024195006F010E /* LaunchScreen.storyboard */; };
@@ -69,6 +71,8 @@
 		5667732C1C30866F00C82B9C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		568583C21C8B836400A699C7 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		568583C41C8B881900A699C7 /* MusicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableView.swift; sourceTree = "<group>"; };
+		568583C61C8B918D00A699C7 /* MusicDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicDetailsViewController.swift; sourceTree = "<group>"; };
+		568583CA1C8B9A6500A699C7 /* FavoriteMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteMusicViewController.swift; sourceTree = "<group>"; };
 		568BA3561C4F4E5900E17288 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		569022561C024195006F010E /* Spring Fair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spring Fair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569022591C024195006F010E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			children = (
 				561827A11C2743B4007DD407 /* EventDetailsViewController.swift */,
 				56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */,
+				568583C61C8B918D00A699C7 /* MusicDetailsViewController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			children = (
 				563627EB1C30ACBD005BD501 /* FavoriteEventsViewController.swift */,
 				563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */,
+				568583CA1C8B9A6500A699C7 /* FavoriteMusicViewController.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -461,6 +467,8 @@
 				56D55E3C1C2D09530018E895 /* HighlightsTableViewCell.swift in Sources */,
 				56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */,
 				5690225A1C024195006F010E /* AppDelegate.swift in Sources */,
+				568583CB1C8B9A6500A699C7 /* FavoriteMusicViewController.swift in Sources */,
+				568583C71C8B918E00A699C7 /* MusicDetailsViewController.swift in Sources */,
 				563627F01C30B191005BD501 /* VendorsViewController.swift in Sources */,
 				560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */,
 				56D55E491C2D2C600018E895 /* Constants.swift in Sources */,
