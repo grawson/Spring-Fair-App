@@ -17,6 +17,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var musicButton: UIButton!
     
     
     //MARK: - Life cycle
@@ -26,7 +27,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         //Round corners of all buttons
-        let buttons = [button1, button2, button3, button4]
+        let buttons = [button1, button2, button3, button4, musicButton]
         for button in buttons {
             button.layer.masksToBounds = true
             button.layer.cornerRadius = Style.smallRounded

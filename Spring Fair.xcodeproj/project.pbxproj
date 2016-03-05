@@ -24,6 +24,8 @@
 		563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */; };
 		56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */; };
 		5667732D1C30866F00C82B9C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667732C1C30866F00C82B9C /* Event.swift */; };
+		568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568583C21C8B836400A699C7 /* MusicViewController.swift */; };
+		568583C51C8B881900A699C7 /* MusicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568583C41C8B881900A699C7 /* MusicTableView.swift */; };
 		568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568BA3561C4F4E5900E17288 /* Reachability.swift */; };
 		5690225A1C024195006F010E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569022591C024195006F010E /* AppDelegate.swift */; };
 		569022641C024195006F010E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569022621C024195006F010E /* LaunchScreen.storyboard */; };
@@ -65,6 +67,8 @@
 		563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVendorsViewController.swift; sourceTree = "<group>"; };
 		56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailsViewController.swift; sourceTree = "<group>"; };
 		5667732C1C30866F00C82B9C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		568583C21C8B836400A699C7 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		568583C41C8B881900A699C7 /* MusicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableView.swift; sourceTree = "<group>"; };
 		568BA3561C4F4E5900E17288 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		569022561C024195006F010E /* Spring Fair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spring Fair.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569022591C024195006F010E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				563627E51C30A5B9005BD501 /* EventsTableView.swift */,
 				56D55E3B1C2D09530018E895 /* HighlightsTableViewCell.swift */,
 				563627ED1C30B0D1005BD501 /* VendorsTableView.swift */,
+				568583C41C8B881900A699C7 /* MusicTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			children = (
 				563627E71C30A86E005BD501 /* EventsViewController.swift */,
 				563627EF1C30B191005BD501 /* VendorsViewController.swift */,
+				568583C21C8B836400A699C7 /* MusicViewController.swift */,
 			);
 			path = "Data Tables";
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 				563627E81C30A86E005BD501 /* EventsViewController.swift in Sources */,
 				563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */,
 				561827AD1C28AD59007DD407 /* Modules.swift in Sources */,
+				568583C51C8B881900A699C7 /* MusicTableView.swift in Sources */,
 				56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */,
 				5613FA891C31B6DE00BA9816 /* Keys.swift in Sources */,
 				563627EC1C30ACBD005BD501 /* FavoriteEventsViewController.swift in Sources */,
@@ -458,6 +465,7 @@
 				560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */,
 				56D55E491C2D2C600018E895 /* Constants.swift in Sources */,
 				5667732D1C30866F00C82B9C /* Event.swift in Sources */,
+				568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */,
 				561827A21C2743B4007DD407 /* EventDetailsViewController.swift in Sources */,
 				568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */,
 				563627E61C30A5B9005BD501 /* EventsTableView.swift in Sources */,

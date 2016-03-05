@@ -21,7 +21,6 @@ class EventDetailsViewController: UIViewController {
     //********************************************************
     
     @IBOutlet weak var mapButton: UIButton!
-    @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var calendarButton: UIButton!
     @IBOutlet weak var favoritesButton: UIButton!
     
@@ -111,11 +110,10 @@ class EventDetailsViewController: UIViewController {
     private func style() {
         
         //store buttons
-        let buttons = [self.calendarButton, self.favoritesButton, self.mapButton, self.button4]
+        let buttons = [self.calendarButton, self.favoritesButton, self.mapButton]
         
         //Round button corners
         self.mapButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
-        self.button4.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         self.favoritesButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         self.infoBar.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         self.calendarButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)

@@ -30,6 +30,7 @@ struct Style {
 struct Requests {
     static let highlights = "http://jhuspringfair.com/app_api/highlights.php"
     static let allEvents = "http://jhuspringfair.com/app_api/all_events.php"
+    static let allArtists = "http://jhuspringfair.com/app_api/all_artists.php"
     static let allVendors = "http://jhuspringfair.com/app_api/all_vendors.php"
     static let eventID = "http://jhuspringfair.com/app_api/event_id.php"
     static let vendorID = "http://jhuspringfair.com/app_api/vendor_id.php"
