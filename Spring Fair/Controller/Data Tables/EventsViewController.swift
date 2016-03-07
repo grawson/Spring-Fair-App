@@ -48,7 +48,7 @@ class EventsViewController: UIViewController {
     //MARK: - Private methods
     //********************************************************
     
-    /** Load events from database based on IDs */
+    /** Load all events from database. */
     private func loadEvents() {
         
         if Reachability.isConnectedToNetwork() {

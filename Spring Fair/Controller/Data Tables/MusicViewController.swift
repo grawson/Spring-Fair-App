@@ -56,7 +56,7 @@ class MusicViewController: UIViewController {
         self.tableView.tableFooterView = UIView() //hide empty separator lines
     }
     
-    /** Load events from database based on IDs */
+    /** Load all music from database */
     private func loadArtists() {
         
         if Reachability.isConnectedToNetwork() {

@@ -29,7 +29,6 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var location: UILabel!
     
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var infoBar: UIView!
     @IBOutlet weak var descript: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var zoomImage: UIImageView!
@@ -115,7 +114,6 @@ class EventDetailsViewController: UIViewController {
         //Round button corners
         self.mapButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         self.favoritesButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
-        self.infoBar.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         self.calendarButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         
         //highlighted button colors
