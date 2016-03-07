@@ -33,8 +33,8 @@ class MusicDetailsViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var zoomImage: UIImageView!
-    @IBOutlet weak var textCardView: UIView!
     @IBOutlet weak var buttonsCardView: UIView!
+    @IBOutlet weak var infoTextCardView: UIView!
     
     
     @IBAction func addToCalendar(sender: UIButton) {
@@ -136,7 +136,7 @@ class MusicDetailsViewController: UIViewController {
         self.favEvents.contains(id) ? favSelected() : favDeselected()
         
         //set shadows
-        textCardView.setCardShadow()
+        infoTextCardView.setCardShadow()
         buttonsCardView.setCardShadow()
     }
     

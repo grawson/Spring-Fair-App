@@ -34,6 +34,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var zoomImage: UIImageView!
     @IBOutlet weak var textCardView: UIView!
     @IBOutlet weak var buttonsCardView: UIView!
+    @IBOutlet weak var infoTextCardView: UIView!
     
     
     @IBAction func addToCalendar(sender: UIButton) {
@@ -128,6 +129,7 @@ class EventDetailsViewController: UIViewController {
         //set shadows
         textCardView.setCardShadow()
         buttonsCardView.setCardShadow()
+        infoTextCardView.setCardShadow()
     }
     
     /**

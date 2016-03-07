@@ -15,7 +15,6 @@ class VendorDetailsViewController: UIViewController {
     //********************************************************
     
     @IBOutlet weak var websiteButton: UIButton!
-    @IBOutlet weak var infoBarView: UIView!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -25,6 +24,7 @@ class VendorDetailsViewController: UIViewController {
     @IBOutlet weak var descript: UITextView!
     @IBOutlet weak var textCardView: UIView!
     @IBOutlet weak var buttonsCardView: UIView!
+    @IBOutlet weak var infoTextCardView: UIView!
     
     /**
      Add or remove favorite ID from storage
@@ -99,7 +99,6 @@ class VendorDetailsViewController: UIViewController {
         //Round button corners
         self.websiteButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
         self.favoritesButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
-        self.infoBarView.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
         
         //state of favorites button
         let id = self.vendor.getID()
@@ -110,7 +109,7 @@ class VendorDetailsViewController: UIViewController {
         }
         
         //set shadows
-        let cards = [ buttonsCardView, textCardView ]
+        let cards = [ buttonsCardView, textCardView, infoTextCardView ]
         for card in cards {
             card.setCardShadow()
         }
@@ -164,14 +163,14 @@ extension VendorDetailsViewController: UIScrollViewDelegate {
      Change frame when scrolling
      */
     func scrollViewDidScroll(scrollView: UIScrollView) {
-//        let yOffset = self.scrollView.contentOffset.y
-//        if (yOffset < -Style.zoomImageHeight) {
-//            var f = self.zoomImage.frame
-//            f.origin.y = yOffset
-//            f.size.height = -yOffset
-//            self.zoomImage.frame = f
-//            updateConstraints()
-//        }
+        let yOffset = self.scrollView.contentOffset.y
+        if (yOffset < -Style.zoomImageHeight) {
+            var f = self.zoomImage.frame
+            f.origin.y = yOffset
+            f.size.height = -yOffset
+            self.zoomImage.frame = f
+            updateConstraints()
+        }
     }
 }
 
