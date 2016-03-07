@@ -12,13 +12,13 @@ import SwiftyJSON
 class Event {
     
     // Secific event details
-    private let id: Int
-    private let name: String
-    private let location: String
-    private var startTime: String
-    private var endTime: String
-    private let date: String
-    private let description: String
+    var id: Int
+    var name: String
+    var location: String
+    var startTime: String
+    var endTime: String
+    var date: String
+    var description: String
     
     /**
      Empty initializer.

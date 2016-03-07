@@ -23,14 +23,14 @@ class MusicDetailsViewController: UIViewController {
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var calendarButton: UIButton!
     @IBOutlet weak var favoritesButton: UIButton!
+    @IBOutlet weak var sampleButton: UIButton!
     
+    @IBOutlet weak var genre: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var location: UILabel!
     
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var infoBar: UIView!
-    @IBOutlet weak var descript: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var zoomImage: UIImageView!
     @IBOutlet weak var textCardView: UIView!
@@ -44,6 +44,13 @@ class MusicDetailsViewController: UIViewController {
     
     @IBAction func mapSegue(sender: UIButton) {
         self.loadCoordinates()
+    }
+    
+    /** Sample an artist's music */
+    @IBAction func sample(sender: UIButton) {
+        if let url = NSURL(string: artist.sample) {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
     
     /**
@@ -66,7 +73,7 @@ class MusicDetailsViewController: UIViewController {
     //MARK: - Variables
     //********************************************************
     
-    var artist = Event() //TODO: Create own model for artist
+    var artist = Artist() //TODO: Create own model for artist
     private var xCoordinate = 0.0
     private var yCoordinate = 0.0
     private let defaults = NSUserDefaults.standardUserDefaults()
@@ -110,13 +117,14 @@ class MusicDetailsViewController: UIViewController {
     private func style() {
         
         //store buttons
-        let buttons = [self.calendarButton, self.favoritesButton, self.mapButton]
+        let buttons = [self.calendarButton, self.favoritesButton, self.mapButton, sampleButton]
         
         //Round button corners
         self.mapButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         self.favoritesButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
-        self.infoBar.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
         self.calendarButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
+        sampleButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
+
         
         //highlighted button colors
         for button in buttons {
@@ -196,7 +204,7 @@ class MusicDetailsViewController: UIViewController {
         self.name.text = artist.getName().uppercaseString
         self.time.text  = artist.getStartTime() + " - " + artist.getEndTime()
         self.location.text = artist.getLocation()
-        self.descript.text = artist.getDescription()
+        genre.text = artist.genre
     }
     
     /**

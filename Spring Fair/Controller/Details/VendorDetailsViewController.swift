@@ -43,6 +43,12 @@ class VendorDetailsViewController: UIViewController {
         }
     }
     
+    /** OPen the vendor's website */
+    @IBAction func openWebsite(sender: UIButton) {
+        let websiteAddress = NSURL(string: "google.com") // TODO: change url
+        UIApplication.sharedApplication().openURL(websiteAddress!)
+    }
+    
     //MARK: - Variables
     //********************************************************
     

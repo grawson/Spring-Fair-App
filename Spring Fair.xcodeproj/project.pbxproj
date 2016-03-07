@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C3AC744AED8ACEC6D489DFE /* Pods_Spring_Fair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7482C7D60CA7F5890D42E617 /* Pods_Spring_Fair.framework */; };
+		560AAB061C8CEDC100C92207 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560AAB051C8CEDC100C92207 /* Artist.swift */; };
 		560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560C6EDD1C2D517000E8C619 /* GoogleMapsViewController.swift */; };
 		5613FA891C31B6DE00BA9816 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613FA881C31B6DE00BA9816 /* Keys.swift */; };
 		5618279E1C271ED1007DD407 /* Bazar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5618279D1C271ED1007DD407 /* Bazar.ttf */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		033FAA7082AAAD0E6A09599C /* Pods-Spring Fair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.debug.xcconfig"; sourceTree = "<group>"; };
+		560AAB051C8CEDC100C92207 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		560C6EDD1C2D517000E8C619 /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		5613FA881C31B6DE00BA9816 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5618279D1C271ED1007DD407 /* Bazar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazar.ttf; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				5667732C1C30866F00C82B9C /* Event.swift */,
+				560AAB051C8CEDC100C92207 /* Artist.swift */,
 				563627E31C30A1C8005BD501 /* Vendor.swift */,
 			);
 			path = Model;
@@ -306,6 +309,7 @@
 				569022541C024195006F010E /* Resources */,
 				042DE44570C71B1AAD3D921A /* Embed Pods Frameworks */,
 				42BAEBF34B9AD54A5F03C65F /* Copy Pods Resources */,
+				560AAB041C8CBAFE00C92207 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -433,6 +437,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		560AAB041C8CBAFE00C92207 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
+		};
 		B7FEEB858DCBA395726389C4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,6 +495,7 @@
 				568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */,
 				563627E61C30A5B9005BD501 /* EventsTableView.swift in Sources */,
 				569022801C02991A006F010E /* SWRevealViewController.m in Sources */,
+				560AAB061C8CEDC100C92207 /* Artist.swift in Sources */,
 				56F9A4AF1C0AC4EF003B1E44 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

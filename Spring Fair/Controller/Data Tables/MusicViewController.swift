@@ -93,7 +93,8 @@ class MusicViewController: UIViewController {
                     
                     // get data at specific row of json object
                     if let artist = self.tableView.artists?[indexPath.section][indexPath.row] {
-                        destination.artist = Event(data: artist)
+                        destination.artist = Artist(data: artist)
+                        print(artist)
                     }
                     
                 }
