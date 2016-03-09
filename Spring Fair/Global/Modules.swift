@@ -155,14 +155,16 @@ extension UITableView {
         
         //Add footer view
         let errorView = UIView()
+//        errorView.backgroundColor = UIColor.whiteColor()
         errorView.frame = UIApplication.sharedApplication().keyWindow?.frame ?? CGRect()
         self.addSubview(errorView)
         self.scrollEnabled = false
         
         //create label and style
-        let label = UILabel(frame: CGRectMake(0, 0, errorView.frame.width, 40))
+        let label = UILabel(frame: CGRectMake(0, 0, errorView.frame.width - 20, errorView.frame.height))
         label.center = CGPoint(x: errorView.center.x, y: errorView.center.y / 1.5)
         label.text = text
+        label.numberOfLines = 0
         label.textAlignment = .Center;
         label.font = (UIFont(name: "Open Sans Condensed", size: 20))
         label.textColor = color

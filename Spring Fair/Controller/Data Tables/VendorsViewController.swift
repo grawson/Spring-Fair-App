@@ -40,10 +40,11 @@ class VendorsViewController: UIViewController {
         self.tableView.dataSource = self.tableView
         
         self.style()
+        self.tempMessage()  //TODO: Remove when vendors are finalized
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.loadEvents()
+        //self.loadEvents() //TODO: add back in when vendors are finalized
     }
     
     //MARK: - Private methods
@@ -54,6 +55,16 @@ class VendorsViewController: UIViewController {
      */
     private func style() {
         self.tableView.tableFooterView = UIView() //hide empty separator lines
+    }
+    
+    /**
+     Display TBD view for vendors
+     */
+    private func tempMessage() {
+        tableView.errorLabel(
+            "The vendors are still being finalized. Stay tuned and be sure to update your app!",
+            color: Style.color1
+        )
     }
     
     /** 
