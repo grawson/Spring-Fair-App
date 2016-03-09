@@ -84,7 +84,7 @@ class FavoriteVendorsViewController: UIViewController {
                         
                         //if no data, display error message
                         if (self.tableView.vendors!.isEmpty) {
-                            let text = "No favorite vendors added"
+                            let text = "No favorite vendors added."
                             self.tableView.errorLabel(text, color: Style.color1)
                         }
                     }
