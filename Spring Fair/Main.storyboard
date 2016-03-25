@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Mh-Pf-Dwo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Mh-Pf-Dwo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -916,7 +916,7 @@
                                                 <rect key="frame" x="10" y="195" width="580" height="138"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzT-vT-sVk" userLabel="SpacerView">
-                                                        <rect key="frame" x="286" y="73" width="7" height="98"/>
+                                                        <rect key="frame" x="286" y="126" width="7" height="98"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="7" id="9A5-eG-kDR"/>
@@ -924,7 +924,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU7-lw-Fv2">
-                                                        <rect key="frame" x="150" y="20" width="136" height="45"/>
+                                                        <rect key="frame" x="150" y="73" width="136" height="45"/>
                                                         <color key="backgroundColor" red="0.45098039220000002" green="0.4431372549" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="GBu-by-IiB"/>
@@ -938,23 +938,8 @@
                                                             <action selector="addToCalendar:" destination="6SC-2h-mlq" eventType="touchUpInside" id="Xu3-au-2G4"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzS-7J-pKO">
-                                                        <rect key="frame" x="293" y="20" width="136" height="45"/>
-                                                        <color key="backgroundColor" red="0.45098039215686275" green="0.44313725490196076" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="136" id="4Uv-kg-EVl"/>
-                                                            <constraint firstAttribute="height" constant="45" id="J7w-gg-uGs"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="OpenSans-CondensedBold" family="Open Sans Condensed" pointSize="15"/>
-                                                        <state key="normal" title="Add to Favorites">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="toggleFavorite:" destination="6SC-2h-mlq" eventType="touchUpInside" id="wc6-RL-zUb"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tp-2k-rO2">
-                                                        <rect key="frame" x="222" y="73" width="136" height="45"/>
+                                                        <rect key="frame" x="222" y="20" width="136" height="45"/>
                                                         <color key="backgroundColor" red="0.45098039215686275" green="0.44313725490196076" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="136" id="fHS-W1-lsC"/>
@@ -968,31 +953,54 @@
                                                             <action selector="mapSegue:" destination="6SC-2h-mlq" eventType="touchUpInside" id="ZHJ-ou-RxO"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzS-7J-pKO">
+                                                        <rect key="frame" x="293" y="73" width="136" height="45"/>
+                                                        <color key="backgroundColor" red="0.45098039215686275" green="0.44313725490196076" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="136" id="4Uv-kg-EVl"/>
+                                                            <constraint firstAttribute="height" constant="45" id="J7w-gg-uGs"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="OpenSans-CondensedBold" family="Open Sans Condensed" pointSize="15"/>
+                                                        <state key="normal" title="Add to Favorites">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="toggleFavorite:" destination="6SC-2h-mlq" eventType="touchUpInside" id="wc6-RL-zUb"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="4Tp-2k-rO2" firstAttribute="top" secondItem="eU7-lw-Fv2" secondAttribute="bottom" constant="8" id="1kH-08-mqW"/>
+                                                    <constraint firstItem="TzS-7J-pKO" firstAttribute="top" secondItem="4Tp-2k-rO2" secondAttribute="bottom" constant="8" id="78n-Xy-I50"/>
                                                     <constraint firstItem="vzT-vT-sVk" firstAttribute="centerX" secondItem="qt8-pc-gqd" secondAttribute="centerX" id="84o-MN-sYM"/>
                                                     <constraint firstItem="vzT-vT-sVk" firstAttribute="top" secondItem="eU7-lw-Fv2" secondAttribute="bottom" constant="8" symbolic="YES" id="8GU-bL-lRP"/>
                                                     <constraint firstAttribute="bottom" secondItem="4Tp-2k-rO2" secondAttribute="bottom" constant="20" id="AaA-qk-H56"/>
                                                     <constraint firstItem="TzS-7J-pKO" firstAttribute="leading" secondItem="vzT-vT-sVk" secondAttribute="trailing" id="EZs-f8-6h4"/>
                                                     <constraint firstItem="4Tp-2k-rO2" firstAttribute="top" secondItem="eU7-lw-Fv2" secondAttribute="bottom" constant="8" id="N6Q-LZ-SNG"/>
+                                                    <constraint firstItem="eU7-lw-Fv2" firstAttribute="top" secondItem="4Tp-2k-rO2" secondAttribute="bottom" constant="8" id="Qoc-r1-b5K"/>
                                                     <constraint firstAttribute="bottom" secondItem="4Tp-2k-rO2" secondAttribute="bottom" constant="20" id="ZMA-26-0yh"/>
                                                     <constraint firstItem="TzS-7J-pKO" firstAttribute="top" secondItem="qt8-pc-gqd" secondAttribute="top" constant="20" id="ZnG-bg-8Cu"/>
                                                     <constraint firstItem="vzT-vT-sVk" firstAttribute="leading" secondItem="4Tp-2k-rO2" secondAttribute="trailing" id="beT-SN-NfK"/>
                                                     <constraint firstAttribute="height" constant="191" id="cPs-4z-xlT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eU7-lw-Fv2" secondAttribute="bottom" constant="20" id="fNF-SN-pHA"/>
                                                     <constraint firstItem="4Tp-2k-rO2" firstAttribute="top" secondItem="eU7-lw-Fv2" secondAttribute="bottom" constant="8" id="qCf-Yi-qCb"/>
                                                     <constraint firstItem="eU7-lw-Fv2" firstAttribute="top" secondItem="qt8-pc-gqd" secondAttribute="top" constant="20" id="sYg-Rr-h9Q"/>
                                                     <constraint firstItem="4Tp-2k-rO2" firstAttribute="centerX" secondItem="qt8-pc-gqd" secondAttribute="centerX" id="tF0-La-CQr"/>
+                                                    <constraint firstItem="4Tp-2k-rO2" firstAttribute="top" secondItem="qt8-pc-gqd" secondAttribute="top" constant="20" id="uXt-Yn-cd4"/>
                                                     <constraint firstItem="vzT-vT-sVk" firstAttribute="leading" secondItem="eU7-lw-Fv2" secondAttribute="trailing" id="yUn-8X-iGi"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="cPs-4z-xlT"/>
+                                                        <exclude reference="sYg-Rr-h9Q"/>
                                                         <exclude reference="1kH-08-mqW"/>
                                                         <exclude reference="AaA-qk-H56"/>
+                                                        <exclude reference="N6Q-LZ-SNG"/>
+                                                        <exclude reference="ZMA-26-0yh"/>
                                                         <exclude reference="qCf-Yi-qCb"/>
                                                         <exclude reference="beT-SN-NfK"/>
+                                                        <exclude reference="ZnG-bg-8Cu"/>
                                                     </mask>
                                                 </variation>
                                             </view>
@@ -2069,7 +2077,7 @@
         <image name="Rock Music" width="25" height="25"/>
         <image name="Rock Music Filled" width="25" height="25"/>
         <image name="Sun" width="302" height="302"/>
-        <image name="burger_bar" width="26" height="19"/>
+        <image name="burger_bar" width="29" height="29"/>
         <image name="food" width="29" height="29"/>
         <image name="location" width="29" height="29"/>
         <image name="music" width="29" height="29"/>
