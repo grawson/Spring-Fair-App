@@ -39,7 +39,7 @@ class FavoriteMusicViewController: UIViewController {
         super.viewDidLoad()
         
         open.target = self.revealViewController()
-        open.action = Selector("revealToggle:")
+        open.action = #selector(SWRevealViewController.revealToggle(_:))
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -50,15 +50,19 @@ class FavoriteMusicViewController: UIViewController {
         
         self.tableView.delegate = self.tableView
         self.tableView.dataSource = self.tableView
-        
+                
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false //show tab bar
         self.loadMusic(self.idDict)
     }
     
+    
+    
     //MARK: - Private methods
     //********************************************************
+    
     
     /**
     Load events from database based on IDs

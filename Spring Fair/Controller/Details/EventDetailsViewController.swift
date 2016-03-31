@@ -90,9 +90,6 @@ class EventDetailsViewController: UIViewController {
         self.scrollView.contentInset = UIEdgeInsetsMake(Style.zoomImageHeight, 0, 0, 0)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = false //show tab bar
-    }
     
     override func viewWillLayoutSubviews() {
         self.zoomImage.frame = CGRectMake(0, -Style.zoomImageHeight, self.scrollView.frame.width, Style.zoomImageHeight);

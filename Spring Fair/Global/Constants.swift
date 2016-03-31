@@ -36,6 +36,9 @@ struct Requests {
     static let musicID = "http://jhuspringfair.com/app_api/music_id.php"
     static let vendorID = "http://jhuspringfair.com/app_api/vendor_id.php"
     static let coordinates = "http://jhuspringfair.com/app_api/coordinates.php"
+    static let allArtVendors = "http://jhuspringfair.com/app_api/all_art_vendors.php"
+    static let artVendorID = "http://jhuspringfair.com/app_api/art_vendors_id.php"
+
 }
 
 /**
@@ -45,7 +48,7 @@ struct DefaultsKeys {
     static let favEvents = "EventDetailsViewController.favEvents"
     static let favVendors = "VendorDetailsViewController.favVendors"
     static let favArtists = "VendorDetailsViewController.favArtists"
-
+    static let favArtVendors = "VendorDetailsViewController.favArtVendors"
 }
 
 /**

@@ -107,7 +107,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
      */
     private func directions() {
         if let map = self.mapView {
-            let url = "comgooglemaps://?saddr=\(map.myLocation.coordinate.latitude),\(map.myLocation.coordinate.longitude)&daddr=\(self.xCoordinate),\(self.yCoordinate)&center=37.423725,-122.0877&directionsmode=walking&zoom=17.5"
+            let url = "comgooglemaps://?saddr=\(map.myLocation?.coordinate.latitude),\(map.myLocation?.coordinate.longitude)&daddr=\(self.xCoordinate),\(self.yCoordinate)&center=37.423725,-122.0877&directionsmode=walking&zoom=17.5"
             
             //open directions in GM app if downloaded on system
             if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {

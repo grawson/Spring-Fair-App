@@ -38,7 +38,7 @@ class FavoriteEventsViewController: UIViewController {
         super.viewDidLoad()
         
         open.target = self.revealViewController()
-        open.action = Selector("revealToggle:")
+        open.action = #selector(SWRevealViewController.revealToggle(_:))
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -53,8 +53,10 @@ class FavoriteEventsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false //show tab bar
         self.loadEvents(self.idDict)
     }
+    
     
     //MARK: - Private methods
     //********************************************************

@@ -155,7 +155,7 @@ extension UITableView {
         
         //Add footer view
         let errorView = UIView()
-//        errorView.backgroundColor = UIColor.whiteColor()
+        errorView.backgroundColor = UIColor.whiteColor()
         errorView.frame = UIApplication.sharedApplication().keyWindow?.frame ?? CGRect()
         self.addSubview(errorView)
         self.scrollEnabled = false

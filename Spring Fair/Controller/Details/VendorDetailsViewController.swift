@@ -8,6 +8,9 @@
 
 import UIKit
 import SwiftyJSON
+import Alamofire
+import AlamofireSpinner
+import GRCustomAlert
 
 class VendorDetailsViewController: UIViewController {
 
@@ -25,7 +28,16 @@ class VendorDetailsViewController: UIViewController {
     @IBOutlet weak var textCardView: UIView!
     @IBOutlet weak var buttonsCardView: UIView!
     @IBOutlet weak var infoTextCardView: UIView!
+    @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var locationTextView: UILabel!
+    @IBOutlet weak var timeTextView: UILabel!
+    @IBOutlet weak var typeIcon: UIImageView!
     
+    
+    @IBAction func mapSegue(sender: UIButton) {
+        loadCoordinates()
+    }
+  
     /**
      Add or remove favorite ID from storage
      */
@@ -43,21 +55,27 @@ class VendorDetailsViewController: UIViewController {
         }
     }
     
-    /** OPen the vendor's website */
+    /** Open the vendor's website */
     @IBAction func openWebsite(sender: UIButton) {
-        let websiteAddress = NSURL(string: "google.com") // TODO: change url
-        UIApplication.sharedApplication().openURL(websiteAddress!)
+        if let url = url, address =  NSURL(string: url) {
+            UIApplication.sharedApplication().openURL(address)
+        }
     }
     
     //MARK: - Variables
     //********************************************************
     
+    private var xCoordinate = 0.0
+    private var yCoordinate = 0.0
+    private var url: String?
     var vendor = Vendor()
     private let defaults = NSUserDefaults.standardUserDefaults()
+    var key: String?
+    var artVendor: Bool?
     
     private var favVendors: [Int] {
-        get { return defaults.objectForKey(DefaultsKeys.favVendors) as? [Int] ?? [] }  //retrive value from NSUserDefaults
-        set { defaults.setObject(newValue, forKey: DefaultsKeys.favVendors) }  //store the value in NSUserDefaults
+        get { return defaults.objectForKey(key!) as? [Int] ?? [] }  //retrive value from NSUserDefaults
+        set { defaults.setObject(newValue, forKey: key!) }  //store the value in NSUserDefaults
     }
     
     //MARK: - Life cycle
@@ -82,6 +100,7 @@ class VendorDetailsViewController: UIViewController {
         updateConstraints()
     }
     
+    
     //MARK: - Private methods
     //********************************************************
     
@@ -91,7 +110,7 @@ class VendorDetailsViewController: UIViewController {
     private func style() {
         
         //set button highlighted states
-        let buttons = [self.websiteButton, self.favoritesButton]
+        let buttons = [websiteButton, favoritesButton, mapButton]
         for button in buttons {
             button.setBackgroundColor(Style.darkPurple, forState: .Highlighted)
         }
@@ -99,6 +118,8 @@ class VendorDetailsViewController: UIViewController {
         //Round button corners
         self.websiteButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
         self.favoritesButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
+        self.mapButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
+
         
         //state of favorites button
         let id = self.vendor.getID()
@@ -112,6 +133,13 @@ class VendorDetailsViewController: UIViewController {
         let cards = [ buttonsCardView, textCardView, infoTextCardView ]
         for card in cards {
             card.setCardShadow()
+        }
+        
+        //set icon if art vendor
+        if let artVendor = artVendor {
+            if artVendor {
+                typeIcon.image = UIImage(named: "art_purple")
+            }
         }
     }
     
@@ -131,9 +159,12 @@ class VendorDetailsViewController: UIViewController {
      Set up the data on the page 
      */
     private func setupData() {
-        self.name.text = vendor.getName().uppercaseString
-        self.type.text = vendor.getType()
-        self.descript.text = vendor.getDescription()
+        name.text = vendor.getName().uppercaseString
+        type.text = vendor.getType()
+        descript.text = vendor.getDescription()
+        locationTextView.text = vendor.location
+        url = vendor.website
+        timeTextView.text  = vendor.startTime + " - " + vendor.endTime
     }
     
     /** 
@@ -153,6 +184,53 @@ class VendorDetailsViewController: UIViewController {
         //favoritesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         favoritesButton.backgroundColor = Style.color1
     }
+    
+    /**
+     Load coordinates from database based on IDs
+     */
+    private func loadCoordinates() {
+        mapButton.enabled = false   //disable while loading coordinates
+        let outData = ["name": self.vendor.formattedLocation()]
+        
+        if Reachability.isConnectedToNetwork() {
+            Alamofire.request(.POST, Requests.coordinates, parameters: outData).spin()
+                .responseJSON { response in
+                    
+                    if let json = response.result.value {
+                        let data = JSON(json)
+                        
+                        //if data present
+                        if !(data.isEmpty) {
+                            self.xCoordinate = data[0]["xcoordinate"].doubleValue
+                            self.yCoordinate = data[0]["ycoordinate"].doubleValue
+                            self.performSegueWithIdentifier("show_map", sender: self)
+                        }
+                    }
+            }
+        } else {
+            let vc = CustomAlertViewController()
+            vc.alert.titleText = "Uh Oh..."
+            vc.alert.messageText = Text.networkFail
+            self.addChildViewController(vc)
+            self.view.addSubview(vc.view)
+        }
+        mapButton.enabled = true
+    }
+    
+    //MARK: - Navigation
+    //********************************************************
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "show_map" {
+            //let nc = segue.destinationViewController as! UINavigationController
+            //let vc = nc.topViewController as! GoogleMapsViewController
+            let vc = segue.destinationViewController as! GoogleMapsViewController
+            vc.xCoordinate = self.xCoordinate
+            vc.yCoordinate = self.yCoordinate
+            vc.locationName = self.vendor.location
+        }
+    }
+
 }
 
 //MARK: - Scroll View Delegate

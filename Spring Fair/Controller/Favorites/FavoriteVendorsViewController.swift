@@ -40,7 +40,7 @@ class FavoriteVendorsViewController: UIViewController {
         super.viewDidLoad()
         
         open.target = self.revealViewController()
-        open.action = Selector("revealToggle:")
+        open.action = #selector(SWRevealViewController.revealToggle(_:))
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -56,6 +56,7 @@ class FavoriteVendorsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false //show tab bar
         self.loadEvents(self.idDict)
     }
     
@@ -84,7 +85,7 @@ class FavoriteVendorsViewController: UIViewController {
                         
                         //if no data, display error message
                         if (self.tableView.vendors!.isEmpty) {
-                            let text = "No favorite vendors added."
+                            let text = "No favorite food vendors added."
                             self.tableView.errorLabel(text, color: Style.color1)
                         }
                     }
@@ -102,7 +103,7 @@ class FavoriteVendorsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "show vendor":
+            case "show_vendor":
                 let cell = sender as! UITableViewCell
                 if let indexPath = tableView.indexPathForCell(cell) {
                     let destination = segue.destinationViewController as! VendorDetailsViewController
@@ -110,6 +111,7 @@ class FavoriteVendorsViewController: UIViewController {
                     // get data at specific row of json object
                     if let vendor = self.tableView.vendors?[indexPath.row] {
                         destination.vendor = Vendor(data: vendor)
+                        destination.key = DefaultsKeys.favVendors
                     }
                     
                 }
