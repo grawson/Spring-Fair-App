@@ -14,6 +14,7 @@ import Foundation
 struct Style {
     static let color1 = UIColor(red: 0x73, green: 0x71, blue: 0x91)   //greyish purple
     static let lightOrange = UIColor(red: 0xff, green: 0xad, blue: 0x55)
+    static let lightCream = UIColor(red: 0xff, green: 0xe7, blue: 0xbd)
     static let lightBlue = UIColor(red: 117, green: 159, blue: 215)
     static let cream = UIColor(red: 0xff, green: 0xfd, blue: 0xcd)
     static let darkPurple = UIColor(red: 0x44, green: 0x40, blue: 0x55)
