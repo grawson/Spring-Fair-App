@@ -29,7 +29,7 @@ class HighlightsTableViewCell: UITableViewCell {
     //MARK: - Private methods
     //********************************************************
     
-    private func setup() {
+    fileprivate func setup() {
         title.text = data?["title"].stringValue
         descript.text = data?["description"].stringValue
     }

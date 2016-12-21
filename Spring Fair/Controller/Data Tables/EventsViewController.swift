@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import AlamofireSpinner
+////import AlamofireSpinner
 
 class EventsViewController: UIViewController {
     
@@ -27,7 +27,7 @@ class EventsViewController: UIViewController {
         
         //bar button
         open.target = self.revealViewController()
-        open.action = Selector("revealToggle:")
+        open.action = #selector(SWRevealViewController.revealToggle(_:))
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -41,7 +41,7 @@ class EventsViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.loadEvents()
     }
     
@@ -49,19 +49,24 @@ class EventsViewController: UIViewController {
     //********************************************************
     
     /** Load all events from database. */
-    private func loadEvents() {
+    fileprivate func loadEvents() {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.allEvents).spin()
+            Alamofire.request(Requests.allEvents, method: .post)
                 .responseJSON { response in
+                    
                     
                     if let json = response.result.value {
                         self.tableView.events = JSON(json)
-                        
-                        //if no data, display error message
-                        if (self.tableView.events!.isEmpty) {
+                    }
+                    
+                    //if no data, display error message
+                    if let events = self.tableView.events {
+                        if events.isEmpty {
                             self.tableView.errorLabel("No scheduled events.", color: Style.color1)
                         }
+                    } else {
+                        self.tableView.errorLabel("No scheduled events.", color: Style.color1)
                     }
             }
         } else {
@@ -75,13 +80,13 @@ class EventsViewController: UIViewController {
     //MARK: - Navigation
     //********************************************************
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
             case "show event":
                 let cell = sender as! UITableViewCell
-                if let indexPath = self.tableView.indexPathForCell(cell) {
-                    let destination = segue.destinationViewController as! EventDetailsViewController
+                if let indexPath = self.tableView.indexPath(for: cell) {
+                    let destination = segue.destination as! EventDetailsViewController
                     
                     // get data at specific row of json object
                     if let event = self.tableView.events?[indexPath.section][indexPath.row] {
@@ -103,8 +108,8 @@ extension EventsViewController: SWRevealViewControllerDelegate {
     /**
      Needed for disabling user interaction when menu is open
      */
-    func revealController(revealController: SWRevealViewController, willMoveToPosition position: FrontViewPosition){
-        self.tableView.userInteractionEnabled = (position == FrontViewPosition.Left)
+    func revealController(_ revealController: SWRevealViewController, willMoveTo position: FrontViewPosition){
+        self.tableView.isUserInteractionEnabled = (position == FrontViewPosition.left)
     }
 }
 

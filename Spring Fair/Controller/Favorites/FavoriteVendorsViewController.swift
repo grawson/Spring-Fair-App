@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import AlamofireSpinner
+//import AlamofireSpinner
 
 
 class FavoriteVendorsViewController: UIViewController {
@@ -23,12 +23,12 @@ class FavoriteVendorsViewController: UIViewController {
     //MARK: - Variables
     //********************************************************
     
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let defaults = UserDefaults.standard
     
     ///  retrive IDs fron user defaults
-    private var idDict: [String: [Int]] {
+    fileprivate var idDict: [String: [Int]] {
         get {
-            let ids = defaults.objectForKey(DefaultsKeys.favVendors) as? [Int] ?? []
+            let ids = defaults.object(forKey: DefaultsKeys.favVendors) as? [Int] ?? []
             return ["ids": ids]
         }
     }
@@ -55,8 +55,8 @@ class FavoriteVendorsViewController: UIViewController {
         self.style()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = false //show tab bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false //show tab bar
         self.loadEvents(self.idDict)
     }
     
@@ -66,7 +66,7 @@ class FavoriteVendorsViewController: UIViewController {
     /**
      Style the view controller
      */
-    private func style() {
+    fileprivate func style() {
         self.tableView.tableFooterView = UIView() //hide empty separator lines
 
     }
@@ -74,10 +74,10 @@ class FavoriteVendorsViewController: UIViewController {
     /**
      Load vendors from database based on IDs 
      */
-    private func loadEvents(ids: [String: [Int]]) {
+    fileprivate func loadEvents(_ ids: [String: [Int]]) {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.vendorID, parameters: ids).spin()
+            Alamofire.request(Requests.vendorID, method: .post, parameters: ids)
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -100,13 +100,13 @@ class FavoriteVendorsViewController: UIViewController {
     //MARK: - Navigation
     //********************************************************
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
             case "show_vendor":
                 let cell = sender as! UITableViewCell
-                if let indexPath = tableView.indexPathForCell(cell) {
-                    let destination = segue.destinationViewController as! VendorDetailsViewController
+                if let indexPath = tableView.indexPath(for: cell) {
+                    let destination = segue.destination as! VendorDetailsViewController
                     
                     // get data at specific row of json object
                     if let vendor = self.tableView.vendors?[indexPath.row] {
@@ -130,8 +130,8 @@ extension FavoriteVendorsViewController: SWRevealViewControllerDelegate {
     /**
      Needed for disabling user interaction when menu is open
      */
-    func revealController(revealController: SWRevealViewController, willMoveToPosition position: FrontViewPosition){
-        self.tableView.userInteractionEnabled = (position == FrontViewPosition.Left)
+    func revealController(_ revealController: SWRevealViewController, willMoveTo position: FrontViewPosition){
+        self.tableView.isUserInteractionEnabled = (position == FrontViewPosition.left)
     }
 }
 

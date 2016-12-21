@@ -10,7 +10,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import AlamofireSpinner
+//import AlamofireSpinner
 
 
 class HomeViewController: UIViewController {
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     //MARK: - Variables
     //********************************************************
     
-    private var data: JSON?
+    fileprivate var data: JSON?
     
     //MARK: - Life Cycle
     //********************************************************
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         open.target = self.revealViewController()
-        open.action = Selector("revealToggle:")
+        open.action = #selector(SWRevealViewController.revealToggle(_:))
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -56,33 +56,33 @@ class HomeViewController: UIViewController {
     /**
      Style the view controller
      */
-    private func style() {
+    fileprivate func style() {
         self.table.estimatedRowHeight = 200.0;
         self.table.rowHeight = UITableViewAutomaticDimension;
-        self.table.backgroundColor = UIColor.clearColor()
+        self.table.backgroundColor = UIColor.clear
         self.table.tableFooterView = UIView()
     }
     
     /**
      Create a gradient background
      */
-    private func gradient() {
+    fileprivate func gradient() {
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [Style.color1.CGColor, Style.lightCream.CGColor]
+        gradient.colors = [Style.color1.cgColor, Style.lightCream.cgColor]
         gradient.locations = [0.0 , 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
         gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        self.view.layer.insertSublayer(gradient, atIndex: 0)
+        self.view.layer.insertSublayer(gradient, at: 0)
     }
     
     /**
     Load highlights data. 
     */
-    private func loadData () {
+    fileprivate func loadData () {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.highlights).spin()
+            Alamofire.request(Requests.highlights, method: .post)
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -110,8 +110,8 @@ extension HomeViewController: SWRevealViewControllerDelegate {
     /**
      Disable view controller when menu is open
      */
-    func revealController(revealController: SWRevealViewController, willMoveToPosition position: FrontViewPosition){
-        self.table.userInteractionEnabled = (position == FrontViewPosition.Left)
+    func revealController(_ revealController: SWRevealViewController, willMoveTo position: FrontViewPosition){
+        self.table.isUserInteractionEnabled = (position == FrontViewPosition.left)
         
     }
 }
@@ -123,34 +123,34 @@ extension HomeViewController: UITableViewDataSource {
     /**
      Number of sections in table.
      */
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     /**
      Number of rows in each section.
      */
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data?.count ?? 0
     }
     
     /**
      Set up each cell.
      */
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.table.dequeueReusableCellWithIdentifier("highlight") as! HighlightsTableViewCell
+        let cell = self.table.dequeueReusableCell(withIdentifier: "highlight") as! HighlightsTableViewCell
         cell.data = self.data?[indexPath.row]
         
         cell.title?.font = UIFont(name: "Open Sans Condensed", size: 15)
         cell.descript?.font = UIFont(name: "Open Sans Condensed", size: 14)
         
-        cell.title?.textColor = UIColor.whiteColor()
+        cell.title?.textColor = UIColor.white
         cell.descript?.textColor = Style.cream
-        cell.descript?.backgroundColor = UIColor.clearColor()
+        cell.descript?.backgroundColor = UIColor.clear
         
         //Wrap the text
-        cell.title?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.title?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.title?.numberOfLines = 0
         
         return cell

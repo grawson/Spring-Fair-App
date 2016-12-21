@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
-import AlamofireSpinner
+//import AlamofireSpinner
 import GRCustomAlert
 
 class VendorDetailsViewController: UIViewController {
@@ -34,19 +34,19 @@ class VendorDetailsViewController: UIViewController {
     @IBOutlet weak var typeIcon: UIImageView!
     
     
-    @IBAction func mapSegue(sender: UIButton) {
+    @IBAction func mapSegue(_ sender: UIButton) {
         loadCoordinates()
     }
   
     /**
      Add or remove favorite ID from storage
      */
-    @IBAction func toggleFavorite(sender: UIButton) {
+    @IBAction func toggleFavorite(_ sender: UIButton) {
         let id = self.vendor.getID()
         
         if (self.favVendors.contains(id)) {
-            if let index = favVendors.indexOf(id) {
-                favVendors.removeAtIndex(index)
+            if let index = favVendors.index(of: id) {
+                favVendors.remove(at: index)
             }
             favDeselected()
         } else {
@@ -56,26 +56,26 @@ class VendorDetailsViewController: UIViewController {
     }
     
     /** Open the vendor's website */
-    @IBAction func openWebsite(sender: UIButton) {
-        if let url = url, address =  NSURL(string: url) {
-            UIApplication.sharedApplication().openURL(address)
+    @IBAction func openWebsite(_ sender: UIButton) {
+        if let url = url, let address =  URL(string: url) {
+            UIApplication.shared.openURL(address)
         }
     }
     
     //MARK: - Variables
     //********************************************************
     
-    private var xCoordinate = 0.0
-    private var yCoordinate = 0.0
-    private var url: String?
+    fileprivate var xCoordinate = 0.0
+    fileprivate var yCoordinate = 0.0
+    fileprivate var url: String?
     var vendor = Vendor()
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let defaults = UserDefaults.standard
     var key: String?
     var artVendor: Bool?
     
-    private var favVendors: [Int] {
-        get { return defaults.objectForKey(key!) as? [Int] ?? [] }  //retrive value from NSUserDefaults
-        set { defaults.setObject(newValue, forKey: key!) }  //store the value in NSUserDefaults
+    fileprivate var favVendors: [Int] {
+        get { return defaults.object(forKey: key!) as? [Int] ?? [] }  //retrive value from NSUserDefaults
+        set { defaults.set(newValue, forKey: key!) }  //store the value in NSUserDefaults
     }
     
     //MARK: - Life cycle
@@ -94,7 +94,7 @@ class VendorDetailsViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        self.zoomImage.frame = CGRectMake(0, -Style.zoomImageHeight, self.scrollView.frame.width, Style.zoomImageHeight);
+        self.zoomImage.frame = CGRect(x: 0, y: -Style.zoomImageHeight, width: self.scrollView.frame.width, height: Style.zoomImageHeight);
         name.center = zoomImage.center
         self.name.center = self.zoomImage.center
         updateConstraints()
@@ -107,18 +107,18 @@ class VendorDetailsViewController: UIViewController {
     /**
      Style the view controller
      */
-    private func style() {
+    fileprivate func style() {
         
         //set button highlighted states
         let buttons = [websiteButton, favoritesButton, mapButton]
         for button in buttons {
-            button.setBackgroundColor(Style.darkPurple, forState: .Highlighted)
+            button?.setBackgroundColor(Style.darkPurple, forState: .highlighted)
         }
         
         //Round button corners
-        self.websiteButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
-        self.favoritesButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
-        self.mapButton.roundCorners([.TopLeft, .TopRight, .BottomLeft, .BottomRight], radius: Style.smallestRounded)
+        self.websiteButton.roundCorners([.topLeft, .topRight, .bottomLeft, .bottomRight], radius: Style.smallestRounded)
+        self.favoritesButton.roundCorners([.topLeft, .topRight, .bottomLeft, .bottomRight], radius: Style.smallestRounded)
+        self.mapButton.roundCorners([.topLeft, .topRight, .bottomLeft, .bottomRight], radius: Style.smallestRounded)
 
         
         //state of favorites button
@@ -132,7 +132,7 @@ class VendorDetailsViewController: UIViewController {
         //set shadows
         let cards = [ buttonsCardView, textCardView, infoTextCardView ]
         for card in cards {
-            card.setCardShadow()
+            card?.setCardShadow()
         }
         
         //set icon if art vendor
@@ -146,20 +146,20 @@ class VendorDetailsViewController: UIViewController {
     /**
      Update constraints for stretchy headers.
      */
-    private func updateConstraints() {
+    fileprivate func updateConstraints() {
         self.name.center = self.zoomImage.center
         let yConstraint = NSLayoutConstraint(
-            item: self.buttonsCardView, attribute: .Top, relatedBy: .Equal, toItem: self.contentView,
-            attribute: .Top, multiplier: 1.0, constant: 10
+            item: self.buttonsCardView, attribute: .top, relatedBy: .equal, toItem: self.contentView,
+            attribute: .top, multiplier: 1.0, constant: 10
         )
-        NSLayoutConstraint.activateConstraints([yConstraint])
+        NSLayoutConstraint.activate([yConstraint])
     }
     
     /** 
      Set up the data on the page 
      */
-    private func setupData() {
-        name.text = vendor.getName().uppercaseString
+    fileprivate func setupData() {
+        name.text = vendor.getName().uppercased()
         type.text = vendor.getType()
         descript.text = vendor.getDescription()
         locationTextView.text = vendor.location
@@ -170,8 +170,8 @@ class VendorDetailsViewController: UIViewController {
     /** 
      Change state of favorites button when selected 
      */
-    private func favSelected() {
-        favoritesButton.setTitle("Added to Favorites", forState: .Normal)
+    fileprivate func favSelected() {
+        favoritesButton.setTitle("Added to Favorites", for: UIControlState())
         //favoritesButton.setTitleColor(style.color1, forState: .Normal)
         favoritesButton.backgroundColor = Style.darkPurple
     }
@@ -179,8 +179,8 @@ class VendorDetailsViewController: UIViewController {
     /** 
      Change state of favorites button when deselected 
      */
-    private func favDeselected() {
-        favoritesButton.setTitle("Add to Favorites", forState: .Normal)
+    fileprivate func favDeselected() {
+        favoritesButton.setTitle("Add to Favorites", for: UIControlState())
         //favoritesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         favoritesButton.backgroundColor = Style.color1
     }
@@ -188,12 +188,12 @@ class VendorDetailsViewController: UIViewController {
     /**
      Load coordinates from database based on IDs
      */
-    private func loadCoordinates() {
-        mapButton.enabled = false   //disable while loading coordinates
+    fileprivate func loadCoordinates() {
+        mapButton.isEnabled = false   //disable while loading coordinates
         let outData = ["name": self.vendor.formattedLocation()]
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.coordinates, parameters: outData).spin()
+            Alamofire.request(Requests.coordinates, method: .post, parameters: outData)
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -203,7 +203,7 @@ class VendorDetailsViewController: UIViewController {
                         if !(data.isEmpty) {
                             self.xCoordinate = data[0]["xcoordinate"].doubleValue
                             self.yCoordinate = data[0]["ycoordinate"].doubleValue
-                            self.performSegueWithIdentifier("show_map", sender: self)
+                            self.performSegue(withIdentifier: "show_map", sender: self)
                         }
                     }
             }
@@ -214,17 +214,17 @@ class VendorDetailsViewController: UIViewController {
             self.addChildViewController(vc)
             self.view.addSubview(vc.view)
         }
-        mapButton.enabled = true
+        mapButton.isEnabled = true
     }
     
     //MARK: - Navigation
     //********************************************************
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "show_map" {
             //let nc = segue.destinationViewController as! UINavigationController
             //let vc = nc.topViewController as! GoogleMapsViewController
-            let vc = segue.destinationViewController as! GoogleMapsViewController
+            let vc = segue.destination as! GoogleMapsViewController
             vc.xCoordinate = self.xCoordinate
             vc.yCoordinate = self.yCoordinate
             vc.locationName = self.vendor.location
@@ -240,7 +240,7 @@ extension VendorDetailsViewController: UIScrollViewDelegate {
     /**
      Change frame when scrolling
      */
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = self.scrollView.contentOffset.y
         if (yOffset < -Style.zoomImageHeight) {
             var f = self.zoomImage.frame

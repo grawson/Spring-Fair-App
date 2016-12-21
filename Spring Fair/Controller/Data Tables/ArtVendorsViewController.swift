@@ -27,7 +27,7 @@ class ArtVendorsViewController: UIViewController {
         
         //bar button
         self.menu.target = self.revealViewController()
-        self.menu.action = Selector("revealToggle:")
+        self.menu.action = #selector(SWRevealViewController.revealToggle(_:))
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -42,8 +42,8 @@ class ArtVendorsViewController: UIViewController {
         style()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = false //show tab bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false //show tab bar
         self.loadArtVendors()
     }
     
@@ -53,15 +53,15 @@ class ArtVendorsViewController: UIViewController {
     /**
     Style the View Controller
     */
-    private func style() {
+    fileprivate func style() {
         self.tableView.tableFooterView = UIView() //hide empty separator lines
     }
     
     /** Load all music from database */
-    private func loadArtVendors() {
+    fileprivate func loadArtVendors() {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.allArtVendors).spin()
+            Alamofire.request(Requests.allArtVendors, method: .post)
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -84,13 +84,13 @@ class ArtVendorsViewController: UIViewController {
     //MARK: - Navigation
     //********************************************************
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
             case "show_art_vendor":
                 let cell = sender as! UITableViewCell
-                if let indexPath = self.tableView.indexPathForCell(cell) {
-                    let destination = segue.destinationViewController as! VendorDetailsViewController
+                if let indexPath = self.tableView.indexPath(for: cell) {
+                    let destination = segue.destination as! VendorDetailsViewController
                     
                     // get data at specific row of json object
                     if let vendor = self.tableView.vendors?[indexPath.row] {
@@ -116,8 +116,8 @@ extension ArtVendorsViewController: SWRevealViewControllerDelegate {
     /**
      Needed for disabling user interaction when menu is open
      */
-    func revealController(revealController: SWRevealViewController, willMoveToPosition position: FrontViewPosition){
-        self.tableView.userInteractionEnabled = (position == FrontViewPosition.Left)
+    func revealController(_ revealController: SWRevealViewController, willMoveTo position: FrontViewPosition){
+        self.tableView.isUserInteractionEnabled = (position == FrontViewPosition.left)
     }
     
 }

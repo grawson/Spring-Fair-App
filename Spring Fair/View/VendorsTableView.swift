@@ -27,30 +27,30 @@ extension VendorsTableView: UITableViewDataSource {
     /**
      Number of sections
      */
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     /**
      Number of rows in each section
      */
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.vendors?.count ?? 0
     }
     
     /**
      Row height
      */
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Style.rowHeight;
     }
     
     /**
      Set up data for each cell
      */
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("vendor", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "vendor", for: indexPath) as UITableViewCell
         
         //grab specific vendor
         if let vendor = self.vendors?[indexPath.row] {
@@ -61,7 +61,7 @@ extension VendorsTableView: UITableViewDataSource {
             cell.detailTextLabel?.font = UIFont(name: "Open Sans Condensed", size: 13)
             
             cell.textLabel?.textColor = Style.darkPurple
-            cell.detailTextLabel?.textColor = UIColor.lightGrayColor()
+            cell.detailTextLabel?.textColor = UIColor.lightGray
         }
         return cell
     }
@@ -75,8 +75,8 @@ extension VendorsTableView: UITableViewDelegate {
     /**
      Deselect row after selection
      */
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)     //deselects cell after segue
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)     //deselects cell after segue
     }
 }
 

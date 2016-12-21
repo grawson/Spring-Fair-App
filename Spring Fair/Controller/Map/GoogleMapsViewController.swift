@@ -19,14 +19,14 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
     //MARK: - Outlets
     //********************************************************
     
-    @IBAction func getDirections(sender: UIBarButtonItem) {
+    @IBAction func getDirections(_ sender: UIBarButtonItem) {
         
         //check if location services enabled
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
-                case .NotDetermined, .Restricted, .Denied:
+                case .notDetermined, .restricted, .denied:
                     locationDeniedAlert()
-                case .AuthorizedAlways, .AuthorizedWhenInUse:
+                case .authorizedAlways, .authorizedWhenInUse:
                     self.directions()
             }
         } else {
@@ -37,7 +37,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
     //MARK: - Variables
     //********************************************************
     
-    private var mapView: GMSMapView?
+    fileprivate var mapView: GMSMapView?
     var locationName = ""
     var xCoordinate = 0.0
     var yCoordinate = 0.0
@@ -54,7 +54,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
         setupEventMarker()
         
         //hide tab bar if present
-        self.tabBarController?.tabBar.hidden = true
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK: - Prvate methods
@@ -63,10 +63,10 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
     /**
      Setup Google Maps view
      */
-    private func setupMap() {
-        let camera = GMSCameraPosition.cameraWithLatitude(self.xCoordinate, longitude: self.yCoordinate, zoom: 17.5)
-        self.mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        self.mapView?.myLocationEnabled = true
+    fileprivate func setupMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: self.xCoordinate, longitude: self.yCoordinate, zoom: 17.5)
+        self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        self.mapView?.isMyLocationEnabled = true
         self.mapView?.settings.compassButton = true
         self.mapView?.settings.myLocationButton = true
         self.mapView?.settings.scrollGestures = true
@@ -79,7 +79,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
     /**
      Setup the marker on the map for the event.
      */
-    private func setupEventMarker() {
+    fileprivate func setupEventMarker() {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(self.xCoordinate, self.yCoordinate)
         marker.title = self.locationName
@@ -96,22 +96,22 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
      - parameter x: x coordinate of the target
      - parameter y: y coordinate of the target
      */
-    private func zoomTarget(x: CLLocationDegrees, y: CLLocationDegrees) {
+    fileprivate func zoomTarget(_ x: CLLocationDegrees, y: CLLocationDegrees) {
         let target = CLLocationCoordinate2DMake(x, y)
         let cam = GMSCameraUpdate.setTarget(target)
-        self.mapView?.animateWithCameraUpdate(cam)
+        self.mapView?.animate(with: cam)
     }
     
     /**
      Segue to Google maps app to display directions to the event.
      */
-    private func directions() {
+    fileprivate func directions() {
         if let map = self.mapView {
             let url = "comgooglemaps://?saddr=\(map.myLocation?.coordinate.latitude),\(map.myLocation?.coordinate.longitude)&daddr=\(self.xCoordinate),\(self.yCoordinate)&center=37.423725,-122.0877&directionsmode=walking&zoom=17.5"
             
             //open directions in GM app if downloaded on system
-            if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
-                UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+                UIApplication.shared.openURL(URL(string: url)!)
             } else {
                 let vc = CustomAlertViewController()
                 vc.alert.titleText = "Uh Oh..."
@@ -122,7 +122,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
-    private func locationDeniedAlert() {
+    fileprivate func locationDeniedAlert() {
         let vc = CustomAlertViewController()
         vc.alert.titleText = Text.accessFailureTitle
         vc.alert.messageText = Text.locationFailureMessage

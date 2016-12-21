@@ -27,7 +27,7 @@ class MusicViewController: UIViewController {
 
         //bar button
         self.menu.target = self.revealViewController()
-        self.menu.action = Selector("revealToggle:")
+        self.menu.action = #selector(SWRevealViewController.revealToggle(_:))
         
         //opens slide menu with gesture
         self.revealViewController().view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -42,7 +42,7 @@ class MusicViewController: UIViewController {
         style()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.loadArtists()
     }
     
@@ -52,15 +52,15 @@ class MusicViewController: UIViewController {
     /**
      Style the View Controller
      */
-    private func style() {
+    fileprivate func style() {
         self.tableView.tableFooterView = UIView() //hide empty separator lines
     }
     
     /** Load all music from database */
-    private func loadArtists() {
+    fileprivate func loadArtists() {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.allArtists).spin()
+            Alamofire.request(Requests.allArtists, method: .post)
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -83,13 +83,13 @@ class MusicViewController: UIViewController {
     //MARK: - Navigation
     //********************************************************
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
             case "show artist":
                 let cell = sender as! UITableViewCell
-                if let indexPath = self.tableView.indexPathForCell(cell) {
-                    let destination = segue.destinationViewController as! MusicDetailsViewController
+                if let indexPath = self.tableView.indexPath(for: cell) {
+                    let destination = segue.destination as! MusicDetailsViewController
                     
                     // get data at specific row of json object
                     if let artist = self.tableView.artists?[indexPath.section][indexPath.row] {
@@ -114,8 +114,8 @@ extension MusicViewController: SWRevealViewControllerDelegate {
     /**
      Needed for disabling user interaction when menu is open
      */
-    func revealController(revealController: SWRevealViewController, willMoveToPosition position: FrontViewPosition){
-        self.tableView.userInteractionEnabled = (position == FrontViewPosition.Left)
+    func revealController(_ revealController: SWRevealViewController, willMoveTo position: FrontViewPosition){
+        self.tableView.isUserInteractionEnabled = (position == FrontViewPosition.left)
     }
     
 }

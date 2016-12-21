@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 import EventKit
 import EventKitUI
-import AlamofireSpinner
+//import AlamofireSpinner
 import GRCustomAlert
 
 
@@ -37,31 +37,31 @@ class MusicDetailsViewController: UIViewController {
     @IBOutlet weak var infoTextCardView: UIView!
     
     
-    @IBAction func addToCalendar(sender: UIButton) {
+    @IBAction func addToCalendar(_ sender: UIButton) {
         self.createEvent()
     }
     
     
-    @IBAction func mapSegue(sender: UIButton) {
+    @IBAction func mapSegue(_ sender: UIButton) {
         self.loadCoordinates()
     }
     
     /** Sample an artist's music */
-    @IBAction func sample(sender: UIButton) {
-        if let url = NSURL(string: artist.sample) {
-            UIApplication.sharedApplication().openURL(url)
+    @IBAction func sample(_ sender: UIButton) {
+        if let url = URL(string: artist.sample) {
+            UIApplication.shared.openURL(url)
         }
     }
     
     /**
      Store or delete an event ID from favorites
      */
-    @IBAction func toggleFavorite(sender: UIButton) {
+    @IBAction func toggleFavorite(_ sender: UIButton) {
         let id = self.artist.getID()
         
         if (self.favEvents.contains(id)) {
-            if let index = favEvents.indexOf(id) {
-                self.favEvents.removeAtIndex(index)
+            if let index = favEvents.index(of: id) {
+                self.favEvents.remove(at: index)
             }
             self.favDeselected()
         } else {
@@ -74,13 +74,13 @@ class MusicDetailsViewController: UIViewController {
     //********************************************************
     
     var artist = Artist() //TODO: Create own model for artist
-    private var xCoordinate = 0.0
-    private var yCoordinate = 0.0
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate var xCoordinate = 0.0
+    fileprivate var yCoordinate = 0.0
+    fileprivate let defaults = UserDefaults.standard
     
-    private var favEvents: [Int] {
-        get { return defaults.objectForKey(DefaultsKeys.favArtists) as? [Int] ?? [] }  //retrive value from NSUserDefaults
-        set { defaults.setObject(newValue, forKey: DefaultsKeys.favArtists) }          //store the value in NSUserDefaults
+    fileprivate var favEvents: [Int] {
+        get { return defaults.object(forKey: DefaultsKeys.favArtists) as? [Int] ?? [] }  //retrive value from NSUserDefaults
+        set { defaults.set(newValue, forKey: DefaultsKeys.favArtists) }          //store the value in NSUserDefaults
     }
     
     //MARK: - Life cycle
@@ -99,7 +99,7 @@ class MusicDetailsViewController: UIViewController {
 
     
     override func viewWillLayoutSubviews() {
-        self.zoomImage.frame = CGRectMake(0, -Style.zoomImageHeight, self.scrollView.frame.width, Style.zoomImageHeight);
+        self.zoomImage.frame = CGRect(x: 0, y: -Style.zoomImageHeight, width: self.scrollView.frame.width, height: Style.zoomImageHeight);
         name.center = zoomImage.center
         self.name.center = self.zoomImage.center
         self.updateConstraints()
@@ -111,21 +111,21 @@ class MusicDetailsViewController: UIViewController {
     /**
     Style the view controller
     */
-    private func style() {
+    fileprivate func style() {
         
         //store buttons
         let buttons = [self.calendarButton, self.favoritesButton, self.mapButton, sampleButton]
         
         //Round button corners
-        self.mapButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
-        self.favoritesButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
-        self.calendarButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
-        sampleButton.roundCorners([.TopLeft , .BottomLeft, .TopRight, .BottomRight], radius: Style.smallestRounded)
+        self.mapButton.roundCorners([.topLeft , .bottomLeft, .topRight, .bottomRight], radius: Style.smallestRounded)
+        self.favoritesButton.roundCorners([.topLeft , .bottomLeft, .topRight, .bottomRight], radius: Style.smallestRounded)
+        self.calendarButton.roundCorners([.topLeft , .bottomLeft, .topRight, .bottomRight], radius: Style.smallestRounded)
+        sampleButton.roundCorners([.topLeft , .bottomLeft, .topRight, .bottomRight], radius: Style.smallestRounded)
 
         
         //highlighted button colors
         for button in buttons {
-            button.setBackgroundColor(Style.darkPurple, forState: .Highlighted)
+            button?.setBackgroundColor(Style.darkPurple, forState: .highlighted)
         }
         
         //favorites button state
@@ -140,15 +140,15 @@ class MusicDetailsViewController: UIViewController {
     /**
      Create an event to add to the user's calendar.
      */
-    private func createEvent() {
+    fileprivate func createEvent() {
         
         //initialize event data
         let eventStore = EKEventStore()
         let event = EKEvent(eventStore: eventStore)
         event.title = self.artist.getName()
         event.location = self.artist.getLocation()
-        event.startDate = self.artist.formattedStartNSDate() ?? NSDate()
-        event.endDate = self.artist.formattedEndNSDate() ?? NSDate()
+        event.startDate = self.artist.formattedStartNSDate() ?? Date()
+        event.endDate = self.artist.formattedEndNSDate() ?? Date()
         event.calendar = eventStore.defaultCalendarForNewEvents
         
         //Setup "edit event" view controller
@@ -158,21 +158,21 @@ class MusicDetailsViewController: UIViewController {
         eventController.editViewDelegate = self
         
         //determine action based on calender access
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event) {
-        case .Authorized:
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.presentViewController(eventController, animated: true, completion: nil)
+        switch EKEventStore.authorizationStatus(for: EKEntityType.event) {
+        case .authorized:
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.present(eventController, animated: true, completion: nil)
             })
             
-        case .NotDetermined:
-            eventStore.requestAccessToEntityType(EKEntityType.Event, completion: { (granted, error) -> Void in
+        case .notDetermined:
+            eventStore.requestAccess(to: EKEntityType.event, completion: { (granted, error) -> Void in
                 if granted == true {
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.presentViewController(eventController, animated: true, completion: nil)
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.present(eventController, animated: true, completion: nil)
                     })
                 }
             })
-        case .Denied, .Restricted:
+        case .denied, .restricted:
             let vc = CustomAlertViewController()
             vc.alert.titleText = Text.accessFailureTitle
             vc.alert.messageText = Text.accessFailureMessage
@@ -185,20 +185,20 @@ class MusicDetailsViewController: UIViewController {
     /**
      Update the layout constraints to allow for stretchy header
      */
-    private func updateConstraints() {
+    fileprivate func updateConstraints() {
         self.name.center = self.zoomImage.center
         let yConstraint = NSLayoutConstraint(
-            item: self.buttonsCardView, attribute: .Top, relatedBy: .Equal, toItem: self.contentView,
-            attribute: .Top, multiplier: 1.0, constant: 10
+            item: self.buttonsCardView, attribute: .top, relatedBy: .equal, toItem: self.contentView,
+            attribute: .top, multiplier: 1.0, constant: 10
         )
-        NSLayoutConstraint.activateConstraints([yConstraint])
+        NSLayoutConstraint.activate([yConstraint])
     }
     
     /**
      Set up the data on the page
      */
-    private func setupData() {
-        self.name.text = artist.getName().uppercaseString
+    fileprivate func setupData() {
+        self.name.text = artist.getName().uppercased()
         self.time.text  = artist.getStartTime() + " - " + artist.getEndTime()
         self.location.text = artist.getLocation()
         genre.text = artist.genre
@@ -207,8 +207,8 @@ class MusicDetailsViewController: UIViewController {
     /**
      Change state of favorites button when selected
      */
-    private func favSelected() {
-        favoritesButton.setTitle("Added to Favorites", forState: .Normal)
+    fileprivate func favSelected() {
+        favoritesButton.setTitle("Added to Favorites", for: UIControlState())
         //favoritesButton.setTitleColor(style.color1, forState: .Normal)
         favoritesButton.backgroundColor = Style.darkPurple
     }
@@ -216,8 +216,8 @@ class MusicDetailsViewController: UIViewController {
     /**
      Change state of favorites button when deselected
      */
-    private func favDeselected() {
-        favoritesButton.setTitle("Add to Favorites", forState: .Normal)
+    fileprivate func favDeselected() {
+        favoritesButton.setTitle("Add to Favorites", for: UIControlState())
         //favoritesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         favoritesButton.backgroundColor = Style.color1
     }
@@ -225,12 +225,12 @@ class MusicDetailsViewController: UIViewController {
     /**
      Load coordinates from database based on IDs
      */
-    private func loadCoordinates() {
-        mapButton.enabled = false   //disable while loading coordinates
+    fileprivate func loadCoordinates() {
+        mapButton.isEnabled = false   //disable while loading coordinates
         let outData = ["name": artist.formattedLocation()]
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.coordinates, parameters: outData).spin()
+            Alamofire.request(Requests.coordinates, method: .post, parameters: outData)
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -240,7 +240,7 @@ class MusicDetailsViewController: UIViewController {
                         if !(data.isEmpty) {
                             self.xCoordinate = data[0]["xcoordinate"].doubleValue
                             self.yCoordinate = data[0]["ycoordinate"].doubleValue
-                            self.performSegueWithIdentifier("show map", sender: self)
+                            self.performSegue(withIdentifier: "show map", sender: self)
                         }
                     }
             }
@@ -251,17 +251,17 @@ class MusicDetailsViewController: UIViewController {
             self.addChildViewController(vc)
             self.view.addSubview(vc.view)
         }
-        mapButton.enabled = true
+        mapButton.isEnabled = true
     }
     
     //MARK: - Navigation
     //********************************************************
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "show map" {
             //let nc = segue.destinationViewController as! UINavigationController
             //let vc = nc.topViewController as! GoogleMapsViewController
-            let vc = segue.destinationViewController as! GoogleMapsViewController
+            let vc = segue.destination as! GoogleMapsViewController
             vc.xCoordinate = self.xCoordinate
             vc.yCoordinate = self.yCoordinate
             vc.locationName = self.artist.getLocation()
@@ -277,7 +277,7 @@ extension MusicDetailsViewController: UIScrollViewDelegate {
     /**
      Change the frame when scrolling - for stretchy header
      */
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let yOffset = self.scrollView.contentOffset.y
         if (yOffset < -Style.zoomImageHeight) {
             var f = self.zoomImage.frame
@@ -297,9 +297,9 @@ extension MusicDetailsViewController: EKEventEditViewDelegate {
     /**
      Dismiss the "add event" presentation.
      */
-    func eventEditViewController(controller: EKEventEditViewController,
-        didCompleteWithAction action: EKEventEditViewAction){
-            self.dismissViewControllerAnimated(true, completion: nil)
+    func eventEditViewController(_ controller: EKEventEditViewController,
+        didCompleteWith action: EKEventEditViewAction){
+            self.dismiss(animated: true, completion: nil)
     }
 }
 

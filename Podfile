@@ -5,15 +5,13 @@ use_frameworks!
 
 target 'Spring Fair' do
 
-pod 'Alamofire', '~> 3.1.4'
+pod 'Alamofire'
 
-pod 'Haneke', '~> 1.0.1'
+pod 'Haneke'
 
-pod 'SwiftyJSON', '~> 2.3.2'
+pod 'SwiftyJSON'
 
 pod 'GoogleMaps'
-
-pod 'AlamofireSpinner', '~> 0.1.0'
 
 pod 'GRCustomAlert'
 
@@ -24,4 +22,3 @@ end
 target 'Spring FairUITests' do
 
 end
-

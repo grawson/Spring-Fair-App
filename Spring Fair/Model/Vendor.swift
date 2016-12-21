@@ -12,10 +12,10 @@ import SwiftyJSON
 class Vendor {
     
     // Vendor data
-    private let id: Int
-    private let name: String
-    private let type: String
-    private let description: String
+    fileprivate let id: Int
+    fileprivate let name: String
+    fileprivate let type: String
+    fileprivate let description: String
     let location: String
     var startTime: String
     var endTime: String
@@ -46,7 +46,7 @@ class Vendor {
      */
     init(data: JSON) {
         self.id = data["id"].intValue
-        self.name = data["name"].stringValue.capitalizedString
+        self.name = data["name"].stringValue.capitalized
         self.type = data["type"].stringValue
         self.description = data["description"].stringValue
         location = data["location"].stringValue
@@ -95,9 +95,9 @@ class Vendor {
      - returns: formatted location
      */
     func formattedLocation()->String {
-        let lower = self.location.lowercaseString
-        return lower.stringByReplacingOccurrencesOfString(
-            " ", withString: "_", options: NSStringCompareOptions.LiteralSearch, range: nil
+        let lower = self.location.lowercased()
+        return lower.replacingOccurrences(
+            of: " ", with: "_", options: NSString.CompareOptions.literal, range: nil
         )
     }
     
@@ -108,17 +108,17 @@ class Vendor {
      
      - returns: formatted time
      */
-    private func formatTime(time: String) -> String? {
-        let formatter = NSDateFormatter()
+    fileprivate func formatTime(_ time: String) -> String? {
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
         //formatter.timeZone = NSTimeZone(name: "UTC")
         
-        if let formatted = formatter.dateFromString(time) {
+        if let formatted = formatter.date(from: time) {
             formatter.dateFormat = "h:mm a"
-            formatter.AMSymbol = "am"
-            formatter.PMSymbol = "pm"
+            formatter.amSymbol = "am"
+            formatter.pmSymbol = "pm"
             //formatter.timeZone = NSTimeZone(name: "UTC")
-            return formatter.stringFromDate(formatted)
+            return formatter.string(from: formatted)
         }
         return nil
     }

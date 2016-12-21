@@ -29,8 +29,8 @@ class MenuViewController: UIViewController {
         //Round corners of all buttons
         let buttons = [button1, button2, button3, button4, musicButton]
         for button in buttons {
-            button.layer.masksToBounds = true
-            button.layer.cornerRadius = Style.smallRounded
+            button?.layer.masksToBounds = true
+            button?.layer.cornerRadius = Style.smallRounded
         }
     }
     
@@ -40,8 +40,8 @@ class MenuViewController: UIViewController {
     /**
      Set white status bar.
      */
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 }
 

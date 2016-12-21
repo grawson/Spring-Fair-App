@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C3AC744AED8ACEC6D489DFE /* Pods_Spring_Fair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7482C7D60CA7F5890D42E617 /* Pods_Spring_Fair.framework */; };
+		4C58954399B2C8247600EB45 /* Pods_Spring_Fair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13BA007F9F2E61DBEC40339 /* Pods_Spring_Fair.framework */; };
 		560AAB061C8CEDC100C92207 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560AAB051C8CEDC100C92207 /* Artist.swift */; };
 		560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560C6EDD1C2D517000E8C619 /* GoogleMapsViewController.swift */; };
 		5613FA891C31B6DE00BA9816 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613FA881C31B6DE00BA9816 /* Keys.swift */; };
@@ -43,6 +43,7 @@
 		56D55E491C2D2C600018E895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E481C2D2C5F0018E895 /* Constants.swift */; };
 		56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBFA381C02CC3E00333787 /* MenuViewController.swift */; };
 		56F9A4AF1C0AC4EF003B1E44 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */; };
+		D94C043AAC4469DC10B7E581 /* Pods_Spring_FairUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1643648F1ACF1629A75A8F /* Pods_Spring_FairUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		033FAA7082AAAD0E6A09599C /* Pods-Spring Fair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.debug.xcconfig"; sourceTree = "<group>"; };
 		560AAB051C8CEDC100C92207 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		560C6EDD1C2D517000E8C619 /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		5613FA881C31B6DE00BA9816 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -97,8 +97,12 @@
 		56D55E481C2D2C5F0018E895 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56DBFA381C02CC3E00333787 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7482C7D60CA7F5890D42E617 /* Pods_Spring_Fair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spring_Fair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A65ED05603D840B3FB97DAF /* Pods-Spring Fair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.release.xcconfig"; sourceTree = "<group>"; };
+		572F2541830D672B180956CD /* Pods-Spring Fair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.debug.xcconfig"; sourceTree = "<group>"; };
+		7E1643648F1ACF1629A75A8F /* Pods_Spring_FairUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spring_FairUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6B6C5DCD50CA5A36472D11 /* Pods-Spring Fair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.release.xcconfig"; sourceTree = "<group>"; };
+		C13BA007F9F2E61DBEC40339 /* Pods_Spring_Fair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spring_Fair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1575349E6567C240D1725C2 /* Pods-Spring FairUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring FairUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spring FairUITests/Pods-Spring FairUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4D8B6160AC5D7EDDA702A91 /* Pods-Spring FairUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring FairUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spring FairUITests/Pods-Spring FairUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C3AC744AED8ACEC6D489DFE /* Pods_Spring_Fair.framework in Frameworks */,
+				4C58954399B2C8247600EB45 /* Pods_Spring_Fair.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,21 +118,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94C043AAC4469DC10B7E581 /* Pods_Spring_FairUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1534584F7A47B02D95B48741 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				033FAA7082AAAD0E6A09599C /* Pods-Spring Fair.debug.xcconfig */,
-				8A65ED05603D840B3FB97DAF /* Pods-Spring Fair.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		5613FA8A1C31B75C00BA9816 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,10 +225,10 @@
 		5690224D1C024195006F010E = {
 			isa = PBXGroup;
 			children = (
-				D19F7D70823534DB069743FB /* Frameworks */,
-				1534584F7A47B02D95B48741 /* Pods */,
 				569022571C024195006F010E /* Products */,
 				569022581C024195006F010E /* Spring Fair */,
+				BE7D8731DC0CF4B45547DDF5 /* Pods */,
+				84BF43713AF4F3B5054F153B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,12 +293,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D19F7D70823534DB069743FB /* Frameworks */ = {
+		84BF43713AF4F3B5054F153B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7482C7D60CA7F5890D42E617 /* Pods_Spring_Fair.framework */,
+				C13BA007F9F2E61DBEC40339 /* Pods_Spring_Fair.framework */,
+				7E1643648F1ACF1629A75A8F /* Pods_Spring_FairUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE7D8731DC0CF4B45547DDF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				572F2541830D672B180956CD /* Pods-Spring Fair.debug.xcconfig */,
+				BA6B6C5DCD50CA5A36472D11 /* Pods-Spring Fair.release.xcconfig */,
+				C1575349E6567C240D1725C2 /* Pods-Spring FairUITests.debug.xcconfig */,
+				C4D8B6160AC5D7EDDA702A91 /* Pods-Spring FairUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,13 +320,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 569022731C024195006F010E /* Build configuration list for PBXNativeTarget "Spring Fair" */;
 			buildPhases = (
-				B7FEEB858DCBA395726389C4 /* Check Pods Manifest.lock */,
+				64A47BBA2EA1EDC7ABCA5554 /* [CP] Check Pods Manifest.lock */,
 				569022521C024195006F010E /* Sources */,
 				569022531C024195006F010E /* Frameworks */,
 				569022541C024195006F010E /* Resources */,
-				042DE44570C71B1AAD3D921A /* Embed Pods Frameworks */,
-				42BAEBF34B9AD54A5F03C65F /* Copy Pods Resources */,
 				560AAB041C8CBAFE00C92207 /* ShellScript */,
+				1E5A2D83F1EACAF447664A9D /* [CP] Embed Pods Frameworks */,
+				E1E29491EC338E3C7AC03191 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,9 +341,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 569022761C024195006F010E /* Build configuration list for PBXNativeTarget "Spring FairUITests" */;
 			buildPhases = (
+				C8D3BB723FF52F6E3D539066 /* [CP] Check Pods Manifest.lock */,
 				569022661C024195006F010E /* Sources */,
 				569022671C024195006F010E /* Frameworks */,
 				569022681C024195006F010E /* Resources */,
+				E218C762F62925DA84E9990E /* [CP] Embed Pods Frameworks */,
+				DA63DCFE933E165FC8F8744C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -360,6 +371,7 @@
 					569022551C024195006F010E = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 8RGYHJQ88C;
+						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -416,34 +428,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		042DE44570C71B1AAD3D921A /* Embed Pods Frameworks */ = {
+		1E5A2D83F1EACAF447664A9D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		42BAEBF34B9AD54A5F03C65F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		560AAB041C8CBAFE00C92207 /* ShellScript */ = {
@@ -459,19 +456,79 @@
 			shellPath = /bin/sh;
 			shellScript = "TAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
 		};
-		B7FEEB858DCBA395726389C4 /* Check Pods Manifest.lock */ = {
+		64A47BBA2EA1EDC7ABCA5554 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C8D3BB723FF52F6E3D539066 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA63DCFE933E165FC8F8744C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring FairUITests/Pods-Spring FairUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1E29491EC338E3C7AC03191 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E218C762F62925DA84E9990E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring FairUITests/Pods-Spring FairUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -627,7 +684,7 @@
 		};
 		569022741C024195006F010E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 033FAA7082AAAD0E6A09599C /* Pods-Spring Fair.debug.xcconfig */;
+			baseConfigurationReference = 572F2541830D672B180956CD /* Pods-Spring Fair.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -640,13 +697,14 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Spring Fair/Spring Fair-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		569022751C024195006F010E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A65ED05603D840B3FB97DAF /* Pods-Spring Fair.release.xcconfig */;
+			baseConfigurationReference = BA6B6C5DCD50CA5A36472D11 /* Pods-Spring Fair.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -658,12 +716,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Spring Fair/Spring Fair-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		569022771C024195006F010E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1575349E6567C240D1725C2 /* Pods-Spring FairUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Spring FairUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -676,6 +736,7 @@
 		};
 		569022781C024195006F010E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D8B6160AC5D7EDDA702A91 /* Pods-Spring FairUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Spring FairUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

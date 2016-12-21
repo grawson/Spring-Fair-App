@@ -45,7 +45,7 @@ class Event {
     init(data: JSON) {
         //init all variables
         self.id = data["id"].intValue
-        self.name = data["name"].stringValue.capitalizedString
+        self.name = data["name"].stringValue.capitalized
         self.location = data["location"].stringValue
         self.startTime = ""
         self.endTime = ""
@@ -112,7 +112,7 @@ class Event {
      
      - returns: NSDate of start time and date of event
      */
-    func formattedStartNSDate()->NSDate? {
+    func formattedStartNSDate()->Date? {
         return self.createNSDate(self.date, time: self.startTime)
     }
     
@@ -121,7 +121,7 @@ class Event {
      
      - returns: NSDate of end time and date of event
      */
-    func formattedEndNSDate()->NSDate? {
+    func formattedEndNSDate()->Date? {
         return self.createNSDate(self.date, time: self.endTime)
     }
     
@@ -132,9 +132,9 @@ class Event {
      - returns: formatted location
      */
     func formattedLocation()->String {
-        let lower = self.location.lowercaseString
-        return lower.stringByReplacingOccurrencesOfString(
-            " ", withString: "_", options: NSStringCompareOptions.LiteralSearch, range: nil
+        let lower = self.location.lowercased()
+        return lower.replacingOccurrences(
+            of: " ", with: "_", options: NSString.CompareOptions.literal, range: nil
         )
     }
     
@@ -145,17 +145,17 @@ class Event {
      
      - returns: formatted time
      */
-    private func formatTime(time: String) -> String? {
-        let formatter = NSDateFormatter()
+    fileprivate func formatTime(_ time: String) -> String? {
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
         //formatter.timeZone = NSTimeZone(name: "UTC")
 
-        if let formatted = formatter.dateFromString(time) {
+        if let formatted = formatter.date(from: time) {
             formatter.dateFormat = "h:mm a"
-            formatter.AMSymbol = "am"
-            formatter.PMSymbol = "pm"
+            formatter.amSymbol = "am"
+            formatter.pmSymbol = "pm"
             //formatter.timeZone = NSTimeZone(name: "UTC")
-            return formatter.stringFromDate(formatted)
+            return formatter.string(from: formatted)
         }
         return nil
     }
@@ -168,11 +168,11 @@ class Event {
      
      - returns: comple NSDate
      */
-    private func createNSDate(date: String, time: String)->NSDate? {
-        let formatter = NSDateFormatter()
+    fileprivate func createNSDate(_ date: String, time: String)->Date? {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd hh:mm a"
         let str = date + " " + time
-        return formatter.dateFromString(str)
+        return formatter.date(from: str)
     }
 
 }

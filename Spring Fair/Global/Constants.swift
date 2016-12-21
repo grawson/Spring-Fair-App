@@ -29,16 +29,18 @@ struct Style {
  *  URL Requests
  */
 struct Requests {
-    static let highlights = "http://jhuspringfair.com/app_api/highlights.php"
-    static let allEvents = "http://jhuspringfair.com/app_api/all_events.php"
-    static let allArtists = "http://jhuspringfair.com/app_api/all_artists.php"
-    static let allVendors = "http://jhuspringfair.com/app_api/all_vendors.php"
-    static let eventID = "http://jhuspringfair.com/app_api/event_id.php"
-    static let musicID = "http://jhuspringfair.com/app_api/music_id.php"
-    static let vendorID = "http://jhuspringfair.com/app_api/vendor_id.php"
-    static let coordinates = "http://jhuspringfair.com/app_api/coordinates.php"
-    static let allArtVendors = "http://jhuspringfair.com/app_api/all_art_vendors.php"
-    static let artVendorID = "http://jhuspringfair.com/app_api/art_vendors_id.php"
+//    static let url = "http://jhuspringfair.com/app_api/"
+    static let url = "http://localhost:3300/"
+    static let highlights = url + "highlights.php"
+    static let allEvents = url + "all_events.php"
+    static let allArtists = url + "all_artists.php"
+    static let allVendors = url + "all_vendors.php"
+    static let eventID = url + "event_id.php"
+    static let musicID = url + "music_id.php"
+    static let vendorID = url + "vendor_id.php"
+    static let coordinates = url + "coordinates.php"
+    static let allArtVendors = url + "all_art_vendors.php"
+    static let artVendorID = url + "art_vendors_id.php"
 
 }
 

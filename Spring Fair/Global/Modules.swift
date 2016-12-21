@@ -51,7 +51,7 @@ extension UIColor {
      
      - returns: The adjusted color
      */
-    func adjust(red: CGFloat, green: CGFloat, blue: CGFloat, alpha:CGFloat) -> UIColor{
+    func adjust(_ red: CGFloat, green: CGFloat, blue: CGFloat, alpha:CGFloat) -> UIColor{
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         return UIColor(red: r+red, green: g+green, blue: b+blue, alpha: a+alpha)
@@ -68,16 +68,16 @@ extension UIView {
      - parameter corners: The corners to round
      - parameter radius:  The rounding radius
      */
-    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+    func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
-        mask.path = path.CGPath
+        mask.path = path.cgPath
         self.layer.mask = mask
     }
     
     func setCardShadow() {
         let layer = self.layer
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 3, height: 3)
         layer.shadowOpacity = 0.05
         layer.shadowRadius = 1
@@ -96,17 +96,17 @@ extension JSON {
      
      - returns: the formatted time
      */
-    func formatTime(date: String) -> String {
-        let formatter = NSDateFormatter()
+    func formatTime(_ date: String) -> String {
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
         //formatter.timeZone = NSTimeZone(name: "UTC")
-        let date = formatter.dateFromString(date)
+        let date = formatter.date(from: date)
         
         formatter.dateFormat = "h:mm a"
-        formatter.AMSymbol = "am"
-        formatter.PMSymbol = "pm"
+        formatter.amSymbol = "am"
+        formatter.pmSymbol = "pm"
         //formatter.timeZone = NSTimeZone(name: "UTC")
-        return formatter.stringFromDate(date!)
+        return formatter.string(from: date!)
     }
 }
 
@@ -125,15 +125,15 @@ extension String {
      
      - returns: formatted date
      */
-    func getDay(date: String)->String? {
+    func getDay(_ date: String)->String? {
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        if let date = formatter.dateFromString(date) {  //create NSDate object
+        if let date = formatter.date(from: date) {  //create NSDate object
             //convert string into weekday
             formatter.dateFormat = "EEEE"
-            let weekday: String = formatter.stringFromDate(date)
+            let weekday: String = formatter.string(from: date)
             return weekday
         }
         return nil
@@ -151,21 +151,21 @@ extension UITableView {
      - parameter text:  Text for the error label
      - parameter color: Color of the error label text
      */
-    func errorLabel(text: String, color: UIColor) {
+    func errorLabel(_ text: String, color: UIColor) {
         
         //Add footer view
         let errorView = UIView()
-        errorView.backgroundColor = UIColor.whiteColor()
-        errorView.frame = UIApplication.sharedApplication().keyWindow?.frame ?? CGRect()
+        errorView.backgroundColor = UIColor.white
+        errorView.frame = UIApplication.shared.keyWindow?.frame ?? CGRect()
         self.addSubview(errorView)
-        self.scrollEnabled = false
+        self.isScrollEnabled = false
         
         //create label and style
-        let label = UILabel(frame: CGRectMake(0, 0, errorView.frame.width - 20, errorView.frame.height))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: errorView.frame.width - 20, height: errorView.frame.height))
         label.center = CGPoint(x: errorView.center.x, y: errorView.center.y / 1.5)
         label.text = text
         label.numberOfLines = 0
-        label.textAlignment = .Center;
+        label.textAlignment = .center;
         label.font = (UIFont(name: "Open Sans Condensed", size: 20))
         label.textColor = color
 
@@ -184,13 +184,13 @@ extension UIButton {
      - parameter color:    background color for the button
      - parameter forState: state of the button for which to set the background color
      */
-    func setBackgroundColor(color: UIColor, forState: UIControlState) {
+    func setBackgroundColor(_ color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), color.CGColor)
-        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRect(x: 0, y: 0, width: 1, height: 1))
+        UIGraphicsGetCurrentContext()?.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
         let colorImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        self.setBackgroundImage(colorImage, forState: forState)
+        self.setBackgroundImage(colorImage, for: forState)
     }
 }
 

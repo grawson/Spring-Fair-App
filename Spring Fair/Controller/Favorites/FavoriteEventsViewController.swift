@@ -21,12 +21,12 @@ class FavoriteEventsViewController: UIViewController {
     //MARK: - Variables
     //********************************************************
     
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let defaults = UserDefaults.standard
     
     /// retrive IDs from user defaults
-    private var idDict: [String: [Int]] {
+    fileprivate var idDict: [String: [Int]] {
         get {
-            let ids = defaults.objectForKey(DefaultsKeys.favEvents) as? [Int] ?? []
+            let ids = defaults.object(forKey: DefaultsKeys.favEvents) as? [Int] ?? []
             return ["ids": ids]
         }
     }
@@ -52,8 +52,8 @@ class FavoriteEventsViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = false //show tab bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false //show tab bar
         self.loadEvents(self.idDict)
     }
     
@@ -64,10 +64,10 @@ class FavoriteEventsViewController: UIViewController {
     /** 
      Load events from database based on IDs 
      */
-    private func loadEvents(ids: [String: [Int]]) {
+    fileprivate func loadEvents(_ ids: [String: [Int]]) {
         
         if Reachability.isConnectedToNetwork() {
-            Alamofire.request(.POST, Requests.eventID, parameters: ids).spin()
+            Alamofire.request(Requests.eventID, method: .post, parameters: ids)
                 .responseJSON { response in
                     
                     if let json = response.result.value {
@@ -91,13 +91,13 @@ class FavoriteEventsViewController: UIViewController {
     //MARK: - Navigation
     //********************************************************
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
             case "show event":
                 let cell = sender as! UITableViewCell
-                if let indexPath = tableView.indexPathForCell(cell) {
-                    let destination = segue.destinationViewController as! EventDetailsViewController
+                if let indexPath = tableView.indexPath(for: cell) {
+                    let destination = segue.destination as! EventDetailsViewController
                     
                     // get data at specific row of json object
                     if let event = self.tableView.events?[indexPath.section][indexPath.row] {
@@ -119,8 +119,8 @@ extension FavoriteEventsViewController: SWRevealViewControllerDelegate {
     /**
      Needed for disabling user interaction when menu is open
      */
-    func revealController(revealController: SWRevealViewController, willMoveToPosition position: FrontViewPosition){
-        self.tableView.userInteractionEnabled = (position == FrontViewPosition.Left)
+    func revealController(_ revealController: SWRevealViewController, willMoveTo position: FrontViewPosition){
+        self.tableView.isUserInteractionEnabled = (position == FrontViewPosition.left)
     }
 }
 
