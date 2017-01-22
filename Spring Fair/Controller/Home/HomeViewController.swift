@@ -120,33 +120,25 @@ extension HomeViewController: SWRevealViewControllerDelegate {
 //********************************************************
 extension HomeViewController: UITableViewDataSource {
     
-    /**
-     Number of sections in table.
-     */
     func numberOfSections(in tableView: UITableView) -> Int {
+        return data?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    /**
-     Number of rows in each section.
-     */
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data?.count ?? 0
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
     }
     
-    /**
-     Set up each cell.
-     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.table.dequeueReusableCell(withIdentifier: "highlight") as! HighlightsTableViewCell
         cell.data = self.data?[indexPath.row]
         
-        cell.title?.font = UIFont(name: "Open Sans Condensed", size: 15)
+        cell.title?.font = UIFont(name: "Open Sans Condensed", size: 19)
         cell.descript?.font = UIFont(name: "Open Sans Condensed", size: 14)
-        
-        cell.title?.textColor = UIColor.white
-        cell.descript?.textColor = Style.cream
         cell.descript?.backgroundColor = UIColor.clear
         
         //Wrap the text

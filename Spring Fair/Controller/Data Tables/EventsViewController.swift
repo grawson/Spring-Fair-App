@@ -55,9 +55,18 @@ class EventsViewController: UIViewController {
             Alamofire.request(Requests.allEvents, method: .post)
                 .responseJSON { response in
                     
-                    
                     if let json = response.result.value {
-                        self.tableView.events = JSON(json)
+                                            
+                       
+                        let data = JSON(json)
+                        self.tableView.events = data
+                        
+        
+                       
+//                        let cacheTitle = CacheManager.Caches.allEvents
+//                        CacheManager.shared.store(withTitle: cacheTitle, data: json.di)
+//                        let cacheData = CacheManager.shared.load(withTitle: cacheTitle)
+
                     }
                     
                     //if no data, display error message

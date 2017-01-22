@@ -69,8 +69,10 @@ class ArtVendorsViewController: UIViewController {
                         
                         //if no data, display error message
                         if (self.tableView.vendors!.isEmpty) {
-                            self.tableView.errorLabel("No scheduled art vendors.", color: Style.color1)
+                            self.tableView.errorLabel("No art vendors.", color: Style.color1)
                         }
+                    } else {
+                        self.tableView.errorLabel("No art vendors.", color: Style.color1)
                     }
             }
         } else {

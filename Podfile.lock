@@ -1,28 +1,25 @@
 PODS:
-  - Alamofire (4.2.0)
+  - Alamofire (4.3.0)
   - GoogleMaps (2.1.1):
     - GoogleMaps/Maps (= 2.1.1)
   - GoogleMaps/Base (2.1.1)
   - GoogleMaps/Maps (2.1.1):
     - GoogleMaps/Base
   - GRCustomAlert (0.1.1)
-  - Haneke (1.0.2)
-  - SwiftyJSON (3.1.3)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps
   - GRCustomAlert
-  - Haneke
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GRCustomAlert: 3617ca53f5c010f3935c3db1745c07c4fe9606e9
-  Haneke: 01454a67322faa0dd9d81fc0f447885044e71521
-  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: c3c110566f015f6c57e55acd61b1a1f0559dea3b
+PODFILE CHECKSUM: fd0ebf9ece978e0f09b863df1b90548509ea72dc
 
 COCOAPODS: 1.1.1

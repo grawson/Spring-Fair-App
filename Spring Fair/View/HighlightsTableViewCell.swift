@@ -15,7 +15,7 @@ class HighlightsTableViewCell: UITableViewCell {
     //********************************************************
 
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var descript: UITextView!
+    @IBOutlet weak var descript: UILabel!
     
     //MARK: - Variables
     //********************************************************

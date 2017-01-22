@@ -71,9 +71,11 @@ class VendorsViewController: UIViewController {
                         
                         //if no data, display error message
                         if (self.tableView.vendors!.isEmpty) {
-                            let text = "No current vendors."
+                            let text = "No vendors."
                             self.tableView.errorLabel(text, color: Style.color1)
                         }
+                    } else {
+                        self.tableView.errorLabel("No vendors.", color: Style.color1)
                     }
             }
         } else {

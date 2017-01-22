@@ -70,6 +70,8 @@ class MusicViewController: UIViewController {
                         if (self.tableView.artists!.isEmpty) {
                             self.tableView.errorLabel("No scheduled artists.", color: Style.color1)
                         }
+                    } else {
+                        self.tableView.errorLabel("No scheduled artists.", color: Style.color1)
                     }
             }
         } else {

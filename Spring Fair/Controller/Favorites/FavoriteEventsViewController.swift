@@ -78,6 +78,9 @@ class FavoriteEventsViewController: UIViewController {
                             let text = "No favorite events added."
                             self.tableView.errorLabel(text, color: Style.color1)
                         }
+                    } else {
+                        let text = "No favorite events added."
+                        self.tableView.errorLabel(text, color: Style.color1)
                     }
             }
         } else {

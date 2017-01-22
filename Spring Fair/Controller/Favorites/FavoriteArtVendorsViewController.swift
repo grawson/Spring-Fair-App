@@ -89,6 +89,9 @@ class FavoriteArtVendorsViewController: UIViewController {
                             let text = "No favorite art vendors added."
                             self.tableView.errorLabel(text, color: Style.color1)
                         }
+                    }  else {
+                        let text = "No favorite art vendors added."
+                        self.tableView.errorLabel(text, color: Style.color1)
                     }
             }
         } else {

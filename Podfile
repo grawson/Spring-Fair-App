@@ -7,18 +7,12 @@ target 'Spring Fair' do
 
 pod 'Alamofire'
 
-pod 'Haneke'
-
 pod 'SwiftyJSON'
 
 pod 'GoogleMaps'
 
 pod 'GRCustomAlert'
 
-
-
 end
 
-target 'Spring FairUITests' do
 
-end

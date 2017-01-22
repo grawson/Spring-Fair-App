@@ -27,11 +27,11 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         //Round corners of all buttons
-        let buttons = [button1, button2, button3, button4, musicButton]
-        for button in buttons {
-            button?.layer.masksToBounds = true
-            button?.layer.cornerRadius = Style.smallRounded
-        }
+//        let buttons = [button1, button2, button3, button4, musicButton]
+//        for button in buttons {
+//            button?.layer.masksToBounds = true
+//            button?.layer.cornerRadius = Style.smallRounded
+//        }
     }
     
     //MARK: - methods

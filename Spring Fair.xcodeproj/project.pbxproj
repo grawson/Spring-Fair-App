@@ -10,6 +10,7 @@
 		4C58954399B2C8247600EB45 /* Pods_Spring_Fair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13BA007F9F2E61DBEC40339 /* Pods_Spring_Fair.framework */; };
 		560AAB061C8CEDC100C92207 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560AAB051C8CEDC100C92207 /* Artist.swift */; };
 		560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560C6EDD1C2D517000E8C619 /* GoogleMapsViewController.swift */; };
+		560D62FC1E0C8B8C008AB501 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560D62FB1E0C8B8B008AB501 /* CardView.swift */; };
 		5613FA891C31B6DE00BA9816 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613FA881C31B6DE00BA9816 /* Keys.swift */; };
 		5618279E1C271ED1007DD407 /* Bazar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5618279D1C271ED1007DD407 /* Bazar.ttf */; };
 		561827A01C273DC5007DD407 /* OpenSans-CondBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5618279F1C273DC5007DD407 /* OpenSans-CondBold.ttf */; };
@@ -23,7 +24,11 @@
 		563627EE1C30B0D1005BD501 /* VendorsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627ED1C30B0D1005BD501 /* VendorsTableView.swift */; };
 		563627F01C30B191005BD501 /* VendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627EF1C30B191005BD501 /* VendorsViewController.swift */; };
 		563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */; };
+		5638DD991E34ED7700CF57FF /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5638DD981E34ED7700CF57FF /* CacheManager.swift */; };
 		563A64CA1CAC5AD000ADAF4D /* FavoriteArtVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A64C91CAC5AD000ADAF4D /* FavoriteArtVendorsViewController.swift */; };
+		563EF8631E0F61FD002914F8 /* Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563EF8621E0F61FD002914F8 /* Highlight.swift */; };
+		563EF8691E0F642E002914F8 /* HighlightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563EF8681E0F642E002914F8 /* HighlightsTableViewController.swift */; };
+		564088E21E10344900DE5C6F /* HighlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564088E11E10344900DE5C6F /* HighlightTableViewCell.swift */; };
 		56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */; };
 		5667732D1C30866F00C82B9C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667732C1C30866F00C82B9C /* Event.swift */; };
 		568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568583C21C8B836400A699C7 /* MusicViewController.swift */; };
@@ -43,22 +48,12 @@
 		56D55E491C2D2C600018E895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E481C2D2C5F0018E895 /* Constants.swift */; };
 		56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBFA381C02CC3E00333787 /* MenuViewController.swift */; };
 		56F9A4AF1C0AC4EF003B1E44 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */; };
-		D94C043AAC4469DC10B7E581 /* Pods_Spring_FairUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1643648F1ACF1629A75A8F /* Pods_Spring_FairUITests.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5690226B1C024195006F010E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5690224E1C024195006F010E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 569022551C024195006F010E;
-			remoteInfo = "Spring Fair";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		560AAB051C8CEDC100C92207 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		560C6EDD1C2D517000E8C619 /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
+		560D62FB1E0C8B8B008AB501 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5613FA881C31B6DE00BA9816 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5618279D1C271ED1007DD407 /* Bazar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bazar.ttf; sourceTree = "<group>"; };
 		5618279F1C273DC5007DD407 /* OpenSans-CondBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondBold.ttf"; sourceTree = "<group>"; };
@@ -72,7 +67,11 @@
 		563627ED1C30B0D1005BD501 /* VendorsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorsTableView.swift; sourceTree = "<group>"; };
 		563627EF1C30B191005BD501 /* VendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorsViewController.swift; sourceTree = "<group>"; };
 		563627F11C30B34F005BD501 /* FavoriteVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVendorsViewController.swift; sourceTree = "<group>"; };
+		5638DD981E34ED7700CF57FF /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		563A64C91CAC5AD000ADAF4D /* FavoriteArtVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteArtVendorsViewController.swift; sourceTree = "<group>"; };
+		563EF8621E0F61FD002914F8 /* Highlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highlight.swift; sourceTree = "<group>"; };
+		563EF8681E0F642E002914F8 /* HighlightsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightsTableViewController.swift; sourceTree = "<group>"; };
+		564088E11E10344900DE5C6F /* HighlightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightTableViewCell.swift; path = View/HighlightTableViewCell.swift; sourceTree = "<group>"; };
 		56551F921C2B6B5A00F9F1CB /* VendorDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorDetailsViewController.swift; sourceTree = "<group>"; };
 		5667732C1C30866F00C82B9C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		568583C21C8B836400A699C7 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		569022591C024195006F010E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569022631C024195006F010E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		569022651C024195006F010E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5690226A1C024195006F010E /* Spring FairUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Spring FairUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		569022791C024210006F010E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5690227B1C029100006F010E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5690227D1C029919006F010E /* Spring Fair-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spring Fair-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -111,14 +109,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C58954399B2C8247600EB45 /* Pods_Spring_Fair.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		569022671C024195006F010E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D94C043AAC4469DC10B7E581 /* Pods_Spring_FairUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +151,38 @@
 				569022621C024195006F010E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5638DD971E34ED5300CF57FF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5638DD981E34ED7700CF57FF /* CacheManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		563EF8641E0F624B002914F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				563EF8621E0F61FD002914F8 /* Highlight.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		563EF8671E0F63F1002914F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				563EF8681E0F642E002914F8 /* HighlightsTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		564088E31E10345000DE5C6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				564088E11E10344900DE5C6F /* HighlightTableViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		5650FD371C2FA9230036B836 /* Map */ = {
@@ -214,7 +236,9 @@
 		56551F961C2BA41700F9F1CB /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				5638DD971E34ED5300CF57FF /* Managers */,
 				56D55E481C2D2C5F0018E895 /* Constants.swift */,
+				560D62FB1E0C8B8B008AB501 /* CardView.swift */,
 				5613FA881C31B6DE00BA9816 /* Keys.swift */,
 				561827AC1C28AD59007DD407 /* Modules.swift */,
 				568BA3561C4F4E5900E17288 /* Reachability.swift */,
@@ -236,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				569022561C024195006F010E /* Spring Fair.app */,
-				5690226A1C024195006F010E /* Spring FairUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,6 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */,
+				563EF8641E0F624B002914F8 /* Model */,
+				563EF8671E0F63F1002914F8 /* Controller */,
+				564088E31E10345000DE5C6F /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -337,27 +363,6 @@
 			productReference = 569022561C024195006F010E /* Spring Fair.app */;
 			productType = "com.apple.product-type.application";
 		};
-		569022691C024195006F010E /* Spring FairUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 569022761C024195006F010E /* Build configuration list for PBXNativeTarget "Spring FairUITests" */;
-			buildPhases = (
-				C8D3BB723FF52F6E3D539066 /* [CP] Check Pods Manifest.lock */,
-				569022661C024195006F010E /* Sources */,
-				569022671C024195006F010E /* Frameworks */,
-				569022681C024195006F010E /* Resources */,
-				E218C762F62925DA84E9990E /* [CP] Embed Pods Frameworks */,
-				DA63DCFE933E165FC8F8744C /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5690226C1C024195006F010E /* PBXTargetDependency */,
-			);
-			name = "Spring FairUITests";
-			productName = "Spring FairUITests";
-			productReference = 5690226A1C024195006F010E /* Spring FairUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -365,7 +370,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Graws Inc.";
 				TargetAttributes = {
 					569022551C024195006F010E = {
@@ -377,10 +382,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					569022691C024195006F010E = {
-						CreatedOnToolsVersion = 7.1.1;
-						TestTargetID = 569022551C024195006F010E;
 					};
 				};
 			};
@@ -398,7 +399,6 @@
 			projectRoot = "";
 			targets = (
 				569022551C024195006F010E /* Spring Fair */,
-				569022691C024195006F010E /* Spring FairUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -415,13 +415,6 @@
 				56C7328C1C162DB2002CB631 /* blenda_script.otf in Resources */,
 				561827A01C273DC5007DD407 /* OpenSans-CondBold.ttf in Resources */,
 				5618279E1C271ED1007DD407 /* Bazar.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		569022681C024195006F010E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,36 +464,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C8D3BB723FF52F6E3D539066 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DA63DCFE933E165FC8F8744C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring FairUITests/Pods-Spring FairUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E1E29491EC338E3C7AC03191 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -516,21 +479,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E218C762F62925DA84E9990E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spring FairUITests/Pods-Spring FairUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -542,6 +490,7 @@
 				56AF1BD41CAC492A0075631E /* ArtVendorsViewController.swift in Sources */,
 				563627E41C30A1C8005BD501 /* Vendor.swift in Sources */,
 				563627EE1C30B0D1005BD501 /* VendorsTableView.swift in Sources */,
+				563EF8631E0F61FD002914F8 /* Highlight.swift in Sources */,
 				563627E81C30A86E005BD501 /* EventsViewController.swift in Sources */,
 				563627F21C30B34F005BD501 /* FavoriteVendorsViewController.swift in Sources */,
 				561827AD1C28AD59007DD407 /* Modules.swift in Sources */,
@@ -551,8 +500,11 @@
 				563627EC1C30ACBD005BD501 /* FavoriteEventsViewController.swift in Sources */,
 				56D55E3C1C2D09530018E895 /* HighlightsTableViewCell.swift in Sources */,
 				56551F931C2B6B5A00F9F1CB /* VendorDetailsViewController.swift in Sources */,
+				563EF8691E0F642E002914F8 /* HighlightsTableViewController.swift in Sources */,
 				5690225A1C024195006F010E /* AppDelegate.swift in Sources */,
 				568583CB1C8B9A6500A699C7 /* FavoriteMusicViewController.swift in Sources */,
+				560D62FC1E0C8B8C008AB501 /* CardView.swift in Sources */,
+				564088E21E10344900DE5C6F /* HighlightTableViewCell.swift in Sources */,
 				568583C71C8B918E00A699C7 /* MusicDetailsViewController.swift in Sources */,
 				563627F01C30B191005BD501 /* VendorsViewController.swift in Sources */,
 				560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */,
@@ -562,6 +514,7 @@
 				568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */,
 				561827A21C2743B4007DD407 /* EventDetailsViewController.swift in Sources */,
 				568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */,
+				5638DD991E34ED7700CF57FF /* CacheManager.swift in Sources */,
 				563627E61C30A5B9005BD501 /* EventsTableView.swift in Sources */,
 				569022801C02991A006F010E /* SWRevealViewController.m in Sources */,
 				560AAB061C8CEDC100C92207 /* Artist.swift in Sources */,
@@ -569,22 +522,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		569022661C024195006F010E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5690226C1C024195006F010E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 569022551C024195006F010E /* Spring Fair */;
-			targetProxy = 5690226B1C024195006F010E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		569022621C024195006F010E /* LaunchScreen.storyboard */ = {
@@ -612,8 +550,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -657,8 +597,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -677,6 +619,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -686,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 572F2541830D672B180956CD /* Pods-Spring Fair.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -697,7 +641,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Spring Fair/Spring Fair-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -706,6 +650,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA6B6C5DCD50CA5A36472D11 /* Pods-Spring Fair.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -716,34 +661,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Spring Fair/Spring Fair-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		569022771C024195006F010E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1575349E6567C240D1725C2 /* Pods-Spring FairUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "Spring FairUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavi.Rawson.grawson2.Spring-FairUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Spring Fair";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		569022781C024195006F010E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4D8B6160AC5D7EDDA702A91 /* Pods-Spring FairUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = "Spring FairUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavi.Rawson.grawson2.Spring-FairUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Spring Fair";
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -764,15 +683,6 @@
 			buildConfigurations = (
 				569022741C024195006F010E /* Debug */,
 				569022751C024195006F010E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		569022761C024195006F010E /* Build configuration list for PBXNativeTarget "Spring FairUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				569022771C024195006F010E /* Debug */,
-				569022781C024195006F010E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

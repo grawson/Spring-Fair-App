@@ -81,6 +81,9 @@ class FavoriteMusicViewController: UIViewController {
                             let text = "No favorite music added."
                             self.tableView.errorLabel(text, color: Style.color1)
                         }
+                    } else {
+                        let text = "No favorite music added."
+                        self.tableView.errorLabel(text, color: Style.color1)
                     }
             }
         } else {

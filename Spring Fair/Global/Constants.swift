@@ -30,8 +30,7 @@ struct Style {
  */
 struct Requests {
 //    static let url = "http://jhuspringfair.com/app_api/"
-    static let url = "http://localhost:3300/"
-    static let highlights = url + "highlights.php"
+    static let url = "http://192.168.1.19:81/" // Find through mac's wifi settings page
     static let allEvents = url + "all_events.php"
     static let allArtists = url + "all_artists.php"
     static let allVendors = url + "all_vendors.php"
@@ -41,6 +40,8 @@ struct Requests {
     static let coordinates = url + "coordinates.php"
     static let allArtVendors = url + "all_art_vendors.php"
     static let artVendorID = url + "art_vendors_id.php"
+    static let highlights = url + "highlights.php"
+
 
 }
 
