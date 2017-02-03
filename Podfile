@@ -13,6 +13,8 @@ pod 'GoogleMaps'
 
 pod 'GRCustomAlert'
 
+pod 'Cache'
+
 end
 
 

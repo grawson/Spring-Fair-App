@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.3.0)
+  - Cache (2.2.1):
+    - CryptoSwift
+  - CryptoSwift (0.6.7)
   - GoogleMaps (2.1.1):
     - GoogleMaps/Maps (= 2.1.1)
   - GoogleMaps/Base (2.1.1)
@@ -10,16 +13,19 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Cache
   - GoogleMaps
   - GRCustomAlert
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Cache: 5b2d2d68477bd9c5b8e539d673cc217ed1284814
+  CryptoSwift: 685ae257941e5447474348a2b545583e1a16b573
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GRCustomAlert: 3617ca53f5c010f3935c3db1745c07c4fe9606e9
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: fd0ebf9ece978e0f09b863df1b90548509ea72dc
+PODFILE CHECKSUM: 22bbc77a2033c4e9166febcf3e9f19bc10f6ceed
 
 COCOAPODS: 1.1.1

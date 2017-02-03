@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Cache
 ////import AlamofireSpinner
 
 class EventsViewController: UIViewController {
@@ -55,11 +56,24 @@ class EventsViewController: UIViewController {
             Alamofire.request(Requests.allEvents, method: .post)
                 .responseJSON { response in
                     
+                    print(response)
+                    
                     if let json = response.result.value {
                                             
                        
                         let data = JSON(json)
                         self.tableView.events = data
+                        
+                        if let dict = json as? [String: Any] {
+                            print("success")
+                        }
+                        
+                        // JSON
+//                        cache.add("jsonDictionary", object: JSON.dictionary(["key": "value"]))
+                        
+//                        let cache = HybridCache(name: "json-cache")
+//                        cache.add("data", object: data.dictionaryObject!)
+
                         
         
                        
