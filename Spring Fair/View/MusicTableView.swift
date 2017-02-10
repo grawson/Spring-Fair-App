@@ -16,7 +16,12 @@ class MusicTableView: UITableView {
     //********************************************************
     
     var artists: JSON? {
-        didSet { self.reloadData() }
+        didSet {
+            self.reloadData()
+            if artists == nil || artists!.isEmpty {
+                errorLabel("No scheduled music.", color: Style.color1)
+            }
+        }
     }
 }
 

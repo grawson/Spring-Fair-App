@@ -62,27 +62,32 @@ class VendorsViewController: UIViewController {
     */
     fileprivate func loadVendors() {
         
-        if Reachability.isConnectedToNetwork() {
-            Alamofire.request(Requests.allVendors, method: .post)
-                .responseJSON { response in
-                    
-                    if let json = response.result.value {
-                        self.tableView.vendors = JSON(json)
-                        
-                        //if no data, display error message
-                        if (self.tableView.vendors!.isEmpty) {
-                            let text = "No vendors."
-                            self.tableView.errorLabel(text, color: Style.color1)
-                        }
-                    } else {
-                        self.tableView.errorLabel("No vendors.", color: Style.color1)
-                    }
-            }
-        } else {
+        guard Reachability.isConnectedToNetwork() else {
             tableView.vendors = nil
             tableView.reloadData()
-            self.tableView.errorLabel(Text.networkFail, color: Style.color1)
+            tableView.errorLabel(Text.networkFail, color: Style.color1)
+            return
         }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Alamofire.request(Requests.allVendors, method: .get).responseJSON { [weak self] response in
+            
+            guard let strongSelf = self else { return }
+            
+            // data result found
+            if let json = response.result.value {
+                let data = JSON(json)
+                DispatchQueue.main.async {
+                    strongSelf.tableView.vendors = data
+                }
+            }
+            
+            // stop spinner
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
+
        
     }
     

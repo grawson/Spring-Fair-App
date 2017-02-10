@@ -15,7 +15,12 @@ class EventsTableView: UITableView {
     //********************************************************
     
     var events: JSON? {
-        didSet { self.reloadData() }
+        didSet {
+            self.reloadData()
+            if events == nil || events!.isEmpty {
+                errorLabel("No scheduled events.", color: Style.color1)
+            }
+        }
     }
 }
 

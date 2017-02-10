@@ -14,7 +14,7 @@ class Highlight: CustomStringConvertible {
     struct Keys {
         static let Title = "title"
         static let Likes = "likes"
-        static let Body = "body"
+        static let Body = "description"
     }
     
     var title: String?

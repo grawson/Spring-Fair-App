@@ -10,19 +10,14 @@ import UIKit
 
 class HighlightTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var bodyLabel: UILabel!
-
-    var title: String? {
+    var highlight: Highlight? {
         didSet {
-            titleLabel.text = title
+            titleLabel.text = highlight?.title
+            bodyLabel.text = highlight?.body
         }
     }
     
-    var body: String? {
-        didSet {
-            bodyLabel.text = body
-        }
-    }
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
 
 }

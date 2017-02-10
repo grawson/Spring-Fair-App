@@ -15,7 +15,12 @@ class VendorsTableView: UITableView {
     //********************************************************
     
     var vendors: JSON? {
-        didSet { self.reloadData() }
+        didSet {
+            self.reloadData()
+            if vendors == nil || vendors!.isEmpty {
+                errorLabel("No scheduled vendors.", color: Style.color1)
+            }
+        }
     }
 }
 

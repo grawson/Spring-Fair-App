@@ -52,50 +52,30 @@ class EventsViewController: UIViewController {
     /** Load all events from database. */
     fileprivate func loadEvents() {
         
-        if Reachability.isConnectedToNetwork() {
-            Alamofire.request(Requests.allEvents, method: .post)
-                .responseJSON { response in
-                    
-                    print(response)
-                    
-                    if let json = response.result.value {
-                                            
-                       
-                        let data = JSON(json)
-                        self.tableView.events = data
-                        
-                        if let dict = json as? [String: Any] {
-                            print("success")
-                        }
-                        
-                        // JSON
-//                        cache.add("jsonDictionary", object: JSON.dictionary(["key": "value"]))
-                        
-//                        let cache = HybridCache(name: "json-cache")
-//                        cache.add("data", object: data.dictionaryObject!)
-
-                        
-        
-                       
-//                        let cacheTitle = CacheManager.Caches.allEvents
-//                        CacheManager.shared.store(withTitle: cacheTitle, data: json.di)
-//                        let cacheData = CacheManager.shared.load(withTitle: cacheTitle)
-
-                    }
-                    
-                    //if no data, display error message
-                    if let events = self.tableView.events {
-                        if events.isEmpty {
-                            self.tableView.errorLabel("No scheduled events.", color: Style.color1)
-                        }
-                    } else {
-                        self.tableView.errorLabel("No scheduled events.", color: Style.color1)
-                    }
-            }
-        } else {
+        guard Reachability.isConnectedToNetwork() else {
             tableView.events = nil
             tableView.reloadData()
             tableView.errorLabel(Text.networkFail, color: Style.color1)
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Alamofire.request(Requests.allEvents, method: .get).responseJSON { [weak self] response in
+                
+            guard let strongSelf = self else { return }
+            
+            // data result found
+            if let json = response.result.value {
+                let data = JSON(json)
+                DispatchQueue.main.async {
+                    strongSelf.tableView.events = data
+                }
+            }
+
+            // stop spinner
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
         }
     }
     

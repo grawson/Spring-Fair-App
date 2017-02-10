@@ -90,8 +90,7 @@ class HighlightsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.highlightID, for: indexPath) as! HighlightTableViewCell
-        cell.title = highlights[indexPath.row].title
-        cell.body = highlights[indexPath.row].body
+        cell.highlight = highlights[indexPath.row]
         return cell
     }
  

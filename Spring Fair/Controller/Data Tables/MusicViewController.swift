@@ -59,25 +59,30 @@ class MusicViewController: UIViewController {
     /** Load all music from database */
     fileprivate func loadArtists() {
         
-        if Reachability.isConnectedToNetwork() {
-            Alamofire.request(Requests.allArtists, method: .post)
-                .responseJSON { response in
-                    
-                    if let json = response.result.value {
-                        self.tableView.artists = JSON(json)
-                        
-                        //if no data, display error message
-                        if (self.tableView.artists!.isEmpty) {
-                            self.tableView.errorLabel("No scheduled artists.", color: Style.color1)
-                        }
-                    } else {
-                        self.tableView.errorLabel("No scheduled artists.", color: Style.color1)
-                    }
-            }
-        } else {
+        guard Reachability.isConnectedToNetwork() else {
             tableView.artists = nil
             tableView.reloadData()
             tableView.errorLabel(Text.networkFail, color: Style.color1)
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Alamofire.request(Requests.allArtists, method: .get).responseJSON { [weak self] response in
+            
+            guard let strongSelf = self else { return }
+            
+            // data result found
+            if let json = response.result.value {
+                let data = JSON(json)
+                DispatchQueue.main.async {
+                    strongSelf.tableView.artists = data
+                }
+            }
+            
+            // stop spinner
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
         }
     }
     

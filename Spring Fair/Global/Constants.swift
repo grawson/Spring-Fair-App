@@ -13,7 +13,7 @@ import Foundation
  */
 struct Style {
     static let color1 = UIColor(red: 0x73, green: 0x71, blue: 0x91)   //greyish purple
-    static let lightOrange = UIColor(red: 0xff, green: 0xad, blue: 0x55)
+    static let lightOrange = UIColor(red: 0xff, green: 0x9c, blue: 0x80)
     static let lightCream = UIColor(red: 0xff, green: 0xe7, blue: 0xbd)
     static let lightBlue = UIColor(red: 117, green: 159, blue: 215)
     static let cream = UIColor(red: 0xff, green: 0xfd, blue: 0xcd)
@@ -29,8 +29,8 @@ struct Style {
  *  URL Requests
  */
 struct Requests {
-//    static let url = "http://jhuspringfair.com/app_api/"
-    static let url = "http://192.168.1.19:81/" // Find through mac's wifi settings page
+    static let url = "http://jhuspringfair.com/app_api/"
+//    static let url = "http://10.188.212.109:81/" // Find through mac's wifi settings page
     static let allEvents = url + "all_events.php"
     static let allArtists = url + "all_artists.php"
     static let allVendors = url + "all_vendors.php"
