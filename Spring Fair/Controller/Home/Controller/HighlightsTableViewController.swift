@@ -17,6 +17,7 @@ class HighlightsTableViewController: UITableViewController {
     
     struct Constants {
         static let highlightID = "highlight"
+        static let noHighlights = "No highlights"
     }
     
     // MARK: Outlets
@@ -27,7 +28,14 @@ class HighlightsTableViewController: UITableViewController {
     // MARK: Variables
     //***********************************************************************************************
     
-    var highlights = [Highlight]() { didSet { tableView.reloadData() } }
+    var highlights = [Highlight]() {
+        didSet {
+            tableView.reloadData()
+            if highlights.isEmpty {
+                tableView.errorLabel(Constants.noHighlights, color: Style.color1)
+            }
+        }
+    }
     
     
     // MARK: Life Cycle
@@ -52,16 +60,37 @@ class HighlightsTableViewController: UITableViewController {
     //***********************************************************************************************
     
     fileprivate func loadData() {
+        
+        guard Reachability.isConnectedToNetwork() else {
+            highlights.removeAll()
+            tableView.errorLabel(Text.networkFail, color: Style.color1)
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(Requests.highlights, method: .get).responseJSON { [weak self] response in
+            
+            guard let strongSelf = self else { return }
+            
+            // data result found
             if let json = response.result.value {
                 let data = JSON(json)
                 var tempHighlights = [Highlight]()
                 for (_, val) in data {
                     tempHighlights.append(Highlight(data: val))
                 }
-                self?.highlights = tempHighlights
+                
+                DispatchQueue.main.async {
+                    strongSelf.highlights = tempHighlights
+                }
+            }
+            
+            // stop spinner
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
+
     }
     
     fileprivate func setupMenu() {
