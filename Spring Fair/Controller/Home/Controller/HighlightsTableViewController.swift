@@ -75,6 +75,7 @@ class HighlightsTableViewController: UITableViewController {
             // data result found
             if let json = response.result.value {
                 let data = JSON(json)
+                
                 var tempHighlights = [Highlight]()
                 for (_, val) in data {
                     tempHighlights.append(Highlight(data: val))
@@ -119,7 +120,8 @@ class HighlightsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.highlightID, for: indexPath) as! HighlightTableViewCell
-        cell.highlight = highlights[indexPath.row]
+        cell.highlight = highlights[indexPath.section]
+        print(indexPath.row)
         return cell
     }
  

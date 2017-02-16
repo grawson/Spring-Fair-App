@@ -61,11 +61,8 @@ extension EventsTableView: UITableViewDataSource {
         header.textLabel?.text = header.textLabel?.text?.capitalized
     }
     
-    /**
-     Change height of headers.
-     */
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40.0
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     /**
