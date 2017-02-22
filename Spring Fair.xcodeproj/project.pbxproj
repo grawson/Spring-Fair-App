@@ -46,6 +46,7 @@
 		56C7328C1C162DB2002CB631 /* blenda_script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56C7328B1C162DB2002CB631 /* blenda_script.otf */; };
 		56D55E3C1C2D09530018E895 /* HighlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E3B1C2D09530018E895 /* HighlightsTableViewCell.swift */; };
 		56D55E491C2D2C600018E895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E481C2D2C5F0018E895 /* Constants.swift */; };
+		56D952801E5D32BE0050AC2C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D9527F1E5D32BE0050AC2C /* CircleView.swift */; };
 		56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBFA381C02CC3E00333787 /* MenuViewController.swift */; };
 		56F9A4AF1C0AC4EF003B1E44 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		56C7328B1C162DB2002CB631 /* blenda_script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blenda_script.otf; sourceTree = "<group>"; };
 		56D55E3B1C2D09530018E895 /* HighlightsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightsTableViewCell.swift; sourceTree = "<group>"; };
 		56D55E481C2D2C5F0018E895 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		56D9527F1E5D32BE0050AC2C /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		56DBFA381C02CC3E00333787 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		572F2541830D672B180956CD /* Pods-Spring Fair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				5613FA881C31B6DE00BA9816 /* Keys.swift */,
 				561827AC1C28AD59007DD407 /* Modules.swift */,
 				568BA3561C4F4E5900E17288 /* Reachability.swift */,
+				56D9527F1E5D32BE0050AC2C /* CircleView.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */,
 				561827A21C2743B4007DD407 /* EventDetailsViewController.swift in Sources */,
 				568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */,
+				56D952801E5D32BE0050AC2C /* CircleView.swift in Sources */,
 				5638DD991E34ED7700CF57FF /* CacheManager.swift in Sources */,
 				563627E61C30A5B9005BD501 /* EventsTableView.swift in Sources */,
 				569022801C02991A006F010E /* SWRevealViewController.m in Sources */,

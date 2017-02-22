@@ -34,8 +34,11 @@ class HighlightsTableViewController: UITableViewController {
             if highlights.isEmpty {
                 tableView.errorLabel(Constants.noHighlights, color: Style.color1)
             }
+            expandedCells = [Bool](repeating: false, count: highlights.count)
         }
     }
+    
+    var expandedCells = [Bool]()
     
     
     // MARK: Life Cycle
@@ -53,7 +56,6 @@ class HighlightsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.tableFooterView = UIView()
         loadData()
-        print(highlights.count)
     }
     
     // MARK: Methods
@@ -101,6 +103,11 @@ class HighlightsTableViewController: UITableViewController {
         self.revealViewController().delegate = self
         self.revealViewController().panGestureRecognizer()
     }
+    
+    func expandCell(sender: UIButton) {
+        expandedCells[sender.tag] = !expandedCells[sender.tag]
+        tableView.reloadSections([sender.tag], with: UITableViewRowAnimation.fade)
+    }
 
     
     // MARK: Table ViewData Source
@@ -121,7 +128,9 @@ class HighlightsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.highlightID, for: indexPath) as! HighlightTableViewCell
         cell.highlight = highlights[indexPath.section]
-        print(indexPath.row)
+        cell.expandButton.tag = indexPath.section
+        cell.expandButton.addTarget(self, action: #selector(expandCell), for: .touchUpInside)
+        cell.expanded = expandedCells[indexPath.section]
         return cell
     }
  
@@ -138,7 +147,7 @@ class HighlightsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 1 ? 0 : 1
+        return 1
     }
 }
 
