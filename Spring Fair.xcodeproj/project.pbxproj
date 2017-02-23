@@ -48,7 +48,6 @@
 		56D55E491C2D2C600018E895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E481C2D2C5F0018E895 /* Constants.swift */; };
 		56D952801E5D32BE0050AC2C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D9527F1E5D32BE0050AC2C /* CircleView.swift */; };
 		56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBFA381C02CC3E00333787 /* MenuViewController.swift */; };
-		56F9A4AF1C0AC4EF003B1E44 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,7 +95,6 @@
 		56D55E481C2D2C5F0018E895 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56D9527F1E5D32BE0050AC2C /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		56DBFA381C02CC3E00333787 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		572F2541830D672B180956CD /* Pods-Spring Fair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.debug.xcconfig"; sourceTree = "<group>"; };
 		7E1643648F1ACF1629A75A8F /* Pods_Spring_FairUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spring_FairUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6B6C5DCD50CA5A36472D11 /* Pods-Spring Fair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.release.xcconfig"; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 		56D55E3D1C2D0C1B0018E895 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				56F9A4AE1C0AC4EF003B1E44 /* HomeViewController.swift */,
 				563EF8641E0F624B002914F8 /* Model */,
 				563EF8671E0F63F1002914F8 /* Controller */,
 				564088E31E10345000DE5C6F /* View */,
@@ -522,7 +519,6 @@
 				563627E61C30A5B9005BD501 /* EventsTableView.swift in Sources */,
 				569022801C02991A006F010E /* SWRevealViewController.m in Sources */,
 				560AAB061C8CEDC100C92207 /* Artist.swift in Sources */,
-				56F9A4AF1C0AC4EF003B1E44 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

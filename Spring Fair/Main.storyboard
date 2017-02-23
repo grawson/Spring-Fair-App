@@ -331,6 +331,7 @@
                                 <connections>
                                     <outlet property="bodyLabel" destination="p1u-Lu-byq" id="kig-Gi-Isx"/>
                                     <outlet property="expandButton" destination="LLQ-7S-McP" id="6OR-Nd-uir"/>
+                                    <outlet property="postDateLabel" destination="qmM-Va-n9I" id="hou-bY-I7x"/>
                                     <outlet property="titleLabel" destination="EUz-gX-WWI" id="QwO-6R-VfX"/>
                                 </connections>
                             </tableViewCell>
@@ -1298,8 +1299,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jen-XO-QUF" userLabel="ButtonCard">
                                                 <rect key="frame" x="8" y="195" width="580" height="138"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvT-og-c8K">
-                                                        <rect key="frame" x="289" y="0.0" width="8" height="40"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvT-og-c8K">
+                                                        <rect key="frame" x="286" y="0.0" width="8" height="40"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.91500777006149292" green="0.91500777006149292" blue="0.91500777006149292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>

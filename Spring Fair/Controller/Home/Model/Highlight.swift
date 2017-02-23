@@ -11,26 +11,34 @@ import SwiftyJSON
 
 class Highlight: CustomStringConvertible {
     
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter
+    }()
+    
     struct Keys {
-        static let Title = "title"
-        static let Likes = "likes"
-        static let Body = "description"
+        static let title = "title"
+        static let date = "date"
+        static let body = "description"
     }
     
     var title: String?
-    var likes: Int?
     var body: String?
+    var date: Date?
     
     var description: String {
         return "Title: \(title)\n"
                 + "Body: \(body)\n"
-                + "Likes: \(likes)\n"
     }
     
     init(data: JSON) {
-        title = data[Keys.Title].string
-        likes = data[Keys.Likes].int
-        body = data[Keys.Body].string
+        title = data[Keys.title].string
+        body = data[Keys.body].string
+        
+        // convert datetime to Date
+        let dateString = data[Keys.date].string ?? ""
+        date = dateFormatter.date(from: dateString)
     }
     
     
