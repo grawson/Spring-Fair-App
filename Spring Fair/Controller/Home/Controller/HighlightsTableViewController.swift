@@ -48,6 +48,7 @@ class HighlightsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.allowsSelection = false
         tableView.estimatedRowHeight = 200
         setupMenu()
     }

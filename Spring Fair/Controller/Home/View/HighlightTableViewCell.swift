@@ -10,10 +10,16 @@ import UIKit
 
 class HighlightTableViewCell: UITableViewCell {
     
+    struct Const {
+        static let upArrow = "up-arrow"
+        static let downArrow = "down-arrow"
+    }
     
     var expanded = false {
         didSet {
             bodyLabel.isHidden = !expanded
+            expandedSpacer.isHidden = !expanded
+            arrowImage.image = expanded ? UIImage(named: Const.upArrow) : UIImage(named: Const.downArrow)
         }
     }
     
@@ -49,4 +55,6 @@ class HighlightTableViewCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel! 
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var postDateLabel: UILabel!
+    @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet weak var expandedSpacer: UIView!
 }
