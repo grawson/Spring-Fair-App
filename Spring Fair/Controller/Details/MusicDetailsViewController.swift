@@ -240,7 +240,12 @@ class MusicDetailsViewController: UIViewController {
                         if !(data.isEmpty) {
                             self.xCoordinate = data[0]["xcoordinate"].doubleValue
                             self.yCoordinate = data[0]["ycoordinate"].doubleValue
-                            self.performSegue(withIdentifier: "show map", sender: self)
+                            
+                            DispatchQueue.main.async { [weak self] in
+                                guard let strongSelf = self else { return }
+                                strongSelf.mapButton.isEnabled = true
+                                strongSelf.performSegue(withIdentifier: "show map", sender: self)
+                            }
                         }
                     }
             }

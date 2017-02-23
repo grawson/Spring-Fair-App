@@ -106,20 +106,33 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
      Segue to Google maps app to display directions to the event.
      */
     fileprivate func directions() {
-        if let map = self.mapView {
-            let url = "comgooglemaps://?saddr=\(map.myLocation?.coordinate.latitude),\(map.myLocation?.coordinate.longitude)&daddr=\(self.xCoordinate),\(self.yCoordinate)&center=37.423725,-122.0877&directionsmode=walking&zoom=17.5"
-            
-            //open directions in GM app if downloaded on system
-            if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-                UIApplication.shared.openURL(URL(string: url)!)
-            } else {
-                let vc = CustomAlertViewController()
-                vc.alert.titleText = "Uh Oh..."
-                vc.alert.messageText = Text.networkFail
-                self.addChildViewController(vc)
-                self.view.addSubview(vc.view)
-            }
+        
+        guard
+            let map = self.mapView,
+            let lat = map.myLocation?.coordinate.latitude,
+            let long = map.myLocation?.coordinate.longitude
+        else {
+            let vc = CustomAlertViewController()
+            vc.alert.titleText = "Error"
+            vc.alert.messageText = "Unable to laod map"
+            self.addChildViewController(vc)
+            self.view.addSubview(vc.view)
+            return
         }
+        
+        let url = "comgooglemaps://?saddr=\(lat),\(long)&daddr=\(self.xCoordinate),\(self.yCoordinate)&center=37.423725,-122.0877&directionsmode=walking&zoom=17.5"
+        
+        //open directions in GM app if downloaded on system
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.openURL(URL(string: url)!)
+        } else {
+            let vc = CustomAlertViewController()
+            vc.alert.titleText = "Uh Oh..."
+            vc.alert.messageText = Text.networkFail
+            self.addChildViewController(vc)
+            self.view.addSubview(vc.view)
+        }
+        
     }
     
     fileprivate func locationDeniedAlert() {
