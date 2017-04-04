@@ -114,7 +114,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
         else {
             let vc = CustomAlertViewController()
             vc.alert.titleText = "Error"
-            vc.alert.messageText = "Unable to laod map"
+            vc.alert.messageText = "Unable to load map"
             self.addChildViewController(vc)
             self.view.addSubview(vc.view)
             return

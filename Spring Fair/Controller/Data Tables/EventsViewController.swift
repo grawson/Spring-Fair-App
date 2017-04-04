@@ -9,8 +9,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import Cache
-////import AlamofireSpinner
 
 class EventsViewController: UIViewController {
     

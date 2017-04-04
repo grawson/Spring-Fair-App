@@ -13,8 +13,6 @@ pod 'GoogleMaps'
 
 pod 'GRCustomAlert'
 
-pod 'Cache'
-
 pod 'IQKeyboardManagerSwift'
 
 end
