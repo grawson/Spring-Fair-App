@@ -17,6 +17,8 @@
 		561827A21C2743B4007DD407 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561827A11C2743B4007DD407 /* EventDetailsViewController.swift */; };
 		561827AB1C27F165007DD407 /* OpenSans-CondLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 561827AA1C27F165007DD407 /* OpenSans-CondLight.ttf */; };
 		561827AD1C28AD59007DD407 /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561827AC1C28AD59007DD407 /* Modules.swift */; };
+		561ADDCF1E9322DC00B01220 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561ADDCD1E9322DC00B01220 /* CustomAlertView.swift */; };
+		561ADDD01E9322DC00B01220 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561ADDCE1E9322DC00B01220 /* CustomAlertViewController.swift */; };
 		563627E41C30A1C8005BD501 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627E31C30A1C8005BD501 /* Vendor.swift */; };
 		563627E61C30A5B9005BD501 /* EventsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627E51C30A5B9005BD501 /* EventsTableView.swift */; };
 		563627E81C30A86E005BD501 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563627E71C30A86E005BD501 /* EventsViewController.swift */; };
@@ -60,6 +62,8 @@
 		561827A11C2743B4007DD407 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		561827AA1C27F165007DD407 /* OpenSans-CondLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-CondLight.ttf"; sourceTree = "<group>"; };
 		561827AC1C28AD59007DD407 /* Modules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modules.swift; sourceTree = "<group>"; };
+		561ADDCD1E9322DC00B01220 /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		561ADDCE1E9322DC00B01220 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		563627E31C30A1C8005BD501 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		563627E51C30A5B9005BD501 /* EventsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableView.swift; sourceTree = "<group>"; };
 		563627E71C30A86E005BD501 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 		569022581C024195006F010E /* Spring Fair */ = {
 			isa = PBXGroup;
 			children = (
+				561ADDCD1E9322DC00B01220 /* CustomAlertView.swift */,
+				561ADDCE1E9322DC00B01220 /* CustomAlertViewController.swift */,
 				569022791C024210006F010E /* Main.storyboard */,
 				56551F961C2BA41700F9F1CB /* Global */,
 				5613FA8B1C31B76E00BA9816 /* Controller */,
@@ -486,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561ADDCF1E9322DC00B01220 /* CustomAlertView.swift in Sources */,
 				563A64CA1CAC5AD000ADAF4D /* FavoriteArtVendorsViewController.swift in Sources */,
 				56AF1BD41CAC492A0075631E /* ArtVendorsViewController.swift in Sources */,
 				563627E41C30A1C8005BD501 /* Vendor.swift in Sources */,
@@ -511,6 +518,7 @@
 				56AF1BD61CAC49EA0075631E /* ArtVendorsTableView.swift in Sources */,
 				56D55E491C2D2C600018E895 /* Constants.swift in Sources */,
 				5667732D1C30866F00C82B9C /* Event.swift in Sources */,
+				561ADDD01E9322DC00B01220 /* CustomAlertViewController.swift in Sources */,
 				568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */,
 				561827A21C2743B4007DD407 /* EventDetailsViewController.swift in Sources */,
 				568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */,
