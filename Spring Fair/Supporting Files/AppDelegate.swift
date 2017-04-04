@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 import GoogleMaps
 
 @UIApplicationMain
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        IQKeyboardManager.sharedManager().enable = true
+        
         GMSServices.provideAPIKey(Keys.googleKey)
         
         UINavigationBar.appearance().barTintColor = Style.color1        //UIBar color

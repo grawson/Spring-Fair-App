@@ -15,6 +15,8 @@ pod 'GRCustomAlert'
 
 pod 'Cache'
 
+pod 'IQKeyboardManagerSwift'
+
 end
 
 

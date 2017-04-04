@@ -9,6 +9,7 @@ PODS:
   - GoogleMaps/Maps (2.2.0):
     - GoogleMaps/Base
   - GRCustomAlert (0.1.1)
+  - IQKeyboardManagerSwift (4.0.8)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - Cache
   - GoogleMaps
   - GRCustomAlert
+  - IQKeyboardManagerSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -24,8 +26,9 @@ SPEC CHECKSUMS:
   CryptoSwift: 685ae257941e5447474348a2b545583e1a16b573
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GRCustomAlert: 3617ca53f5c010f3935c3db1745c07c4fe9606e9
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 22bbc77a2033c4e9166febcf3e9f19bc10f6ceed
+PODFILE CHECKSUM: f9fe5d839669ff0845ee8edb61d1477078d55288
 
 COCOAPODS: 1.2.0
