@@ -43,11 +43,13 @@
 		569022801C02991A006F010E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5690227F1C02991A006F010E /* SWRevealViewController.m */; };
 		56AF1BD41CAC492A0075631E /* ArtVendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF1BD31CAC492A0075631E /* ArtVendorsViewController.swift */; };
 		56AF1BD61CAC49EA0075631E /* ArtVendorsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF1BD51CAC49EA0075631E /* ArtVendorsTableView.swift */; };
+		56B9D1461E943DAF0088EFEF /* CheckInEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B9D1451E943DAF0088EFEF /* CheckInEvent.swift */; };
 		56C7328C1C162DB2002CB631 /* blenda_script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56C7328B1C162DB2002CB631 /* blenda_script.otf */; };
 		56D55E3C1C2D09530018E895 /* HighlightsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E3B1C2D09530018E895 /* HighlightsTableViewCell.swift */; };
 		56D55E491C2D2C600018E895 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D55E481C2D2C5F0018E895 /* Constants.swift */; };
 		56D952801E5D32BE0050AC2C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D9527F1E5D32BE0050AC2C /* CircleView.swift */; };
 		56DBFA391C02CC3F00333787 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBFA381C02CC3E00333787 /* MenuViewController.swift */; };
+		56EEE4851E9596910027B506 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EEE4841E9596910027B506 /* Group.swift */; };
 		ACBE5A141E932977001F6D72 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBE5A131E932977001F6D72 /* CheckInViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,11 +93,13 @@
 		5690227F1C02991A006F010E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		56AF1BD31CAC492A0075631E /* ArtVendorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtVendorsViewController.swift; sourceTree = "<group>"; };
 		56AF1BD51CAC49EA0075631E /* ArtVendorsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtVendorsTableView.swift; sourceTree = "<group>"; };
+		56B9D1451E943DAF0088EFEF /* CheckInEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInEvent.swift; sourceTree = "<group>"; };
 		56C7328B1C162DB2002CB631 /* blenda_script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blenda_script.otf; sourceTree = "<group>"; };
 		56D55E3B1C2D09530018E895 /* HighlightsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightsTableViewCell.swift; sourceTree = "<group>"; };
 		56D55E481C2D2C5F0018E895 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56D9527F1E5D32BE0050AC2C /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		56DBFA381C02CC3E00333787 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		56EEE4841E9596910027B506 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		572F2541830D672B180956CD /* Pods-Spring Fair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Fair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Fair/Pods-Spring Fair.debug.xcconfig"; sourceTree = "<group>"; };
 		7E1643648F1ACF1629A75A8F /* Pods_Spring_FairUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spring_FairUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBE5A131E932977001F6D72 /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +285,15 @@
 			path = "Spring Fair";
 			sourceTree = "<group>";
 		};
+		56B9D1471E943DB60088EFEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56B9D1451E943DAF0088EFEF /* CheckInEvent.swift */,
+				56EEE4841E9596910027B506 /* Group.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		56C7328D1C162DC2002CB631 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				ACBE5A161E932C01001F6D72 /* Controller */,
+				56B9D1471E943DB60088EFEF /* Model */,
 			);
 			name = "Check In";
 			sourceTree = "<group>";
@@ -526,11 +540,13 @@
 				564088E21E10344900DE5C6F /* HighlightTableViewCell.swift in Sources */,
 				568583C71C8B918E00A699C7 /* MusicDetailsViewController.swift in Sources */,
 				563627F01C30B191005BD501 /* VendorsViewController.swift in Sources */,
+				56B9D1461E943DAF0088EFEF /* CheckInEvent.swift in Sources */,
 				560C6EDE1C2D517000E8C619 /* GoogleMapsViewController.swift in Sources */,
 				56AF1BD61CAC49EA0075631E /* ArtVendorsTableView.swift in Sources */,
 				56D55E491C2D2C600018E895 /* Constants.swift in Sources */,
 				5667732D1C30866F00C82B9C /* Event.swift in Sources */,
 				568583C31C8B836400A699C7 /* MusicViewController.swift in Sources */,
+				56EEE4851E9596910027B506 /* Group.swift in Sources */,
 				561827A21C2743B4007DD407 /* EventDetailsViewController.swift in Sources */,
 				568BA3571C4F4E5900E17288 /* Reachability.swift in Sources */,
 				56D952801E5D32BE0050AC2C /* CircleView.swift in Sources */,

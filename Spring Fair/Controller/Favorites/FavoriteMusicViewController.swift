@@ -25,10 +25,10 @@ class FavoriteMusicViewController: UIViewController {
     fileprivate let defaults = UserDefaults.standard
     
     /// retrive IDs from user defaults
-    fileprivate var idDict: [String: [Int]] {
+    fileprivate var idDict: [String: String] {
         get {
             let ids = defaults.object(forKey: DefaultsKeys.favArtists) as? [Int] ?? []
-            return ["ids": ids]
+            return ["ids": "\(ids)"]
         }
     }
     
@@ -67,7 +67,7 @@ class FavoriteMusicViewController: UIViewController {
     /**
     Load events from database based on IDs
     */
-    fileprivate func loadMusic(_ ids: [String: [Int]]) {
+    fileprivate func loadMusic(_ ids: [String: String]) {
         
         if Reachability.isConnectedToNetwork() {
             Alamofire.request(Requests.musicID, method: .post, parameters: ids)

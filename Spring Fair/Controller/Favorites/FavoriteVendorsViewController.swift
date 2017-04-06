@@ -26,10 +26,10 @@ class FavoriteVendorsViewController: UIViewController {
     fileprivate let defaults = UserDefaults.standard
     
     ///  retrive IDs fron user defaults
-    fileprivate var idDict: [String: [Int]] {
+    fileprivate var idDict: [String: String] {
         get {
             let ids = defaults.object(forKey: DefaultsKeys.favVendors) as? [Int] ?? []
-            return ["ids": ids]
+            return ["ids": "\(ids)"]
         }
     }
     
@@ -74,7 +74,7 @@ class FavoriteVendorsViewController: UIViewController {
     /**
      Load vendors from database based on IDs 
      */
-    fileprivate func loadEvents(_ ids: [String: [Int]]) {
+    fileprivate func loadEvents(_ ids: [String: String]) {
         
         if Reachability.isConnectedToNetwork() {
             Alamofire.request(Requests.vendorID, method: .post, parameters: ids)

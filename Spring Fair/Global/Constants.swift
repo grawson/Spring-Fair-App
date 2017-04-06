@@ -29,18 +29,21 @@ struct Style {
  *  URL Requests
  */
 struct Requests {
-    static let url = "http://jhuspringfair.com/app_api/"
-//    static let url = "http://10.188.212.109:81/" // Find through mac's wifi settings page
-    static let allEvents = url + "all_events.php"
-    static let allArtists = url + "all_artists.php"
-    static let allVendors = url + "all_vendors.php"
-    static let eventID = url + "event_id.php"
-    static let musicID = url + "music_id.php"
-    static let vendorID = url + "vendor_id.php"
-    static let coordinates = url + "coordinates.php"
-    static let allArtVendors = url + "all_art_vendors.php"
-    static let artVendorID = url + "art_vendors_id.php"
-    static let highlights = url + "highlights.php"
+//    static let url = "http://jhuspringfair.com/app_api/"
+    static let url = "http://10.189.19.101:80/" // Find through mac's wifi settings page
+    static let allEvents = url + "all-events"
+    static let allArtists = url + "all-artists"
+    static let allVendors = url + "all-vendors"
+    static let eventID = url + "event-id"
+    static let musicID = url + "music-id"
+    static let vendorID = url + "vendor-id"
+    static let coordinates = url + "coordinates"
+    static let allArtVendors = url + "all-art-vendors"
+    static let artVendorID = url + "art-vendors-id"
+    static let highlights = url + "highlights"
+    static let checkInEvents = url + "check-in-events"
+    static let allGroups = url + "all-groups"
+    static let checkIn = url + "check-in"
 
 
 }
