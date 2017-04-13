@@ -42,9 +42,12 @@ class CheckInEvent {
         // Times
         formatter.dateFormat = Constants.timeFormat
         let startStr = data["start_time"].stringValue
-        startTime = formatter.date(from: startStr)
+        let start = formatter.date(from: startStr)
+        startTime = Date.combineDateWithTime(date: date, time: start)
+        
         let endStr = data["end_time"].stringValue
-        endTime = formatter.date(from: endStr)
+        let end = formatter.date(from: endStr)
+        endTime = Date.combineDateWithTime(date: date, time: end)
     }
     
     func dateToString() -> String? {
@@ -55,11 +58,17 @@ class CheckInEvent {
     
     func timeToString() -> String? {
         formatter.dateFormat = "h:mm a"
-        guard let startTime = startTime,
-              let endTime = endTime
-        else { return nil }
+        guard let startTime = startTime, let endTime = endTime else { return nil }
         return formatter.string(from: startTime) + " - " + formatter.string(from: endTime)
 
+    }
+    
+    // formatted for database
+    func formattedLocation() -> String? {
+        let lower = location?.lowercased()
+        return lower?.replacingOccurrences(
+            of: " ", with: "_", options: NSString.CompareOptions.literal, range: nil
+        )
     }
     
     

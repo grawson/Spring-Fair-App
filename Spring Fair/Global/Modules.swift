@@ -194,5 +194,27 @@ extension UIButton {
     }
 }
 
+extension Date {
+
+    //combine date and time into single nsdate
+    static func combineDateWithTime(date: Date?, time: Date?) -> Date? {
+        guard let date = date, let time = time else { return nil }
+        
+        let calendar = NSCalendar.current
+        let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+        let timeComponents = calendar.dateComponents([.hour, .minute, .second], from: time)
+        
+        var merged = DateComponents()
+        merged.year = dateComponents.year
+        merged.month = dateComponents.month
+        merged.day = dateComponents.day
+        merged.hour = timeComponents.hour
+        merged.minute = timeComponents.minute
+        merged.second = timeComponents.second
+        return calendar.date(from: merged)
+
+    }
+
+}
 
 
