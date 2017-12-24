@@ -11,8 +11,6 @@ pod 'SwiftyJSON'
 
 pod 'GoogleMaps'
 
-pod 'GRCustomAlert'
-
 pod 'IQKeyboardManagerSwift'
 
 end

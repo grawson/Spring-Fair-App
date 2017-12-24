@@ -11,8 +11,7 @@ import SwiftyJSON
 import Alamofire
 import EventKit
 import EventKitUI
-//import AlamofireSpinner
-import GRCustomAlert
+
 
 
 class EventDetailsViewController: UIViewController {
@@ -165,11 +164,10 @@ class EventDetailsViewController: UIViewController {
                 }
             })
         case .denied, .restricted:
-            let vc = CustomAlertViewController()
-            vc.alert.titleText = Text.accessFailureTitle
-            vc.alert.messageText = Text.accessFailureMessage
-            self.addChildViewController(vc)
-            self.view.addSubview(vc.view)
+            let alert = UIAlertController(title: Text.accessFailureTitle, message: Text.accessFailureMessage, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
             return
         }
     }
@@ -242,11 +240,10 @@ class EventDetailsViewController: UIViewController {
                     } 
             }
         } else {
-            let vc = CustomAlertViewController()
-            vc.alert.titleText = "Uh Oh..."
-            vc.alert.messageText = Text.networkFail
-            self.addChildViewController(vc)
-            self.view.addSubview(vc.view)
+            let alert = UIAlertController(title: "Uh Oh", message: Text.accessFailureMessage, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
         }
     }
 

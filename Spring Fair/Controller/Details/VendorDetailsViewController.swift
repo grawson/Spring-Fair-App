@@ -9,8 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
-//import AlamofireSpinner
-import GRCustomAlert
+
 
 class VendorDetailsViewController: UIViewController {
 
@@ -213,11 +212,10 @@ class VendorDetailsViewController: UIViewController {
                     }
             }
         } else {
-            let vc = CustomAlertViewController()
-            vc.alert.titleText = "Uh Oh..."
-            vc.alert.messageText = Text.networkFail
-            self.addChildViewController(vc)
-            self.view.addSubview(vc.view)
+            let alert = UIAlertController(title: "Uh Oh", message: Text.networkFail, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
         }
     }
     

@@ -9,7 +9,6 @@
 
 import UIKit
 import GoogleMaps
-import GRCustomAlert
 
 //TODO: Press directions when location services not enabled crashes app
 
@@ -112,11 +111,10 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
             let lat = map.myLocation?.coordinate.latitude,
             let long = map.myLocation?.coordinate.longitude
         else {
-            let vc = CustomAlertViewController()
-            vc.alert.titleText = "Error"
-            vc.alert.messageText = "Unable to load map"
-            self.addChildViewController(vc)
-            self.view.addSubview(vc.view)
+            let alert = UIAlertController(title: "Error", message: "Unable to load map", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
             return
         }
         
@@ -126,21 +124,19 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate {
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
             UIApplication.shared.openURL(URL(string: url)!)
         } else {
-            let vc = CustomAlertViewController()
-            vc.alert.titleText = "Uh Oh..."
-            vc.alert.messageText = Text.networkFail
-            self.addChildViewController(vc)
-            self.view.addSubview(vc.view)
+            let alert = UIAlertController(title: "Uh Oh", message: Text.networkFail, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
         }
         
     }
     
     fileprivate func locationDeniedAlert() {
-        let vc = CustomAlertViewController()
-        vc.alert.titleText = Text.accessFailureTitle
-        vc.alert.messageText = Text.locationFailureMessage
-        self.addChildViewController(vc)
-        self.view.addSubview(vc.view)
+        let alert = UIAlertController(title: Text.accessFailureTitle, message: Text.locationFailureMessage, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
 }
 
