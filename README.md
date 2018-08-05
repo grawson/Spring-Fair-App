@@ -4,6 +4,8 @@
 
 This app serves as a guide to the Johns Hopkins University Spring Fair; the largest student-run fair in America. The fair brings a weekend full of events, fair food, and music to campus, and is open to the whole community! All graphics are home-made and designed to fit the theme for the year. Check out the demos of the app for each year!
 
+Check out the latest [demo](https://github.com/grawson/Spring-Fair-App/blob/master/demos/2017_funk_theme.mov)!
+
 # Themes
 
 1. 2016: Camp theme
